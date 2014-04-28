@@ -1,0 +1,5 @@
+C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Entidades\bin\Debug\Entidades.dll
+C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Entidades\bin\Debug\Entidades.pdb
+C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Entidades\obj\Debug\Entidades.dll
+C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Entidades\obj\Debug\Entidades.pdb
+C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
