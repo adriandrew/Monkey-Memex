@@ -11,6 +11,8 @@ namespace Entidades
 
         #region "Campos"
 
+        private int idImagen;
+
         private string titulo;
 
         private string ruta;
@@ -26,6 +28,8 @@ namespace Entidades
         private int idCategoria;
 
         private Guid userId;
+
+        private int aprobado;        
                 
         #endregion
 
@@ -79,6 +83,12 @@ namespace Entidades
             set { userId = value; }
         }
 
+        public int Aprobado
+        {
+            get { return aprobado; }
+            set { aprobado = value; }
+        }
+
         #endregion
 
         #region "Metodos"
@@ -89,7 +99,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Imagenes ( Titulo, Ruta, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId ) VALUES ( @titulo, @ruta, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId )";
+                string sql = "INSERT INTO Imagenes ( Titulo, Ruta, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, Aprobado ) VALUES ( @titulo, @ruta, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @aprobado )";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -112,6 +122,8 @@ namespace Entidades
                 comando.Parameters.AddWithValue ( "@idCategoria", this.IdCategoria );
 
                 comando.Parameters.AddWithValue ( "@userId", this.UserId );
+
+                comando.Parameters.AddWithValue("@Aprobado", this.Aprobado );
 
                 BaseDatos.conexion.Open();
 
@@ -136,6 +148,78 @@ namespace Entidades
         public void ObtenerRutasPorUsuario() { 
         
 
+
+        }
+
+        public List<Imagenes> ObtenerListadoAprobados()
+        {
+
+            List<Imagenes> lista = new List<Imagenes>();
+
+            try
+            {
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = "SELECT * FROM Imagenes WHERE EsAprobado = 1 ORDER BY FechaSubida ASC";
+
+                BaseDatos.conexion.Open();
+
+                SqlDataReader Reader = comando.ExecuteReader();
+
+                Imagenes Imagenes;
+
+                while (Reader.Read())
+                {
+
+                    Imagenes = new Imagenes();
+
+                    Imagenes.idImagen = Convert.ToInt32(Reader["IdImagen"]);
+
+                    Imagenes.titulo = Reader["Titulo"].ToString();
+
+                    Imagenes.ruta = Reader["Ruta"].ToString();
+
+                    Imagenes.enlaceExterno = Reader["EnlaceExterno"].ToString();
+
+                    Imagenes.etiquetasBasicas = Reader["EtiquetasBasicas"].ToString();
+
+                    Imagenes.etiquetasOpcionales = Reader["EtiquetasOpcionales"].ToString();
+
+                    Imagenes.fechaSubida = Convert.ToDateTime(Reader["FechaSubida"].ToString());
+
+                    Imagenes.idCategoria = Convert.ToInt32(Reader["IdCategoria"].ToString());
+
+                    Imagenes.userId = new Guid ( Reader["UserId"].ToString() );
+
+                    Imagenes.aprobado = Convert.ToInt32 ( Reader["Aprobado"].ToString() );
+
+                    lista.Add(Imagenes);
+
+                }
+
+                BaseDatos.conexion.Close();
+
+            }
+
+            catch (Exception e)
+            {
+
+                throw e;
+
+            }
+
+            finally
+            
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+            return lista;
 
         }
 

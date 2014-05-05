@@ -6,3 +6,10 @@ C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\Aplicacion
 C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
 C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
 C:\Users\SYS21-VIII\Documents\Visual Studio 2010\Projects\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.config
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb

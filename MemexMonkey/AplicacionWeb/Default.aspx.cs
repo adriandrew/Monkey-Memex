@@ -12,7 +12,8 @@ namespace AplicacionWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //InsertarDiv();
+            InsertarDiv();
+            MostrarImagenes("\\Aportes\\04-05-2014");
 
         }
 
@@ -32,9 +33,13 @@ namespace AplicacionWeb
                 foreach (System.IO.FileInfo f in _filesInfo)
                 {
                     Image imagen = new Image();
+
                     imagen.ImageUrl = string.Format("{0}/{1}", ruta, f);
-                    imagen.Height = new Unit(50);
+
+                    imagen.Height = new Unit(250);
+
                     pnlImagenes.Controls.Add(imagen);
+
                 }
 
             }
@@ -42,9 +47,27 @@ namespace AplicacionWeb
             {
 
                 pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
-            
+                
+
             }
                    
+        }
+
+        public void MostrarLista(List<Entidades.Imagenes> lista)
+        {
+            
+            System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(lista));
+
+            if (directorioInfo.Exists)
+            {
+                System.IO.FileInfo[] _filesInfo = directorioInfo.GetFiles();
+
+                foreach
+                {
+                    
+                }
+            }
+            
         }
 
         public void InsertarDiv()
@@ -86,6 +109,7 @@ namespace AplicacionWeb
             panel.Controls.Add(literal);
 
         }
+
 
     }
 }

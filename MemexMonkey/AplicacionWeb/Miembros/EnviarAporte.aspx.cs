@@ -35,7 +35,7 @@ namespace AplicacionWeb.Miembros
 
             Default defaultt = new Default();
 
-            defaultt.InsertarDivExternamente();
+            //defaultt.InsertarDivExternamente();
 
         }
        
@@ -95,6 +95,8 @@ namespace AplicacionWeb.Miembros
                 imagenes.IdCategoria = Convert.ToInt32(ddlCategoria.SelectedValue);
 
                 imagenes.UserId = (Guid)Membership.GetUser().ProviderUserKey;
+
+                imagenes.Aprobado = 1;
 
                 imagenes.Guardar();
 
