@@ -11,12 +11,20 @@ namespace AplicacionWeb.Miembros
     public partial class EnviarAporte : System.Web.UI.Page
     {
 
-        private static string ruta;
+        private static string directorioRelativo;
 
-        public static string Ruta
+        private static string rutaRelativa;
+
+        public static string DirectorioRelativo
         {
-            get { return EnviarAporte.ruta; }
-            set { EnviarAporte.ruta = value; }
+            get { return EnviarAporte.directorioRelativo; }
+            set { EnviarAporte.directorioRelativo = value; }
+        }
+
+        public static string RutaRelativa
+        {
+            get { return EnviarAporte.rutaRelativa; }
+            set { EnviarAporte.rutaRelativa = value; }
         }
         
         #region "Eventos"
@@ -73,7 +81,7 @@ namespace AplicacionWeb.Miembros
         public void SubirAporte() 
         {
 
-            if ( !string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.Ruta ) )
+            if ( !string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
                 // Para guardar los datos que van en la tabla Imagenes.
@@ -82,7 +90,9 @@ namespace AplicacionWeb.Miembros
 
                 imagenes.Titulo = txtTituloImagen.Text;
 
-                imagenes.Ruta = AplicacionWeb.Miembros.EnviarAporte.Ruta;
+                imagenes.DirectorioRelativo = AplicacionWeb.Miembros.EnviarAporte.DirectorioRelativo;
+
+                imagenes.RutaRelativa = AplicacionWeb.Miembros.EnviarAporte.RutaRelativa;
 
                 imagenes.EnlaceExterno = txtEnlaceExterno.Text;
 
@@ -92,9 +102,9 @@ namespace AplicacionWeb.Miembros
 
                 imagenes.FechaSubida = DateTime.Now;
 
-                imagenes.IdCategoria = Convert.ToInt32(ddlCategoria.SelectedValue);
+                imagenes.IdCategoria = Convert.ToInt32 ( ddlCategoria.SelectedValue );
 
-                imagenes.UserId = (Guid)Membership.GetUser().ProviderUserKey;
+                imagenes.UserId = ( Guid ) Membership.GetUser().ProviderUserKey;
 
                 imagenes.EsAprobado = 1;
 
@@ -103,7 +113,7 @@ namespace AplicacionWeb.Miembros
                 ReiniciarValores();
 
             }
-            else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.Ruta ) )
+            else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
                 // Valiendo madre, no se pueden guardar los datos de la imagen.
@@ -153,12 +163,21 @@ namespace AplicacionWeb.Miembros
             {
 
                 // Propiedades del control.
+                
                 SubirArchivo.Titulo = "Subir imágenes";
+                
                 SubirArchivo.Comment = "1 archivo .png, .gif ó .jpg (máx. 10 MB).";
+                
                 SubirArchivo.MaxFilesLimit = 5;
+                
                 string fechaHoy = DateTime.Today.ToShortDateString();     
+                
                 SubirArchivo.DestinationFolder = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
+
+                AplicacionWeb.Controls.SubirArchivo.DirectorioRelativo = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
+
                 AplicacionWeb.Controls.SubirArchivo.RutaRelativa = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
+                
                 SubirArchivo.FileExtensionsEnabled = ".png|.jpg|.jpeg|.jpe|.gif";
                 
             }
@@ -198,7 +217,7 @@ namespace AplicacionWeb.Miembros
         private void ReiniciarValores()
         {
 
-            AplicacionWeb.Miembros.EnviarAporte.Ruta = string.Empty;
+            AplicacionWeb.Miembros.EnviarAporte.RutaRelativa = string.Empty;
 
         }
         

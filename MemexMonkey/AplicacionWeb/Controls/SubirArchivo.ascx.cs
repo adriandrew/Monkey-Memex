@@ -16,12 +16,20 @@ namespace AplicacionWeb.Controls
 
         private static string tituloImagen;
 
+        private static string directorioRelativo;
+
         private static string rutaRelativa;
         
         public static string TituloImagen
         {
             get { return SubirArchivo.tituloImagen; }
             set { SubirArchivo.tituloImagen = value; }
+        }
+
+        public static string DirectorioRelativo
+        {
+            get { return SubirArchivo.directorioRelativo; }
+            set { SubirArchivo.directorioRelativo = value; }
         }
 
         public static string RutaRelativa
@@ -175,15 +183,21 @@ namespace AplicacionWeb.Controls
 
                                 string _f2save = string.Format ( "{0}\\{1}", _dirPath, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );
 
-                                // Esta ruta relativa es la que se va a guardar en la base de datos.
-                                rutaRelativa = string.Format("{0}\\{1}", rutaRelativa, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo);
+                                // Este directorioRelativo es el que se va a guardar en la base de datos.
+                                directorioRelativo = string.Format ( "{0}\\{1}", directorioRelativo ); 
+
+                                // Esta rutaRelativa es la que se va a guardar en la base de datos.
+                                rutaRelativa = string.Format ( "{0}\\{1}", rutaRelativa, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );
 
                                 _postedF.SaveAs(_f2save);
                                 _fSizes += _postedF.ContentLength;
                                 _cantFiles++;
 
-                                // Aqui se envia la lista con las rutas de cada una de las imagenes del miembro.
-                                AplicacionWeb.Miembros.EnviarAporte.Ruta = rutaRelativa;
+                                // Aqui se envia el directorio relativo de cada una de las imagenes del miembro de Memex.
+                                AplicacionWeb.Miembros.EnviarAporte.DirectorioRelativo = directorioRelativo;
+
+                                // Aqui se envia la ruta relativa de cada una de las imagenes del miembro de Memex.
+                                AplicacionWeb.Miembros.EnviarAporte.RutaRelativa = rutaRelativa;
                                 
                             }
                         }

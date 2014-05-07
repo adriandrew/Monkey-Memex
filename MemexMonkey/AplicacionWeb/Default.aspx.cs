@@ -72,7 +72,9 @@ namespace AplicacionWeb
 
                 string titulo = elementoImagenes.Titulo.ToString();
 
-                string ruta = elementoImagenes.Ruta.ToString();
+                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
 
                 string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
 
@@ -88,24 +90,46 @@ namespace AplicacionWeb
 
                 string esAprobado = elementoImagenes.EsAprobado.ToString();
 
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(ruta));
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
 
-                if (directorioInfo.Exists)
+                if ( directorioInfo.Exists )
                 {
 
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.;
+                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
 
-                    foreach (System.IO.FileInfo f in informacionArchivo)
+                    bool esArchivoEncontrado = false; 
+
+                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
+
                         Image imagen = new Image();
 
-                        imagen.ImageUrl = string.Format("{0}/{1}", ruta, f);
+                        imagen.ImageUrl = string.Format( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
+
+                        if ( rutaRelativa.Equals ( imagen.ImageUrl ) )
+                        {
 
                         imagen.Height = new Unit(250);
 
                         pnlImagenes.Controls.Add(imagen);
 
+                        esArchivoEncontrado = true;
+                        
+                        }
+                       
                     }
+
+                    if ( !esArchivoEncontrado )
+                    {
+
+                        Literal imagenNoEncontrada = new Literal();
+
+                        imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+
+                        pnlImagenes.Controls.Add(imagenNoEncontrada);
+
+                    }
+
 
                 }
                 else

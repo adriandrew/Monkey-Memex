@@ -15,7 +15,9 @@ namespace Entidades
 
         private string titulo;
 
-        private string ruta;
+        private string directorioRelativo;
+
+        private string rutaRelativa;
 
         private string enlaceExterno;
 
@@ -47,10 +49,15 @@ namespace Entidades
             set { titulo = value; }
         }
 
-        public string Ruta
+        public string DirectorioRelativo
         {
-            get { return ruta; }
-            set { ruta = value; }
+            get { return directorioRelativo; }
+            set { directorioRelativo = value; }
+        }
+
+        public string RutaRelativa        {
+            get { return rutaRelativa; }
+            set { rutaRelativa = value; }
         }
 
         public string EnlaceExterno
@@ -105,7 +112,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Imagenes ( Titulo, Ruta, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, Aprobado ) VALUES ( @titulo, @ruta, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @aprobado )";
+                string sql = "INSERT INTO Imagenes ( Titulo, DirectorioRelativo, RutaRelativa, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, Aprobado ) VALUES ( @titulo, @rutaRelativa, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @aprobado )";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -115,7 +122,9 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@titulo", this.Titulo );
 
-                comando.Parameters.AddWithValue ( "@ruta", this.Ruta );
+                comando.Parameters.AddWithValue ( "@directorioRelativo", this.DirectorioRelativo );
+
+                comando.Parameters.AddWithValue ( "@rutaRelativa", this.RutaRelativa );
 
                 comando.Parameters.AddWithValue ( "@enlaceExterno", this.EnlaceExterno );
 
@@ -129,7 +138,7 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@userId", this.UserId );
 
-                comando.Parameters.AddWithValue("@Aprobado", this.EsAprobado );
+                comando.Parameters.AddWithValue ( "@Aprobado", this.EsAprobado );
 
                 BaseDatos.conexion.Open();
 
@@ -182,27 +191,29 @@ namespace Entidades
 
                     Imagenes = new Imagenes();
 
-                    Imagenes.idImagen = Convert.ToInt32(Reader["IdImagen"]);
+                    Imagenes.IdImagen = Convert.ToInt32 ( Reader["IdImagen"] );
 
-                    Imagenes.titulo = Reader["Titulo"].ToString();
+                    Imagenes.Titulo = Reader["Titulo"].ToString();
 
-                    Imagenes.ruta = Reader["Ruta"].ToString();
+                    Imagenes.DirectorioRelativo = Reader["DirectorioRelativo"].ToString();
 
-                    Imagenes.enlaceExterno = Reader["EnlaceExterno"].ToString();
+                    Imagenes.RutaRelativa = Reader["RutaRelativa"].ToString();
 
-                    Imagenes.etiquetasBasicas = Reader["EtiquetasBasicas"].ToString();
+                    Imagenes.EnlaceExterno = Reader["EnlaceExterno"].ToString();
 
-                    Imagenes.etiquetasOpcionales = Reader["EtiquetasOpcionales"].ToString();
+                    Imagenes.EtiquetasBasicas = Reader["EtiquetasBasicas"].ToString();
 
-                    Imagenes.fechaSubida = Convert.ToDateTime(Reader["FechaSubida"].ToString());
+                    Imagenes.EtiquetasOpcionales = Reader["EtiquetasOpcionales"].ToString();
 
-                    Imagenes.idCategoria = Convert.ToInt32(Reader["IdCategoria"].ToString());
+                    Imagenes.FechaSubida = Convert.ToDateTime ( Reader["FechaSubida"].ToString() );
 
-                    Imagenes.userId = new Guid ( Reader["UserId"].ToString() );
+                    Imagenes.IdCategoria = Convert.ToInt32 ( Reader["IdCategoria"].ToString() );
 
-                    Imagenes.esAprobado = Convert.ToInt32 ( Reader["EsAprobado"].ToString() );
+                    Imagenes.UserId = new Guid ( Reader["UserId"].ToString() );
 
-                    lista.Add(Imagenes);
+                    Imagenes.EsAprobado = Convert.ToInt32 ( Reader["EsAprobado"].ToString() );
+
+                    lista.Add ( Imagenes );
 
                 }
 
@@ -215,7 +226,6 @@ namespace Entidades
                 throw;
 
             }
-
             finally            
             {
 

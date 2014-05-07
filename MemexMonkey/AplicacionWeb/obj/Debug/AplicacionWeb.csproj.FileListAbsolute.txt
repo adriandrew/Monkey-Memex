@@ -13,11 +13,11 @@ C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entid
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.config
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.pdb
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.pdb
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
