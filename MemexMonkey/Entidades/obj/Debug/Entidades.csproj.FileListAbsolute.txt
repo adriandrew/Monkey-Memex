@@ -8,3 +8,8 @@ C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Debug\Ent
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Debug\Entidades.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Debug\Entidades.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache

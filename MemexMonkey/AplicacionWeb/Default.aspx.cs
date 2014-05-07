@@ -15,8 +15,11 @@ namespace AplicacionWeb
         {
 
             InsertarDiv();
+
             MostrarImagenes("\\Aportes\\04-05-2014");
-            
+
+            MostrarLista();
+
         }
 
 
@@ -56,43 +59,64 @@ namespace AplicacionWeb
         public void MostrarLista()
         {
 
-
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
             List<Entidades.Imagenes> listaImagenes = new List<Entidades.Imagenes>();
 
             listaImagenes = imagenes.ObtenerListadoAprobados();
             
-            
-            System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(ruta));
-
-
-
-            if (directorioInfo.Exists)
+            foreach ( Entidades.Imagenes elementoImagenes in listaImagenes )
             {
 
-                System.IO.FileInfo[] _filesInfo = directorioInfo.GetFiles();
+                string idImagen = elementoImagenes.IdImagen.ToString();
 
-                foreach (System.IO.FileInfo f in _filesInfo)
+                string titulo = elementoImagenes.Titulo.ToString();
+
+                string ruta = elementoImagenes.Ruta.ToString();
+
+                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+                string fechaSubbida = elementoImagenes.FechaSubida.ToString();
+
+                string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+                string userId = elementoImagenes.UserId.ToString();
+
+                string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(ruta));
+
+                if (directorioInfo.Exists)
                 {
-                    Image imagen = new Image();
 
-                    imagen.ImageUrl = string.Format("{0}/{1}", ruta, f);
+                    System.IO.FileInfo[] informacionArchivo = directorioInfo.;
 
-                    imagen.Height = new Unit(250);
+                    foreach (System.IO.FileInfo f in informacionArchivo)
+                    {
+                        Image imagen = new Image();
 
-                    pnlImagenes.Controls.Add(imagen);
+                        imagen.ImageUrl = string.Format("{0}/{1}", ruta, f);
+
+                        imagen.Height = new Unit(250);
+
+                        pnlImagenes.Controls.Add(imagen);
+
+                    }
+
+                }
+                else
+                {
+
+                    pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
 
                 }
 
             }
-            else
-            {
 
-                pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
-
-            }
-            
         }
 
         public void InsertarDiv()

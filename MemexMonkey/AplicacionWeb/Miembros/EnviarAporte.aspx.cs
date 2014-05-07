@@ -96,7 +96,7 @@ namespace AplicacionWeb.Miembros
 
                 imagenes.UserId = (Guid)Membership.GetUser().ProviderUserKey;
 
-                imagenes.Aprobado = 1;
+                imagenes.EsAprobado = 1;
 
                 imagenes.Guardar();
 

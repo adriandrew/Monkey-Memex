@@ -29,11 +29,17 @@ namespace Entidades
 
         private Guid userId;
 
-        private int aprobado;        
+        private int esAprobado;
                 
         #endregion
 
         #region "Propiedades"
+
+        public int IdImagen
+        {
+            get { return idImagen; }
+            set { idImagen = value; }
+        }
 
         public string Titulo
         {
@@ -83,11 +89,11 @@ namespace Entidades
             set { userId = value; }
         }
 
-        public int Aprobado
+        public int EsAprobado
         {
-            get { return aprobado; }
-            set { aprobado = value; }
-        }
+            get { return esAprobado; }
+            set { esAprobado = value; }
+        }        
 
         #endregion
 
@@ -123,7 +129,7 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@userId", this.UserId );
 
-                comando.Parameters.AddWithValue("@Aprobado", this.Aprobado );
+                comando.Parameters.AddWithValue("@Aprobado", this.EsAprobado );
 
                 BaseDatos.conexion.Open();
 
@@ -163,7 +169,7 @@ namespace Entidades
 
                 comando.Connection = BaseDatos.conexion;
 
-                comando.CommandText = "SELECT * FROM Imagenes WHERE EsAprobado = 1 ORDER BY FechaSubida ASC";
+                comando.CommandText = "SELECT * FROM Imagenes WHERE EsAprobado = 1 ORDER BY FechaSubida DESC";
 
                 BaseDatos.conexion.Open();
 
@@ -171,7 +177,7 @@ namespace Entidades
 
                 Imagenes Imagenes;
 
-                while (Reader.Read())
+                while ( Reader.Read() )
                 {
 
                     Imagenes = new Imagenes();
@@ -194,7 +200,7 @@ namespace Entidades
 
                     Imagenes.userId = new Guid ( Reader["UserId"].ToString() );
 
-                    Imagenes.aprobado = Convert.ToInt32 ( Reader["Aprobado"].ToString() );
+                    Imagenes.esAprobado = Convert.ToInt32 ( Reader["EsAprobado"].ToString() );
 
                     lista.Add(Imagenes);
 
@@ -203,16 +209,14 @@ namespace Entidades
                 BaseDatos.conexion.Close();
 
             }
-
-            catch (Exception e)
+            catch ( Exception )
             {
 
-                throw e;
+                throw;
 
             }
 
-            finally
-            
+            finally            
             {
 
                 BaseDatos.conexion.Close();
