@@ -106,6 +106,8 @@ namespace AplicacionWeb
 
                         imagen.ImageUrl = string.Format( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
 
+                        //imagen.Height;
+
                         if ( rutaRelativa.Equals ( imagen.ImageUrl ) )
                         {
 
@@ -113,10 +115,19 @@ namespace AplicacionWeb
 
                             panelImagen.ID = idImagen;
 
+                            panelImagen.Attributes.Add ( "style", "margin: 30px;" );  
+
                             pnlImagenes.Controls.Add(panelImagen);
 
+                            //imagen.Height = new Unit(350);
 
-                            imagen.Height = new Unit(250);
+                            imagen.AlternateText = titulo;
+
+                            imagen.BorderWidth = 20;
+
+                            imagen.BorderColor = System.Drawing.Color.Black;
+
+                            imagen.BorderStyle = BorderStyle.Solid;
 
                             panelImagen.Controls.Add(imagen);
 
@@ -126,7 +137,7 @@ namespace AplicacionWeb
                        
                     }
 
-                    if ( !esArchivoEncontrado )
+                    if ( ! esArchivoEncontrado )
                     {
 
                         Panel panelImagen = new Panel();
