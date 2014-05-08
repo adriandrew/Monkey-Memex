@@ -101,7 +101,7 @@ namespace AplicacionWeb
 
                     foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
-
+                        
                         Image imagen = new Image();
 
                         imagen.ImageUrl = string.Format( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
@@ -109,11 +109,18 @@ namespace AplicacionWeb
                         if ( rutaRelativa.Equals ( imagen.ImageUrl ) )
                         {
 
-                        imagen.Height = new Unit(250);
+                            Panel panelImagen = new Panel();
 
-                        pnlImagenes.Controls.Add(imagen);
+                            panelImagen.ID = idImagen;
 
-                        esArchivoEncontrado = true;
+                            pnlImagenes.Controls.Add(panelImagen);
+
+
+                            imagen.Height = new Unit(250);
+
+                            panelImagen.Controls.Add(imagen);
+
+                            esArchivoEncontrado = true;
                         
                         }
                        
@@ -122,15 +129,20 @@ namespace AplicacionWeb
                     if ( !esArchivoEncontrado )
                     {
 
+                        Panel panelImagen = new Panel();
+
+                        panelImagen.ID = idImagen;
+
+                        pnlImagenes.Controls.Add(panelImagen);
+
                         Literal imagenNoEncontrada = new Literal();
 
                         imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
 
-                        pnlImagenes.Controls.Add(imagenNoEncontrada);
+                        panelImagen.Controls.Add(imagenNoEncontrada);
 
                     }
-
-
+                    
                 }
                 else
                 {
