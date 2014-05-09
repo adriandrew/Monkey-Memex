@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administradores\PanelControl.aspx" />
     <Content Include="Controls\SubirArchivo.ascx" />
     <Content Include="CSS\SubirArchivos.css" />
     <Content Include="Default.aspx" />
@@ -84,6 +85,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administradores\PanelControl.aspx.cs">
+      <DependentUpon>PanelControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administradores\PanelControl.aspx.designer.cs">
+      <DependentUpon>PanelControl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SubirArchivo.ascx.cs">
       <DependentUpon>SubirArchivo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

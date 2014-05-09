@@ -160,13 +160,7 @@ namespace Entidades
 
         }
 
-        public void ObtenerRutasPorUsuario() { 
-        
-
-
-        }
-
-        public List<Imagenes> ObtenerListadoAprobados()
+        public List < Imagenes > ObtenerListadoAprobados()
         {
 
             List<Imagenes> lista = new List<Imagenes>();
@@ -174,46 +168,48 @@ namespace Entidades
             try
             {
 
+                string sql = "SELECT * FROM Imagenes WHERE EsAprobado = 1 ORDER BY FechaSubida DESC";
+
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = BaseDatos.conexion;
 
-                comando.CommandText = "SELECT * FROM Imagenes WHERE EsAprobado = 1 ORDER BY FechaSubida DESC";
+                comando.CommandText = sql;
 
                 BaseDatos.conexion.Open();
 
-                SqlDataReader Reader = comando.ExecuteReader();
+                SqlDataReader reader = comando.ExecuteReader();
 
-                Imagenes Imagenes;
+                Imagenes imagenes;
 
-                while ( Reader.Read() )
+                while ( reader.Read() )
                 {
 
-                    Imagenes = new Imagenes();
+                    imagenes = new Imagenes();
 
-                    Imagenes.IdImagen = Convert.ToInt32 ( Reader["IdImagen"] );
+                    imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
-                    Imagenes.Titulo = Reader["Titulo"].ToString();
+                    imagenes.Titulo = reader [ "Titulo" ] .ToString();
 
-                    Imagenes.DirectorioRelativo = Reader["DirectorioRelativo"].ToString();
+                    imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ] .ToString();
 
-                    Imagenes.RutaRelativa = Reader["RutaRelativa"].ToString();
+                    imagenes.RutaRelativa = reader [ "RutaRelativa" ] .ToString();
 
-                    Imagenes.EnlaceExterno = Reader["EnlaceExterno"].ToString();
+                    imagenes.EnlaceExterno = reader [ "EnlaceExterno" ] .ToString();
 
-                    Imagenes.EtiquetasBasicas = Reader["EtiquetasBasicas"].ToString();
+                    imagenes.EtiquetasBasicas = reader [ "EtiquetasBasicas" ] .ToString();
 
-                    Imagenes.EtiquetasOpcionales = Reader["EtiquetasOpcionales"].ToString();
+                    imagenes.EtiquetasOpcionales = reader [ "EtiquetasOpcionales" ] .ToString();
 
-                    Imagenes.FechaSubida = Convert.ToDateTime ( Reader["FechaSubida"].ToString() );
+                    imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ] .ToString() );
 
-                    Imagenes.IdCategoria = Convert.ToInt32 ( Reader["IdCategoria"].ToString() );
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] .ToString() );
 
-                    Imagenes.UserId = new Guid ( Reader["UserId"].ToString() );
+                    imagenes.UserId = new Guid ( reader [ "UserId" ] .ToString() );
 
-                    Imagenes.EsAprobado = Convert.ToInt32 ( Reader["EsAprobado"].ToString() );
+                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ] .ToString() );
 
-                    lista.Add ( Imagenes );
+                    lista.Add ( imagenes );
 
                 }
 
@@ -227,6 +223,78 @@ namespace Entidades
 
             }
             finally            
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+            return lista;
+
+        }
+
+        public List < Imagenes > ObtenerListadoPendientes() {
+
+            List<Imagenes> lista = new List<Imagenes>();
+
+            try 
+            {
+
+                string sql = "SELECT * FROM Imagenes WHERE EsAprobado = 0 ORDER BY FechaSubida DESC";
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                BaseDatos.conexion.Open();
+
+                SqlDataReader reader = comando.ExecuteReader();
+                
+                Imagenes imagenes;
+
+                while ( reader.Read() )
+                {
+                    
+                    imagenes = new Imagenes();
+
+                    imagenes.IdImagen = Convert.ToInt32(reader["IdImagen"]);
+
+                    imagenes.Titulo = reader["Titulo"].ToString();
+
+                    imagenes.DirectorioRelativo = reader["DirectorioRelativo"].ToString();
+
+                    imagenes.RutaRelativa = reader["RutaRelativa"].ToString();
+
+                    imagenes.EnlaceExterno = reader["EnlaceExterno"].ToString();
+
+                    imagenes.EtiquetasBasicas = reader["EtiquetasBasicas"].ToString();
+
+                    imagenes.EtiquetasOpcionales = reader["EtiquetasOpcionales"].ToString();
+
+                    imagenes.FechaSubida = Convert.ToDateTime(reader["FechaSubida"]);
+
+                    imagenes.IdCategoria = Convert.ToInt32(reader["IdCategoria"]);
+
+                    imagenes.UserId = new Guid(reader["UserId"].ToString());
+
+                    imagenes.EsAprobado = Convert.ToInt32(reader["EsAprobado"]);
+
+                    lista.Add ( imagenes );
+
+                }
+
+                BaseDatos.conexion.Close();
+
+            }
+            catch ( Exception )
+            {
+
+                throw;
+
+            }
+            finally
             {
 
                 BaseDatos.conexion.Close();
