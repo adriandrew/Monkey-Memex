@@ -7,7 +7,7 @@
 
 <asp:Panel runat="server" ID="pnlImagenes" />
 
-    <div runat="server" id="imagenes"></div>
+    <div runat="server" id="idImagenes"></div>
 
 </asp:Content>
 

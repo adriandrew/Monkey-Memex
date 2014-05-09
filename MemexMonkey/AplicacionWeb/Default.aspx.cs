@@ -10,53 +10,31 @@ namespace AplicacionWeb
 
     public partial class Default : System.Web.UI.Page
     {
-                
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            InsertarDiv();
+            // TODO Se crea el objeto de la clase y se invoca el metodo para autoverificar la solucion. PENDIENTE.
 
-            MostrarImagenes("\\Aportes\\04-05-2014");
+            //LogicaNegocio.Autoverificacion autoverificacion = new LogicaNegocio.Autoverificacion();
 
-            MostrarLista();
+            //if (! autoverificacion.AutoverificarSolucion().Equals("Exitoso"))
+            //{
+
+            //    Response.Write("<script>window.alert('"+ autoverificacion.AutoverificarSolucion() +"');</script>"); 
+
+            //}
+
+            //InsertarDiv();
+
+            MostrarImagenes();
 
         }
 
 
         // Mierda, tengo que encontrar la manera mas optima para mostrar las putas imagenes, tengo que consultarlo con la almohada..
-        private void MostrarImagenes(string ruta)
-        {
-           
-            System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(ruta));
-
-            if (directorioInfo.Exists)
-            {
-
-                System.IO.FileInfo[] _filesInfo = directorioInfo.GetFiles();
-                
-                foreach (System.IO.FileInfo f in _filesInfo)
-                {
-                    Image imagen = new Image();
-
-                    imagen.ImageUrl = string.Format("{0}/{1}", ruta, f);
-
-                    imagen.Height = new Unit(250);
-
-                    pnlImagenes.Controls.Add(imagen);
-
-                }
-
-            }
-            else
-            {
-
-                pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
-                
-            }
-                   
-        }
-
-        public void MostrarLista()
+        public void MostrarImagenes()
         {
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
@@ -106,8 +84,6 @@ namespace AplicacionWeb
 
                         imagen.ImageUrl = string.Format( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
 
-                        //imagen.Height;
-
                         if ( rutaRelativa.Equals ( imagen.ImageUrl ) )
                         {
 
@@ -118,8 +94,6 @@ namespace AplicacionWeb
                             panelImagen.Attributes.Add ( "style", "margin: 30px;" );  
 
                             pnlImagenes.Controls.Add(panelImagen);
-
-                            //imagen.Height = new Unit(350);
 
                             imagen.AlternateText = titulo;
 
@@ -189,7 +163,7 @@ namespace AplicacionWeb
             
 
 
-            imagenes.InnerHtml = "<h2> prueba </h2>";
+            idImagenes.InnerHtml = "<h2> prueba </h2>";
 
 
             Panel panel = new Panel();
