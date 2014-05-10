@@ -124,7 +124,7 @@ namespace AplicacionWeb.Miembros
             else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
-                // Valiendo madre, no se pueden guardar los datos de la imgPendiente.
+                // Valiendo madre, no se pueden guardar los datos de la imgAprobada.
 
                 lblError.Visible = true;
 

@@ -69,9 +69,9 @@ namespace AplicacionWeb.Administradores
                     foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
                         
-                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
 
-                        if (rutaRelativa.Equals ( urlImagen ) )
+                        if ( rutaRelativa.Equals ( urlImagen ) )
                         {
 
                             Panel pnlImagen = CrearPanelImagen ( idImagen );
@@ -119,19 +119,21 @@ namespace AplicacionWeb.Administradores
 
         }
 
-        private Panel CrearPanelImagen(string idImagen)
+        private Panel CrearPanelImagen ( string idImagen )
         {
+
             Panel pnlImagen = new Panel();
 
             pnlImagen.ID = idImagen;
 
-            pnlImagen.Attributes.Add("style", "margin: 30px; float: left;");
+            pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left;" );
 
             return pnlImagen;
 
         }
 
-        private Image CrearImagePendiente(string urlImagen, string titulo){
+        private Image CrearImagePendiente ( string urlImagen, string titulo ) 
+        {
 
             Image imgPendiente = new Image();
 
@@ -154,16 +156,21 @@ namespace AplicacionWeb.Administradores
 
             Button btnAprobar = new Button();
 
-            btnAprobar.Text = "Aprobar";
+            //btnAprobar.Text = "Aprobar";
 
-            btnAprobar.BackColor = System.Drawing.Color.Green;
+            //btnAprobar.BackColor = System.Drawing.Color.Green;
 
-            btnAprobar.Attributes.Add("style", "display: inherit");
+            btnAprobar.Width = 200;
+
+            btnAprobar.Height = 200;
+                        
+            btnAprobar.Attributes.Add ( "style", "display: inherit; background: url('../images/like.png');" );
 
             return btnAprobar;
+
         }
 
-        private Literal CrearLiteralImagenNoEncontrada(string rutaRelativa) 
+        private Literal CrearLiteralImagenNoEncontrada ( string rutaRelativa ) 
         {
 
             Literal litImagenNoEncontrada = new Literal();

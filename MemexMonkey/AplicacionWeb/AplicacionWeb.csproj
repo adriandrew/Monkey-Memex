@@ -65,9 +65,13 @@
     <Content Include="Controls\SubirArchivo.ascx" />
     <Content Include="CSS\SubirArchivos.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\aprobado.jpg" />
+    <Content Include="Images\dislike.png" />
     <Content Include="Images\icoInfo.png" />
     <Content Include="Images\icoNew.png" />
     <Content Include="Images\icoWarning.png" />
+    <Content Include="Images\like.png" />
+    <Content Include="Images\rechazado.jpg" />
     <Content Include="Miembros\Bienvenido.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
     <Content Include="RegistrarMiembro.aspx" />

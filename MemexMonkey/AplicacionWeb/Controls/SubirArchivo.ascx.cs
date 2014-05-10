@@ -176,7 +176,7 @@ namespace AplicacionWeb.Controls
                             HttpPostedFile _postedF = _fcol[i];
                             if (_postedF.ContentLength > 0)
                             {
-                                // Aquí va el nombre de la imgPendiente que se va a guardar.
+                                // Aquí va el nombre de la imgAprobada que se va a guardar.
                                 //string _f2save = string.Format("{0}\\{1}", _dirPath, Path.GetFileName(_postedF.FileName));
 
                                 extensionArchivo = Path.GetExtension(_postedF.FileName);

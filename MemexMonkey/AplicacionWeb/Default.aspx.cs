@@ -91,7 +91,7 @@ namespace AplicacionWeb
 
             listaImagenes = imagenes.ObtenerListadoAprobados();
 
-            foreach (Entidades.Imagenes elementoImagenes in listaImagenes)
+            foreach ( Entidades.Imagenes elementoImagenes in listaImagenes )
             {
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
@@ -118,40 +118,28 @@ namespace AplicacionWeb
 
                 System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
 
-                if (directorioInfo.Exists)
+                if ( directorioInfo.Exists )
                 {
 
                     System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
 
                     bool esArchivoEncontrado = false;
 
-                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
 
-                        Image imagen = new Image();
+                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
 
-                        imagen.ImageUrl = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
-
-                        if (rutaRelativa.Equals(imagen.ImageUrl))
+                        if ( rutaRelativa.Equals ( urlImagen ) )
                         {
+                            
+                            Panel pnlImagen = CrearPanelImagen ( idImagen );
 
-                            Panel panelImagen = new Panel();
+                            pnlImagenes.Controls.Add ( pnlImagen );
 
-                            panelImagen.ID = idImagen;
+                            Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
-                            panelImagen.Attributes.Add("style", "margin: 30px;");
-
-                            pnlImagenes.Controls.Add(panelImagen);
-
-                            imagen.AlternateText = titulo;
-
-                            imagen.BorderWidth = 20;
-
-                            imagen.BorderColor = System.Drawing.Color.Black;
-
-                            imagen.BorderStyle = BorderStyle.Solid;
-
-                            panelImagen.Controls.Add(imagen);
+                            pnlImagen.Controls.Add ( imgAprobada );
 
                             esArchivoEncontrado = true;
 
@@ -159,20 +147,16 @@ namespace AplicacionWeb
 
                     }
 
-                    if (!esArchivoEncontrado)
+                    if ( ! esArchivoEncontrado )
                     {
 
-                        Panel panelImagen = new Panel();
+                        Panel pnlImagen = CrearPanelImagen ( idImagen );
 
-                        panelImagen.ID = idImagen;
+                        pnlImagenes.Controls.Add ( pnlImagen );
 
-                        pnlImagenes.Controls.Add(panelImagen);
+                        Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada ( rutaRelativa );
 
-                        Literal imagenNoEncontrada = new Literal();
-
-                        imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
-
-                        panelImagen.Controls.Add(imagenNoEncontrada);
+                        pnlImagen.Controls.Add ( litImagenNoEncontrada );
 
                     }
 
@@ -180,11 +164,63 @@ namespace AplicacionWeb
                 else
                 {
 
-                    pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
+                    Label lblSinArchivos = CrearLabelSinArchivos();
+
+                    pnlImagenes.Controls.Add ( lblSinArchivos );
 
                 }
 
             }
+
+        }
+
+        private Panel CrearPanelImagen ( string idImagen )
+        {
+
+            Panel pnlImagen = new Panel();
+
+            pnlImagen.ID = idImagen;
+
+            pnlImagen.Attributes.Add ( "style", "margin: 30px;" );
+
+            return pnlImagen;
+
+        }
+
+        private Image CrearImageAprobada ( string urlImagen, string titulo )
+        {
+
+            Image imgAprobada = new Image();
+
+            imgAprobada.ImageUrl = urlImagen;
+
+            imgAprobada.AlternateText = titulo;
+
+            imgAprobada.BorderWidth = 20;
+
+            imgAprobada.BorderColor = System.Drawing.Color.Black;
+
+            imgAprobada.BorderStyle = BorderStyle.Solid;
+
+            return imgAprobada;
+
+        }
+
+        private Literal CrearLiteralImagenNoEncontrada ( string rutaRelativa )
+        {
+
+            Literal litImagenNoEncontrada = new Literal();
+
+            litImagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+
+            return litImagenNoEncontrada;
+
+        }
+
+        private Label CrearLabelSinArchivos()
+        {
+
+            return new Label { Text = "Aún no se han subido archivos." };
 
         }
 
