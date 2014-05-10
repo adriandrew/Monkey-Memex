@@ -10,6 +10,9 @@ namespace AplicacionWeb.Miembros
 {
     public partial class RegistrarMiembro : System.Web.UI.Page
     {
+
+        #region Eventos
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,5 +24,12 @@ namespace AplicacionWeb.Miembros
             Roles.AddUserToRole(CreateUserWizard.UserName, "Miembros");
 
         }
+
+        #endregion
+
+        #region Metodos Privados
+        
+        #endregion
+
     }
 }

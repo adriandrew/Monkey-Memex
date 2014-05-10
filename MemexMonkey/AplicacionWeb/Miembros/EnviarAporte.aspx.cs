@@ -11,9 +11,15 @@ namespace AplicacionWeb.Miembros
     public partial class EnviarAporte : System.Web.UI.Page
     {
 
+        #region Campos Estaticos
+        
         private static string directorioRelativo;
 
         private static string rutaRelativa;
+
+        #endregion
+
+        #region Propiedades Estaticas
 
         public static string DirectorioRelativo
         {
@@ -26,8 +32,10 @@ namespace AplicacionWeb.Miembros
             get { return EnviarAporte.rutaRelativa; }
             set { EnviarAporte.rutaRelativa = value; }
         }
+
+        #endregion
         
-        #region "Eventos"
+        #region Eventos
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,7 +49,7 @@ namespace AplicacionWeb.Miembros
 
             //Server.Transfer("~/Default.aspx", true);
 
-            Default defaultt = new Default();
+            //Default defaultt = new Default();
 
             //defaultt.InsertarDivExternamente();
 
@@ -76,9 +84,9 @@ namespace AplicacionWeb.Miembros
 
         #endregion
 
-        #region "Metodos"
+        #region Metodos Privados
 
-        public void SubirAporte() 
+        private void SubirAporte() 
         {
 
             if ( !string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
@@ -116,7 +124,7 @@ namespace AplicacionWeb.Miembros
             else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
-                // Valiendo madre, no se pueden guardar los datos de la imagen.
+                // Valiendo madre, no se pueden guardar los datos de la imgPendiente.
 
                 lblError.Visible = true;
 
@@ -188,11 +196,9 @@ namespace AplicacionWeb.Miembros
         {
 
             if ( ddlCategoria.Items.Count == 0 )
-
             {
 
                 try
-
                 {
 
                     ddlCategoria.DataSource = Entidades.Categorias.ObtenerListado();
@@ -201,9 +207,7 @@ namespace AplicacionWeb.Miembros
                     ddlCategoria.DataBind();
 
                 }
-
                 catch ( Exception )
-
                 {
 
                     throw;

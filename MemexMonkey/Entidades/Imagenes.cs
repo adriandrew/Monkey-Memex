@@ -9,7 +9,7 @@ namespace Entidades
     public class Imagenes
     {
 
-        #region "Campos"
+        #region Campos
 
         private int idImagen;
 
@@ -35,7 +35,7 @@ namespace Entidades
                 
         #endregion
 
-        #region "Propiedades"
+        #region Propiedades
 
         public int IdImagen
         {
@@ -104,7 +104,7 @@ namespace Entidades
 
         #endregion
 
-        #region "Metodos"
+        #region Metodos Publicos
 
         public void Guardar()
         {

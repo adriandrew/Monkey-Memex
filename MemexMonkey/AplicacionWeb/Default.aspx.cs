@@ -11,6 +11,7 @@ namespace AplicacionWeb
     public partial class Default : System.Web.UI.Page
     {
 
+        #region Eventos
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,114 +31,11 @@ namespace AplicacionWeb
 
             MostrarImagenes();
 
-        }
-        
-        // Mierda, tengo que encontrar la manera mas optima para mostrar las putas imagenes, tengo que consultarlo con la almohada..
-        public void MostrarImagenes()
-        {
+        }       
 
-            Entidades.Imagenes imagenes = new Entidades.Imagenes();
+        #endregion
 
-            List < Entidades.Imagenes > listaImagenes = new List < Entidades.Imagenes > ();
-
-            listaImagenes = imagenes.ObtenerListadoAprobados();
-            
-            foreach ( Entidades.Imagenes elementoImagenes in listaImagenes )
-            {
-
-                string idImagen = elementoImagenes.IdImagen.ToString();
-
-                string titulo = elementoImagenes.Titulo.ToString();
-
-                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
-
-                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
-
-                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
-
-                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
-
-                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
-
-                string fechaSubida = elementoImagenes.FechaSubida.ToString();
-
-                string idCategoria = elementoImagenes.IdCategoria.ToString();
-
-                string userId = elementoImagenes.UserId.ToString();
-
-                string esAprobado = elementoImagenes.EsAprobado.ToString();
-
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
-
-                if ( directorioInfo.Exists )
-                {
-
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
-
-                    bool esArchivoEncontrado = false; 
-
-                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
-                    {
-                        
-                        Image imagen = new Image();
-
-                        imagen.ImageUrl = string.Format ( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
-
-                        if ( rutaRelativa.Equals ( imagen.ImageUrl ) )
-                        {
-
-                            Panel panelImagen = new Panel();
-
-                            panelImagen.ID = idImagen;
-
-                            panelImagen.Attributes.Add ( "style", "margin: 30px;" );  
-
-                            pnlImagenes.Controls.Add ( panelImagen );
-
-                            imagen.AlternateText = titulo;
-
-                            imagen.BorderWidth = 20;
-
-                            imagen.BorderColor = System.Drawing.Color.Black;
-
-                            imagen.BorderStyle = BorderStyle.Solid;
-
-                            panelImagen.Controls.Add ( imagen );
-
-                            esArchivoEncontrado = true;
-                        
-                        }
-                       
-                    }
-
-                    if ( ! esArchivoEncontrado )
-                    {
-
-                        Panel panelImagen = new Panel();
-
-                        panelImagen.ID = idImagen;
-
-                        pnlImagenes.Controls.Add ( panelImagen );
-
-                        Literal imagenNoEncontrada = new Literal();
-
-                        imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
-
-                        panelImagen.Controls.Add ( imagenNoEncontrada );
-                        
-                    }
-                    
-                }
-                else
-                {
-
-                    pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
-
-                }
-
-            }
-
-        }
+        #region Metodos Publicos
 
         public void InsertarDiv()
         {
@@ -179,6 +77,118 @@ namespace AplicacionWeb
 
         }
 
+        #endregion
 
+        #region Metodos Privados
+
+        // Mierda, tengo que encontrar la manera mas optima para mostrar las putas imagenes, tengo que consultarlo con la almohada..
+        private void MostrarImagenes()
+        {
+
+            Entidades.Imagenes imagenes = new Entidades.Imagenes();
+
+            List<Entidades.Imagenes> listaImagenes = new List<Entidades.Imagenes>();
+
+            listaImagenes = imagenes.ObtenerListadoAprobados();
+
+            foreach (Entidades.Imagenes elementoImagenes in listaImagenes)
+            {
+
+                string idImagen = elementoImagenes.IdImagen.ToString();
+
+                string titulo = elementoImagenes.Titulo.ToString();
+
+                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+                string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+                string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+                string userId = elementoImagenes.UserId.ToString();
+
+                string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+                if (directorioInfo.Exists)
+                {
+
+                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
+
+                    bool esArchivoEncontrado = false;
+
+                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    {
+
+                        Image imagen = new Image();
+
+                        imagen.ImageUrl = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+
+                        if (rutaRelativa.Equals(imagen.ImageUrl))
+                        {
+
+                            Panel panelImagen = new Panel();
+
+                            panelImagen.ID = idImagen;
+
+                            panelImagen.Attributes.Add("style", "margin: 30px;");
+
+                            pnlImagenes.Controls.Add(panelImagen);
+
+                            imagen.AlternateText = titulo;
+
+                            imagen.BorderWidth = 20;
+
+                            imagen.BorderColor = System.Drawing.Color.Black;
+
+                            imagen.BorderStyle = BorderStyle.Solid;
+
+                            panelImagen.Controls.Add(imagen);
+
+                            esArchivoEncontrado = true;
+
+                        }
+
+                    }
+
+                    if (!esArchivoEncontrado)
+                    {
+
+                        Panel panelImagen = new Panel();
+
+                        panelImagen.ID = idImagen;
+
+                        pnlImagenes.Controls.Add(panelImagen);
+
+                        Literal imagenNoEncontrada = new Literal();
+
+                        imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+
+                        panelImagen.Controls.Add(imagenNoEncontrada);
+
+                    }
+
+                }
+                else
+                {
+
+                    pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
+
+                }
+
+            }
+
+        }
+
+        #endregion
+        
     }
 }

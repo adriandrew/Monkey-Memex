@@ -9,13 +9,20 @@ namespace AplicacionWeb.Administradores
 {
     public partial class PanelControl : System.Web.UI.Page
     {
+
+        #region Eventos
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             AdministrarImagenes();
 
         }
+        
+        #endregion
 
+        #region Metodos Privados
+        
         private void AdministrarImagenes() 
         {
 
@@ -61,39 +68,23 @@ namespace AplicacionWeb.Administradores
 
                     foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
+                        
+                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
 
-                        Image imagen = new Image();
-
-                        imagen.ImageUrl = string.Format ( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
-
-                        if (rutaRelativa.Equals ( imagen.ImageUrl ) )
+                        if (rutaRelativa.Equals ( urlImagen ) )
                         {
 
-                            Panel pnlImagen = new Panel();
-
-                            pnlImagen.ID = idImagen;
-
-                            pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left;" );
+                            Panel pnlImagen = CrearPanelImagen ( idImagen );
 
                             pnlImagenes.Controls.Add ( pnlImagen );
 
-                            imagen.AlternateText = titulo;
+                            Image imgPendiente = CrearImagePendiente ( urlImagen, titulo );
 
-                            imagen.BorderWidth = 20;
+                            pnlImagen.Controls.Add ( imgPendiente );
 
-                            imagen.BorderColor = System.Drawing.Color.Black;
+                            Button btnAprobar = CrearButtonAprobar();
 
-                            imagen.BorderStyle = BorderStyle.Solid;
-
-                            pnlImagen.Controls.Add ( imagen );
-
-                            Button btnAprobar = new Button();
-
-                            btnAprobar.Text = "Aprobar";
-
-                            btnAprobar.BackColor = System.Drawing.Color.Green;
-
-                            pnlImagen.Controls.Add ( btnAprobar ) ;
+                            pnlImagen.Controls.Add ( btnAprobar );
                             
                             esArchivoEncontrado = true;
 
@@ -104,17 +95,13 @@ namespace AplicacionWeb.Administradores
                     if ( ! esArchivoEncontrado )
                     {
 
-                        Panel panelImagen = new Panel();
+                        Panel pnlImagen = CrearPanelImagen(idImagen);
+                        
+                        pnlImagenes.Controls.Add ( pnlImagen );
 
-                        panelImagen.ID = idImagen;
+                        Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada ( rutaRelativa );
 
-                        pnlImagenes.Controls.Add ( panelImagen );
-
-                        Literal imagenNoEncontrada = new Literal();
-
-                        imagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
-
-                        panelImagen.Controls.Add ( imagenNoEncontrada );
+                        pnlImagen.Controls.Add ( litImagenNoEncontrada );
 
                     }
 
@@ -122,7 +109,9 @@ namespace AplicacionWeb.Administradores
                 else
                 {
 
-                    pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
+                    Label lblSinArchivos = CrearLabelSinArchivos();
+
+                    pnlImagenes.Controls.Add ( lblSinArchivos );
 
                 }
 
@@ -130,5 +119,69 @@ namespace AplicacionWeb.Administradores
 
         }
 
+        private Panel CrearPanelImagen(string idImagen)
+        {
+            Panel pnlImagen = new Panel();
+
+            pnlImagen.ID = idImagen;
+
+            pnlImagen.Attributes.Add("style", "margin: 30px; float: left;");
+
+            return pnlImagen;
+
+        }
+
+        private Image CrearImagePendiente(string urlImagen, string titulo){
+
+            Image imgPendiente = new Image();
+
+            imgPendiente.ImageUrl = urlImagen;
+
+            imgPendiente.AlternateText = titulo;
+
+            imgPendiente.BorderWidth = 20;
+
+            imgPendiente.BorderColor = System.Drawing.Color.Black;
+
+            imgPendiente.BorderStyle = BorderStyle.Solid;
+
+            return imgPendiente;
+
+        }
+
+        private Button CrearButtonAprobar()
+        {
+
+            Button btnAprobar = new Button();
+
+            btnAprobar.Text = "Aprobar";
+
+            btnAprobar.BackColor = System.Drawing.Color.Green;
+
+            btnAprobar.Attributes.Add("style", "display: inherit");
+
+            return btnAprobar;
+        }
+
+        private Literal CrearLiteralImagenNoEncontrada(string rutaRelativa) 
+        {
+
+            Literal litImagenNoEncontrada = new Literal();
+
+            litImagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+
+            return litImagenNoEncontrada;
+
+        }
+
+        private Label CrearLabelSinArchivos() 
+        {
+
+            return new Label { Text = "Aún no se han subido archivos." };
+
+        }
+        
+        #endregion
+        
     }
 }
