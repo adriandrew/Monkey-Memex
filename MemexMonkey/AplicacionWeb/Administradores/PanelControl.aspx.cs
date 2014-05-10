@@ -69,13 +69,13 @@ namespace AplicacionWeb.Administradores
                         if (rutaRelativa.Equals ( imagen.ImageUrl ) )
                         {
 
-                            Panel panelImagen = new Panel();
+                            Panel pnlImagen = new Panel();
 
-                            panelImagen.ID = idImagen;
+                            pnlImagen.ID = idImagen;
 
-                            panelImagen.Attributes.Add ( "style", "margin: 30px;" );
+                            pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left;" );
 
-                            pnlImagenes.Controls.Add ( panelImagen );
+                            pnlImagenes.Controls.Add ( pnlImagen );
 
                             imagen.AlternateText = titulo;
 
@@ -85,8 +85,16 @@ namespace AplicacionWeb.Administradores
 
                             imagen.BorderStyle = BorderStyle.Solid;
 
-                            panelImagen.Controls.Add ( imagen );
+                            pnlImagen.Controls.Add ( imagen );
 
+                            Button btnAprobar = new Button();
+
+                            btnAprobar.Text = "Aprobar";
+
+                            btnAprobar.BackColor = System.Drawing.Color.Green;
+
+                            pnlImagen.Controls.Add ( btnAprobar ) ;
+                            
                             esArchivoEncontrado = true;
 
                         }
