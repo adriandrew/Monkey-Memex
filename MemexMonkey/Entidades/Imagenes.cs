@@ -143,6 +143,8 @@ namespace Entidades
                 BaseDatos.conexion.Open();
 
                 comando.ExecuteNonQuery();
+
+                BaseDatos.conexion.Close();
                 
             }
             catch ( Exception )

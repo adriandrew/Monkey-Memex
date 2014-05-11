@@ -82,9 +82,17 @@ namespace AplicacionWeb.Administradores
 
                             pnlImagen.Controls.Add ( imgPendiente );
 
+                            Panel pnlCalificar = CrearPanelCalificar( idImagen );
+
+                            pnlImagen.Controls.Add ( pnlCalificar );
+
                             Button btnAprobar = CrearButtonAprobar();
 
-                            pnlImagen.Controls.Add ( btnAprobar );
+                            pnlCalificar.Controls.Add ( btnAprobar );
+
+                            Button btnRechazar = CrearButtonRechazar();
+
+                            pnlCalificar.Controls.Add ( btnRechazar );
                             
                             esArchivoEncontrado = true;
 
@@ -95,7 +103,7 @@ namespace AplicacionWeb.Administradores
                     if ( ! esArchivoEncontrado )
                     {
 
-                        Panel pnlImagen = CrearPanelImagen(idImagen);
+                        Panel pnlImagen = CrearPanelImagen ( idImagen );
                         
                         pnlImagenes.Controls.Add ( pnlImagen );
 
@@ -132,6 +140,19 @@ namespace AplicacionWeb.Administradores
 
         }
 
+        private Panel CrearPanelCalificar ( string idImagen )
+        {
+
+            Panel pnlCalificar = new Panel();
+
+            pnlCalificar.ID = idImagen;
+
+            pnlCalificar.Attributes.Add("style", "clear: both; display: inherit;");
+
+            return pnlCalificar;
+
+        }
+
         private Image CrearImagePendiente ( string urlImagen, string titulo ) 
         {
 
@@ -156,17 +177,32 @@ namespace AplicacionWeb.Administradores
 
             Button btnAprobar = new Button();
 
-            //btnAprobar.Text = "Aprobar";
+            btnAprobar.ID = "1";
 
-            //btnAprobar.BackColor = System.Drawing.Color.Green;
+            btnAprobar.Width = 177;
 
-            btnAprobar.Width = 200;
+            btnAprobar.Height = 132;
 
-            btnAprobar.Height = 200;
-                        
-            btnAprobar.Attributes.Add ( "style", "display: inherit; background: url('../images/like.png');" );
+            btnAprobar.Attributes.Add("style", "float: left; border: none; background: url('../images/like.png'); background-repeat: no-repeat;");
 
             return btnAprobar;
+
+        }
+
+        private Button CrearButtonRechazar()
+        {
+
+            Button btnRechazar = new Button();
+
+            btnRechazar.ID = "0";
+
+            btnRechazar.Width = 177;
+
+            btnRechazar.Height = 132;
+
+            btnRechazar.Attributes.Add("style", "float: right; border: none; background: url('../images/dislike.png'); background-repeat: no-repeat;");
+
+            return btnRechazar;
 
         }
 
