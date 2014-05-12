@@ -1,0 +1,5 @@
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Release\LogicaNegocio.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Release\LogicaNegocio.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.pdb

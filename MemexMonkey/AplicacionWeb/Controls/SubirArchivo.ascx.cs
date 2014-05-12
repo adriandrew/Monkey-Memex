@@ -184,7 +184,7 @@ namespace AplicacionWeb.Controls
                                 string _f2save = string.Format ( "{0}\\{1}", _dirPath, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );
 
                                 // Este directorioRelativo es el que se va a guardar en la base de datos.
-                                directorioRelativo = string.Format ( "{0}\\{1}", directorioRelativo ); 
+                                //directorioRelativo = string.Format ( "{0}\\{1}", directorioRelativo ); 
 
                                 // Esta rutaRelativa es la que se va a guardar en la base de datos.
                                 rutaRelativa = string.Format ( "{0}\\{1}", rutaRelativa, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );

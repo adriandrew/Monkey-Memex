@@ -137,6 +137,10 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add ( pnlImagen );
 
+                            Label litTituloImagenAprobada = CrearLiteralTituloImagenAprobada ( titulo );
+
+                            pnlImagen.Controls.Add ( litTituloImagenAprobada );
+
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
                             pnlImagen.Controls.Add ( imgAprobada );
@@ -206,12 +210,23 @@ namespace AplicacionWeb
 
         }
 
+        private Label CrearLiteralTituloImagenAprobada ( string titulo )         
+        {
+
+            Label litTituloImagenAprobada = new Label();
+
+            litTituloImagenAprobada.Text = string.Format ( "<h2> {0} </h2>", titulo  );
+
+            return litTituloImagenAprobada;
+
+        }
+
         private Literal CrearLiteralImagenNoEncontrada ( string rutaRelativa )
         {
 
             Literal litImagenNoEncontrada = new Literal();
 
-            litImagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+            litImagenNoEncontrada.Text = string.Format ( "<h2>Falta el archivo.. {0} </h2>", rutaRelativa );
 
             return litImagenNoEncontrada;
 

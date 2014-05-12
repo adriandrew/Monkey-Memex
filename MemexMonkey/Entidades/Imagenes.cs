@@ -112,7 +112,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Imagenes ( Titulo, DirectorioRelativo, RutaRelativa, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, Aprobado ) VALUES ( @titulo, @rutaRelativa, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @aprobado )";
+                string sql = "INSERT INTO Imagenes ( Titulo, DirectorioRelativo, RutaRelativa, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, EsAprobado ) VALUES ( @titulo, @directorioRelativo, @rutaRelativa, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @esAprobado )";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -138,7 +138,7 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@userId", this.UserId );
 
-                comando.Parameters.AddWithValue ( "@Aprobado", this.EsAprobado );
+                comando.Parameters.AddWithValue ( "@esAprobado", this.EsAprobado );
 
                 BaseDatos.conexion.Open();
 
