@@ -137,13 +137,17 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add ( pnlImagen );
 
-                            Label litTituloImagenAprobada = CrearLiteralTituloImagenAprobada ( titulo );
+                            Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada ( titulo );
 
                             pnlImagen.Controls.Add ( litTituloImagenAprobada );
 
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
                             pnlImagen.Controls.Add ( imgAprobada );
+
+                            Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada ( etiquetasBasicas, etiquetasOpcionales );
+
+                            pnlImagen.Controls.Add ( litEtiquetasImagenAprobada );
 
                             esArchivoEncontrado = true;
 
@@ -210,14 +214,25 @@ namespace AplicacionWeb
 
         }
 
-        private Label CrearLiteralTituloImagenAprobada ( string titulo )         
+        private Literal CrearLiteralTituloImagenAprobada ( string titulo )
         {
 
-            Label litTituloImagenAprobada = new Label();
+            Literal litTituloImagenAprobada = new Literal();
 
             litTituloImagenAprobada.Text = string.Format ( "<h2> {0} </h2>", titulo  );
 
             return litTituloImagenAprobada;
+
+        }
+
+        private Literal CrearLiteralEtiquetasImagenAprobada ( string etiquetasBasicas, string etiquetasOpcionales )
+        {
+
+            Literal litEtiquetasImagenAprobada = new Literal();
+
+            litEtiquetasImagenAprobada.Text = string.Format ( "<h3> {0} {1} </h3>", etiquetasBasicas, etiquetasOpcionales );
+
+            return litEtiquetasImagenAprobada;
 
         }
 
