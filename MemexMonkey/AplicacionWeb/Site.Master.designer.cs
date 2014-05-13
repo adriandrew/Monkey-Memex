@@ -40,15 +40,6 @@ namespace AplicacionWeb {
         protected global::System.Web.UI.WebControls.LoginView LoginView;
         
         /// <summary>
-        /// Control lbEnviarAporte.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbEnviarAporte;
-        
-        /// <summary>
         /// Control ContentPlaceHolder.
         /// </summary>
         /// <remarks>
