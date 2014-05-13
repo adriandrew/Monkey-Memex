@@ -8,7 +8,7 @@ using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace AplicacionWeb.Controls
+namespace AplicacionWeb.Controles
 {
 
     public partial class SubirArchivo : System.Web.UI.UserControl
@@ -181,13 +181,13 @@ namespace AplicacionWeb.Controls
 
                                 extensionArchivo = Path.GetExtension(_postedF.FileName);
 
-                                string _f2save = string.Format ( "{0}\\{1}", _dirPath, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );
+                                string _f2save = string.Format ( "{0}\\{1}", _dirPath, AplicacionWeb.Controles.SubirArchivo.TituloImagen + extensionArchivo );
 
                                 // Este directorioRelativo es el que se va a guardar en la base de datos.
                                 //directorioRelativo = string.Format ( "{0}\\{1}", directorioRelativo ); 
 
                                 // Esta rutaRelativa es la que se va a guardar en la base de datos.
-                                rutaRelativa = string.Format ( "{0}\\{1}", rutaRelativa, AplicacionWeb.Controls.SubirArchivo.TituloImagen + extensionArchivo );
+                                rutaRelativa = string.Format ( "{0}\\{1}", rutaRelativa, AplicacionWeb.Controles.SubirArchivo.TituloImagen + extensionArchivo );
 
                                 _postedF.SaveAs(_f2save);
                                 _fSizes += _postedF.ContentLength;

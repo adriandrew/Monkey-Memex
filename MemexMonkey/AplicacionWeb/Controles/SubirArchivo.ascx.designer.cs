@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace AplicacionWeb.Controls {
+namespace AplicacionWeb.Controles {
     
     
     public partial class SubirArchivo {

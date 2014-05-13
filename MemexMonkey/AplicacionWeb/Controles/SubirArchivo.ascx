@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SubirArchivo.ascx.cs" Inherits="AplicacionWeb.Controls.SubirArchivo" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SubirArchivo.ascx.cs" Inherits="AplicacionWeb.Controles.SubirArchivo" %>
 <fieldset class="fUploadControl">
     <legend>
         <asp:Label ID="lblUploadFilesTitle" Text="Archivos a subir" runat="server"></asp:Label>

@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administradores\PanelControl.aspx" />
-    <Content Include="Controls\SubirArchivo.ascx" />
-    <Content Include="CSS\SubirArchivos.css" />
+    <Content Include="Controles\SubirArchivo.ascx" />
+    <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Images\aprobado.jpg" />
     <Content Include="Images\dislike.png" />
@@ -75,19 +75,19 @@
     <Content Include="Miembros\Bienvenido.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
-    <None Include="Properties\PublishProfiles\Somee.pubxml" />
-    <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.Debug.config">
+    <None Include="Properties\PublishProfiles\Somee.pubxml" />
+    <None Include="Js\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Js\jquery-1.4.1.js" />
+    <Content Include="Js\jquery-1.4.1.min.js" />
+    <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
+    </None>
+    <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administradores\PanelControl.aspx.cs">
@@ -97,11 +97,11 @@
     <Compile Include="Administradores\PanelControl.aspx.designer.cs">
       <DependentUpon>PanelControl.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SubirArchivo.ascx.cs">
+    <Compile Include="Controles\SubirArchivo.ascx.cs">
       <DependentUpon>SubirArchivo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\SubirArchivo.ascx.designer.cs">
+    <Compile Include="Controles\SubirArchivo.ascx.designer.cs">
       <DependentUpon>SubirArchivo.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -146,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="JS\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

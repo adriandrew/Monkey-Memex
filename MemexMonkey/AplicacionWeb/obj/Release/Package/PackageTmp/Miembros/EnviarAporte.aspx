@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EnviarAporte.aspx.cs" Inherits="AplicacionWeb.Miembros.EnviarAporte" %>
-<%@ Register src="../Controls/SubirArchivo.ascx" tagname="SubirArchivo" tagprefix="uc1" %>
+<%@ Register src="../Controles/SubirArchivo.ascx" tagname="SubirArchivo" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">

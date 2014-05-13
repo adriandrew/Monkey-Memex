@@ -58,7 +58,7 @@ namespace AplicacionWeb.Miembros
         protected void btnEnviarAporte_Click(object sender, EventArgs e)
         {
 
-            AplicacionWeb.Controls.SubirArchivo.TituloImagen = txtTituloImagen.Text;
+            AplicacionWeb.Controles.SubirArchivo.TituloImagen = txtTituloImagen.Text;
 
             SubirImagenes();
 
@@ -182,9 +182,9 @@ namespace AplicacionWeb.Miembros
                 
                 SubirArchivo.DestinationFolder = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
 
-                AplicacionWeb.Controls.SubirArchivo.DirectorioRelativo = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
+                AplicacionWeb.Controles.SubirArchivo.DirectorioRelativo = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
 
-                AplicacionWeb.Controls.SubirArchivo.RutaRelativa = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
+                AplicacionWeb.Controles.SubirArchivo.RutaRelativa = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
                 
                 SubirArchivo.FileExtensionsEnabled = ".png|.jpg|.jpeg|.jpe|.gif";
                 

@@ -1,7 +1,7 @@
 ﻿.fUploadControl
 {
     width: 500px;
-    border: 1px solid Orange;
+    /*border: 1px solid Orange;*/
     padding: 20px;
 }
 .fileinput 

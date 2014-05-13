@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 
-    <link href="~/CSS/SubirArchivos.css" rel="stylesheet" type="text/css" />
+    <link href="~/Css/subirArchivos.css" rel="stylesheet" type="text/css" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -58,6 +58,7 @@
                                          </table>
                                      </LayoutTemplate>
                                  </asp:Login>
+                                 <asp:LinkButton ID="lnkEnviarAporteNoMiembros" runat="server" PostBackUrl="~/RegistrarMiembro.aspx">Enviar Aporte</asp:LinkButton>
                                  <br />
                                  <br />
                                  <br />
@@ -68,11 +69,10 @@
                                  <br />
                                  <asp:LoginStatus ID="LoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" />
                                  <br />
+                                 <asp:LinkButton ID="lnkEnviarAporteMiembros" runat="server" PostBackUrl="~/Miembros/EnviarAporte.aspx">Enviar Aporte</asp:LinkButton>
                                  <br />
                              </LoggedInTemplate>
                          </asp:LoginView>
-                  
-                         <asp:LinkButton ID="lbEnviarAporte" runat="server" PostBackUrl="~/Miembros/EnviarAporte.aspx">Enviar Aporte</asp:LinkButton>
                   
         </div>
 

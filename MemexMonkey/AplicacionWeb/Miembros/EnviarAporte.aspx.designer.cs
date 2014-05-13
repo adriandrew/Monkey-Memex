@@ -64,7 +64,7 @@ namespace AplicacionWeb.Miembros {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::AplicacionWeb.Controls.SubirArchivo SubirArchivo;
+        protected global::AplicacionWeb.Controles.SubirArchivo SubirArchivo;
         
         /// <summary>
         /// Control lnkMostrarImagenes.
