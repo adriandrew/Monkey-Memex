@@ -22,3 +22,4 @@ C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\E
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\LogicaNegocio.pdb
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.config

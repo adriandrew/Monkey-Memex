@@ -141,6 +141,14 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( litTituloImagenAprobada );
 
+                            Literal litNombreUsuarioImagenAprobada = CrearLiteralNombreUsuarioImagenAprobada ( userId );
+
+                            pnlImagen.Controls.Add ( litNombreUsuarioImagenAprobada );
+
+                            Literal litFechaPublicacionImagenAprobada = CrearLiteralFechaPublicacionImagenAprobada ( fechaSubida );
+
+                            pnlImagen.Controls.Add ( litFechaPublicacionImagenAprobada );
+
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
                             pnlImagen.Controls.Add ( imgAprobada );
@@ -195,6 +203,39 @@ namespace AplicacionWeb
 
         }
 
+        private Literal CrearLiteralTituloImagenAprobada ( string titulo )
+        {
+
+            Literal litTituloImagenAprobada = new Literal();
+
+            litTituloImagenAprobada.Text = string.Format("<h2> {0} </h2>", titulo);
+
+            return litTituloImagenAprobada;
+
+        }
+
+        private Literal CrearLiteralNombreUsuarioImagenAprobada ( string nombreUsuario )
+        {
+
+            Literal litNombreUsuarioImagenAprobada = new Literal();
+
+            litNombreUsuarioImagenAprobada.Text = string.Format("<h4> {0} </h4>", nombreUsuario);
+
+            return litNombreUsuarioImagenAprobada;
+
+        }
+
+        private Literal CrearLiteralFechaPublicacionImagenAprobada ( string fechaPublicacion )
+        {
+
+            Literal litFechaPublicacionImagenAprobada = new Literal();
+
+            litFechaPublicacionImagenAprobada.Text = string.Format ( "<h6> {0} </h6>", fechaPublicacion );
+
+            return litFechaPublicacionImagenAprobada;
+
+        }
+
         private Image CrearImageAprobada ( string urlImagen, string titulo )
         {
 
@@ -211,17 +252,6 @@ namespace AplicacionWeb
             imgAprobada.BorderStyle = BorderStyle.Solid;
 
             return imgAprobada;
-
-        }
-
-        private Literal CrearLiteralTituloImagenAprobada ( string titulo )
-        {
-
-            Literal litTituloImagenAprobada = new Literal();
-
-            litTituloImagenAprobada.Text = string.Format ( "<h2> {0} </h2>", titulo  );
-
-            return litTituloImagenAprobada;
 
         }
 
