@@ -8,3 +8,13 @@ C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\L
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.csprojResolveAssemblyReference.cache
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.config
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\LogicaNegocio.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\LogicaNegocio.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Release\AplicacionWeb.pdb

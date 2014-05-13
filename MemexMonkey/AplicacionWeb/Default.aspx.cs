@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -29,9 +30,13 @@ namespace AplicacionWeb
 
             //InsertarDiv();
 
+            Label lblNumeroUsuariosOnline = MostrarNumeroUsuariosOnline();
+
+            pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
+
             MostrarImagenes();
 
-        }       
+        }
 
         #endregion
 
@@ -80,6 +85,20 @@ namespace AplicacionWeb
         #endregion
 
         #region Metodos Privados
+
+        private Label MostrarNumeroUsuariosOnline()
+        {
+
+            Label lblNumeroUsuariosOnline = new Label();
+
+            if ( ! Page.IsPostBack )
+               lblNumeroUsuariosOnline.Text = string.Format ( "{0} {1}", "Numero de usuarios activos en este momento:", Membership.GetNumberOfUsersOnline().ToString() );
+
+            lblNumeroUsuariosOnline.Text = string.IsNullOrEmpty ( lblNumeroUsuariosOnline.Text.ToString() ) ? "0" : lblNumeroUsuariosOnline.Text.ToString() ;
+
+            return lblNumeroUsuariosOnline;
+
+        }
 
         // Mierda, tengo que encontrar la manera mas optima para mostrar las putas imagenes, tengo que consultarlo con la almohada..
         private void MostrarImagenes()
@@ -219,7 +238,7 @@ namespace AplicacionWeb
 
             Literal litNombreUsuarioImagenAprobada = new Literal();
 
-            litNombreUsuarioImagenAprobada.Text = string.Format("<h4> {0} </h4>", nombreUsuario);
+            litNombreUsuarioImagenAprobada.Text = string.Format("<h4>{0} {1}</h4>", "Aporte por:", nombreUsuario);
 
             return litNombreUsuarioImagenAprobada;
 

@@ -4,3 +4,9 @@ C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Relea
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Release\Entidades.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Release\Entidades.pdb
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Release\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.dll
+C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Release\Entidades.pdb
