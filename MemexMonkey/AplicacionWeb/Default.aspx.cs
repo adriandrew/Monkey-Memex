@@ -30,9 +30,10 @@ namespace AplicacionWeb
 
             //InsertarDiv();
 
-            Label lblNumeroUsuariosOnline = MostrarNumeroUsuariosOnline();
 
-            pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
+            //Label lblNumeroUsuariosOnline = MostrarNumeroUsuariosOnline();
+
+            //pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
 
             MostrarImagenes();
 
@@ -216,7 +217,7 @@ namespace AplicacionWeb
 
             pnlImagen.ID = idImagen;
 
-            pnlImagen.Attributes.Add ( "style", "margin: 30px;" );
+            pnlImagen.CssClass = "divImagenAprobada";
 
             return pnlImagen;
 
@@ -264,11 +265,7 @@ namespace AplicacionWeb
 
             imgAprobada.AlternateText = titulo;
 
-            imgAprobada.BorderWidth = 20;
-
-            imgAprobada.BorderColor = System.Drawing.Color.Black;
-
-            imgAprobada.BorderStyle = BorderStyle.Solid;
+            imgAprobada.CssClass = "imgImagenAprobada";
 
             return imgAprobada;
 

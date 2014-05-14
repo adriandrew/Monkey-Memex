@@ -5,9 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Memex Monkey</title>
 
     <link href="~/Css/subirArchivos.css" rel="stylesheet" type="text/css" />
+    <link href="~/Css/elementosDinamicos.css" rel="stylesheet" type="text/css" />
+
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

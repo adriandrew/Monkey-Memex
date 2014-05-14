@@ -1,0 +1,27 @@
+﻿body {
+
+}
+
+#ContentPlaceHolder_pnlImagenes h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+    padding: 0;
+}
+
+#ContentPlaceHolder_pnlImagenes h4, h5, h6 
+{
+    color: gray;
+    display: inline;
+}
+
+.divImagenAprobada 
+{
+    margin: 30px;
+    float: left;
+}
+
+.imgImagenAprobada 
+{
+    display: block;
+    border: solid 20px black;
+}
