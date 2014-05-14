@@ -11,17 +11,26 @@
 #ContentPlaceHolder_pnlImagenes h4, h5, h6 
 {
     color: gray;
-    display: inline;
+    /*display: inline;*/
 }
 
 .divImagenAprobada 
 {
     margin: 30px;
     float: left;
+    /* Poner el max-width con la cantidad de pixeles a usar y queda la informacion alineada
+    max-width: 300px;    
+    word-wrap: break-word; */
 }
 
 .imgImagenAprobada 
 {
     display: block;
     border: solid 20px black;
+}
+
+.divEtiquetasImagenAprobada 
+{
+    width: auto;
+    /* max-width: inherit; */
 }

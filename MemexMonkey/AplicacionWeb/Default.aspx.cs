@@ -173,9 +173,13 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( imgAprobada );
 
+                            Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
+
+                            pnlImagen.Controls.Add ( pnlEtiquetasImagenAprobada );
+
                             Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada ( etiquetasBasicas, etiquetasOpcionales );
 
-                            pnlImagen.Controls.Add ( litEtiquetasImagenAprobada );
+                            pnlEtiquetasImagenAprobada.Controls.Add(litEtiquetasImagenAprobada);
 
                             esArchivoEncontrado = true;
 
@@ -220,6 +224,17 @@ namespace AplicacionWeb
             pnlImagen.CssClass = "divImagenAprobada";
 
             return pnlImagen;
+
+        }
+
+        private Panel CrearPanelEtiquetasImagenAprobada ()
+        {
+
+            Panel pnlEtiquetasImagenAprobada = new Panel();
+
+            pnlEtiquetasImagenAprobada.CssClass = "divEtiquetasImagenAprobada";
+
+            return pnlEtiquetasImagenAprobada;
 
         }
 
@@ -276,7 +291,7 @@ namespace AplicacionWeb
 
             Literal litEtiquetasImagenAprobada = new Literal();
 
-            litEtiquetasImagenAprobada.Text = string.Format ( "<h3> {0} {1} </h3>", etiquetasBasicas, etiquetasOpcionales );
+            litEtiquetasImagenAprobada.Text = string.Format ( "<h6> {0} {1} </h6>", etiquetasBasicas, etiquetasOpcionales );
 
             return litEtiquetasImagenAprobada;
 
