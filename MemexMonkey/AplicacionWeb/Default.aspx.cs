@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -181,7 +182,7 @@ namespace AplicacionWeb
 
                             pnlEtiquetasImagenAprobada.Controls.Add ( litEtiquetasImagenAprobada );
 
-                            Button btnComentarios = CrearButtonComentariosImagenAprobada ( userId, idImagen );
+                            LinkButton btnComentarios = CrearButtonComentariosImagenAprobada(userId, idImagen);
 
                             pnlImagen.Controls.Add ( btnComentarios );
 
@@ -196,6 +197,8 @@ namespace AplicacionWeb
                             Literal litComentarioUsuarioImagenAprobada = CrearLiteralComentarioUsuarioImagenAprobada();
 
                             pnlComentarioUsuarioImagenAprobada.Controls.Add ( litComentarioUsuarioImagenAprobada );
+
+                            CrearLinkComentariosImagenAprobada();
 
                             esArchivoEncontrado = true;
 
@@ -281,22 +284,36 @@ namespace AplicacionWeb
         }
 
         // Creo que deberia cambiarlo por un li o algo asi..
-        private Button CrearButtonComentariosImagenAprobada ( string userId, string idImagen ) 
+        private LinkButton CrearButtonComentariosImagenAprobada ( string userId, string idImagen ) 
         {
-            
-            Button btnComentariosImagenAprobada = new Button();
+
+            LinkButton btnComentariosImagenAprobada = new LinkButton();
 
             btnComentariosImagenAprobada.ID = userId + idImagen;
 
-            //btnComentariosImagenAprobada.Attributes.Add ( "onClick", string.Format("{0}", "muestra_oculta('{1}{2}')", "ContentPlaceHolder_divComentariosImagenAprobada", idImagen ) );
+            //btnComentariosImagenAprobada.Attributes.Add("onClick", string.Format("{0}", "muestra_oculta('{1}{2}')", "ContentPlaceHolder_divComentariosImagenAprobada", idImagen));
 
-            btnComentariosImagenAprobada.OnClientClick = string.Format ( "{0}", "muestra_oculta('{1}{2}')", "ContentPlaceHolder_divComentariosImagenAprobada", idImagen );
+            btnComentariosImagenAprobada.OnClientClick = "return MuestraOculta('ContentPlaceHolder_pnlImagenes')";
         
             btnComentariosImagenAprobada.Text = "Comentarios";
 
             return btnComentariosImagenAprobada;
 
         }
+
+        private void CrearLinkComentariosImagenAprobada()
+        {
+
+            string linkComentariosImagenAprobada = string.Empty;
+
+            linkComentariosImagenAprobada = string.Format("<a href='#' onClick=MuestraOculta('ContentPlaceHolder_pnlImagenes')> Es un puto link </a>");
+
+            idImagenes.InnerHtml = linkComentariosImagenAprobada;
+
+            // return linkComentarios;
+
+        }
+
 
         private Literal CrearLiteralComentarioUsuarioImagenAprobada ( )
         {
