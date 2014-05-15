@@ -179,7 +179,23 @@ namespace AplicacionWeb
 
                             Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada ( etiquetasBasicas, etiquetasOpcionales );
 
-                            pnlEtiquetasImagenAprobada.Controls.Add(litEtiquetasImagenAprobada);
+                            pnlEtiquetasImagenAprobada.Controls.Add ( litEtiquetasImagenAprobada );
+
+                            Button btnComentarios = CrearButtonComentariosImagenAprobada ( userId, idImagen );
+
+                            pnlImagen.Controls.Add ( btnComentarios );
+
+                            Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada ( idImagen );
+
+                            pnlImagen.Controls.Add ( pnlComentariosImagenAprobada );
+
+                            Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
+
+                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
+
+                            Literal litComentarioUsuarioImagenAprobada = CrearLiteralComentarioUsuarioImagenAprobada();
+
+                            pnlComentarioUsuarioImagenAprobada.Controls.Add ( litComentarioUsuarioImagenAprobada );
 
                             esArchivoEncontrado = true;
 
@@ -235,6 +251,61 @@ namespace AplicacionWeb
             pnlEtiquetasImagenAprobada.CssClass = "divEtiquetasImagenAprobada";
 
             return pnlEtiquetasImagenAprobada;
+
+        }
+
+        private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
+        {
+
+            Panel pnlComentariosImagenAprobada = new Panel();
+
+            pnlComentariosImagenAprobada.ID = string.Format ( "{0}{1}", "divComentariosImagenAprobada", idImagen );
+
+            pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
+            
+            return pnlComentariosImagenAprobada;
+
+        }
+
+        private Panel CrearPanelComentarioUsuarioImagenAprobada()
+        {
+
+            Panel pnlComentarioUsuarioImagenAprobada = new Panel();
+
+            //pnlComentarioUsuarioImagenAprobada.ID = "divComentarioUsuarioImagenAprobada";
+
+            //pnlComentarioUsuarioImagenAprobada.CssClass = "divComentarioUsuarioImagenAprobada";
+
+            return pnlComentarioUsuarioImagenAprobada;
+
+        }
+
+        // Creo que deberia cambiarlo por un li o algo asi..
+        private Button CrearButtonComentariosImagenAprobada ( string userId, string idImagen ) 
+        {
+            
+            Button btnComentariosImagenAprobada = new Button();
+
+            btnComentariosImagenAprobada.ID = userId + idImagen;
+
+            //btnComentariosImagenAprobada.Attributes.Add ( "onClick", string.Format("{0}", "muestra_oculta('{1}{2}')", "ContentPlaceHolder_divComentariosImagenAprobada", idImagen ) );
+
+            btnComentariosImagenAprobada.OnClientClick = string.Format ( "{0}", "muestra_oculta('{1}{2}')", "ContentPlaceHolder_divComentariosImagenAprobada", idImagen );
+        
+            btnComentariosImagenAprobada.Text = "Comentarios";
+
+            return btnComentariosImagenAprobada;
+
+        }
+
+        private Literal CrearLiteralComentarioUsuarioImagenAprobada ( )
+        {
+
+            Literal litComentarioUsuarioImagenAprobada = new Literal();
+
+            litComentarioUsuarioImagenAprobada.Text = string.Format("<h4> {0} </h4>", "prueba");
+
+            return litComentarioUsuarioImagenAprobada;
 
         }
 

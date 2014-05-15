@@ -1,8 +1,9 @@
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.dll
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.dll
-C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
