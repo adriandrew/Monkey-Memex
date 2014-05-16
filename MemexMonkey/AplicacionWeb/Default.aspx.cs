@@ -198,6 +198,9 @@ namespace AplicacionWeb
 
                             pnlComentarioUsuarioImagenAprobada.Controls.Add ( litComentarioUsuarioImagenAprobada );
 
+                            Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada();
+
+                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
 
                             esArchivoEncontrado = true;
 
@@ -382,6 +385,25 @@ namespace AplicacionWeb
         {
 
             return new Label { Text = "Aún no se han subido archivos." };
+
+        }
+
+        private Panel CrearComentariosUsuarioFacebookImagenAprobada()
+        {
+
+            Panel pnlComentariosUsuarioFacebookImagenAprobada = new Panel();
+
+            pnlComentariosUsuarioFacebookImagenAprobada.CssClass = "fb-comments";
+
+            //pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("style", "data-href=\'http://monkey.somee.com/\' data-numposts='5' data-colorscheme='dark'");
+
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-href", "http://monkey.somee.com/");
+
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-numposts", "5");
+
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-colorscheme", "dark");
+
+            return pnlComentariosUsuarioFacebookImagenAprobada;
 
         }
 
