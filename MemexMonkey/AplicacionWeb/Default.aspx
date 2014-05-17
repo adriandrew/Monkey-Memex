@@ -8,6 +8,8 @@
 <asp:Panel runat="server" ID="pnlImagenes" />
 
     <%--Plugin de Facebook--%>
+    <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
+
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -16,6 +18,7 @@
         js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
     <%--Termina plugin de Facebook--%>
 
     <div runat="server" id="idImagenes"></div>

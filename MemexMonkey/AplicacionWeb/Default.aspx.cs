@@ -267,6 +267,9 @@ namespace AplicacionWeb
             pnlComentariosImagenAprobada.ID = string.Format ( "{0}{1}", "divComentariosImagenAprobada", idImagen );
 
             pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
+
+            // Esta es la excepcion de aplicar estilos desde codigo, ya que asi lo requiero y es mas facil.
+            pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
             
             return pnlComentariosImagenAprobada;
 
@@ -293,9 +296,9 @@ namespace AplicacionWeb
             System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobada = new System.Web.UI.HtmlControls.HtmlButton();
             
             lnkComentariosImagenAprobada = string.Format ( "{0}", "<a href='#' id='lnkMostrarComentariosImagenAprobada' OnClick=MuestraOculta('ContentPlaceHolder_divComentariosImagenAprobada" + idImagen + "')>Mostrar-Ocultar Comentarios</a>" );
-            
-            btnMostrarComentariosImagenAprobada.InnerHtml = lnkComentariosImagenAprobada;
 
+            btnMostrarComentariosImagenAprobada.InnerHtml = lnkComentariosImagenAprobada;
+            
             return btnMostrarComentariosImagenAprobada;
 
         }

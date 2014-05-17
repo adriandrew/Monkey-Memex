@@ -1,19 +1,3 @@
-// alert("prueba");
-
-function Ocultar(obj) {
-
-    var equipos = document.getElementById(obj);
-
-        equipos.style.display = 'none';
-
-}
-
-function Cargada(id){
-
-	alert("prueba");
-
-}
-
 function MuestraOculta ( id )
 {
 
@@ -28,8 +12,10 @@ function MuestraOculta ( id )
 }
 
 window.onload = function ()
-{ /*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+{
 
-    //MuestraOculta('ContentPlaceHolder_pnlImagenes');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+    /*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
+
+    //MuestraOculta('divComentariosImagenAprobada');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
 
 }
