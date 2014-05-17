@@ -77,17 +77,10 @@
     <Content Include="Miembros\Bienvenido.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
-    <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Js\jquery-1.4.1-vsdoc.js" />
     <Content Include="Js\jquery-1.4.1.js" />
     <Content Include="Js\jquery-1.4.1.min.js" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administradores\PanelControl.aspx.cs">
