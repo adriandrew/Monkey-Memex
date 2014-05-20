@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -74,7 +75,7 @@
     <Content Include="Images\like.png" />
     <Content Include="Images\rechazado.jpg" />
     <Content Include="Js\scripts.js" />
-    <Content Include="Miembros\Bienvenido.aspx" />
+    <Content Include="Miembros\AporteEnviado.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
     <Content Include="Web.config" />
@@ -111,12 +112,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Miembros\Bienvenido.aspx.cs">
-      <DependentUpon>Bienvenido.aspx</DependentUpon>
+    <Compile Include="Miembros\AporteEnviado.aspx.cs">
+      <DependentUpon>AporteEnviado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Miembros\Bienvenido.aspx.designer.cs">
-      <DependentUpon>Bienvenido.aspx</DependentUpon>
+    <Compile Include="Miembros\AporteEnviado.aspx.designer.cs">
+      <DependentUpon>AporteEnviado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Miembros\EnviarAporte.aspx.cs">
       <DependentUpon>EnviarAporte.aspx</DependentUpon>

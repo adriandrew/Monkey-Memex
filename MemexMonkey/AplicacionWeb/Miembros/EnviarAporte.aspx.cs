@@ -120,6 +120,8 @@ namespace AplicacionWeb.Miembros
 
                 ReiniciarValores();
 
+
+
             }
             else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {

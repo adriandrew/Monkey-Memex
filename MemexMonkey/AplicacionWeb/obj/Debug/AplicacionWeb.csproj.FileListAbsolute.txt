@@ -26,3 +26,5 @@ C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\L
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.CodeAnalysisLog.xml
+C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.lastcodeanalysissucceeded

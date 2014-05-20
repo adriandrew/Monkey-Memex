@@ -10,6 +10,6 @@
 namespace AplicacionWeb.Miembros {
     
     
-    public partial class Bienvenido {
+    public partial class AporteEnviado {
     }
 }
