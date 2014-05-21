@@ -46,6 +46,7 @@ namespace AplicacionWeb.Miembros
 
             AgregarOnClick();
 
+            AgregarOnChange();
 
             //Server.Transfer("~/Default.aspx", true);
 
@@ -256,6 +257,19 @@ namespace AplicacionWeb.Miembros
             txtEquipo.Attributes.Add("OnClick", "this.value = '#'");
 
             txtLiga.Attributes.Add("OnClick", "this.value = '#'");
+
+        }
+
+        private void AgregarOnChange()
+        {
+
+            txtPersonaje.Attributes.Add("OnChange", "this.value = '#'");
+
+            txtEtiquetasOpcionales.Attributes.Add("OnChange", "this.value = '#'");
+
+            txtEquipo.Attributes.Add("OnChange", "this.value = '#'");
+
+            txtLiga.Attributes.Add("OnChange", "this.value = '#'");
 
         }
 

@@ -51,25 +51,21 @@ namespace AplicacionWeb
 
             panel.ID = "idPanel";
 
-            pnlImagenes.Controls.Add(panel);
+            pnlImagenes.Controls.Add ( panel );
 
             Literal literal = new Literal();
 
             literal.Text = "<h2> Prueba </h2>";
 
-            panel.Controls.Add(literal);
+            panel.Controls.Add ( literal );
             
         }
 
         public void InsertarDivExternamente() 
         {
-
             
-
-
             idImagenes.InnerHtml = "<h2> prueba </h2>";
-
-
+            
             Panel panel = new Panel();
 
             panel.ID = "idPanel";
@@ -158,6 +154,8 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add ( pnlImagen );
 
+                            #region Header de imagen.
+
                             Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada ( titulo );
 
                             pnlImagen.Controls.Add ( litTituloImagenAprobada );
@@ -170,9 +168,13 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( litFechaPublicacionImagenAprobada );
 
+                            #endregion
+
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
                             pnlImagen.Controls.Add ( imgAprobada );
+
+                            #region Footer de imagen.
 
                             Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
 
@@ -181,28 +183,38 @@ namespace AplicacionWeb
                             Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada ( etiquetasBasicas, etiquetasOpcionales );
 
                             pnlEtiquetasImagenAprobada.Controls.Add ( litEtiquetasImagenAprobada );
-                            
+
+                            #endregion
+
                             System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobadas = CrearHtmlButtonComentariosImagenAprobada ( idImagen );
 
                             pnlImagen.Controls.Add ( btnMostrarComentariosImagenAprobadas );
 
-                            #region Panel de comentarios por imagen.
+                            #region Panel de comentarios de imagen.
 
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada ( idImagen );
 
                             pnlImagen.Controls.Add ( pnlComentariosImagenAprobada );
 
+                            #region Panel de comentarios de memex.
+
                             Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
 
                             pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
 
-                            Literal litComentarioUsuarioImagenAprobada = CrearLiteralComentarioUsuarioImagenAprobada();
+                            TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
 
-                            pnlComentarioUsuarioImagenAprobada.Controls.Add ( litComentarioUsuarioImagenAprobada );
+                            pnlComentariosImagenAprobada.Controls.Add ( txtComentarioUsuarioImagenAprobada );
 
-                            Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada();
+                            #endregion
 
-                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+                            #region Panel de comentarios de facebook.
+
+                            //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada();
+
+                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+
+                            #endregion
 
                             #endregion
 
@@ -252,72 +264,8 @@ namespace AplicacionWeb
 
         }
 
-        private Panel CrearPanelEtiquetasImagenAprobada ()
-        {
-
-            Panel pnlEtiquetasImagenAprobada = new Panel();
-
-            pnlEtiquetasImagenAprobada.CssClass = "divEtiquetasImagenAprobada";
-
-            return pnlEtiquetasImagenAprobada;
-
-        }
-
-        private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
-        {
-
-            Panel pnlComentariosImagenAprobada = new Panel();
-
-            pnlComentariosImagenAprobada.ID = string.Format ( "{0}{1}", "divComentariosImagenAprobada", idImagen );
-
-            pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
-
-            // Esta es la excepcion de aplicar estilos desde codigo, ya que asi lo requiero y es mas facil.
-            pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
-            
-            return pnlComentariosImagenAprobada;
-
-        }
-
-        private Panel CrearPanelComentarioUsuarioImagenAprobada()
-        {
-
-            Panel pnlComentarioUsuarioImagenAprobada = new Panel();
-
-            //pnlComentarioUsuarioImagenAprobada.ID = "divComentarioUsuarioImagenAprobada";
-
-            //pnlComentarioUsuarioImagenAprobada.CssClass = "divComentarioUsuarioImagenAprobada";
-
-            return pnlComentarioUsuarioImagenAprobada;
-
-        }
-
-        private System.Web.UI.HtmlControls.HtmlButton CrearHtmlButtonComentariosImagenAprobada ( string idImagen )
-        {
-
-            string lnkComentariosImagenAprobada = string.Empty;     
-            
-            System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobada = new System.Web.UI.HtmlControls.HtmlButton();
-            
-            lnkComentariosImagenAprobada = string.Format ( "{0}", "<a href='#' id='lnkMostrarComentariosImagenAprobada' OnClick=MuestraOculta('ContentPlaceHolder_divComentariosImagenAprobada" + idImagen + "')>Mostrar-Ocultar Comentarios</a>" );
-
-            btnMostrarComentariosImagenAprobada.InnerHtml = lnkComentariosImagenAprobada;
-            
-            return btnMostrarComentariosImagenAprobada;
-
-        }
-
-        private Literal CrearLiteralComentarioUsuarioImagenAprobada ( )
-        {
-
-            Literal litComentarioUsuarioImagenAprobada = new Literal();
-
-            litComentarioUsuarioImagenAprobada.Text = string.Format("<h4> {0} </h4>", "prueba");
-
-            return litComentarioUsuarioImagenAprobada;
-
-        }
-
+        #region Header de imagen.
+        
         private Literal CrearLiteralTituloImagenAprobada ( string titulo )
         {
 
@@ -351,6 +299,9 @@ namespace AplicacionWeb
 
         }
 
+        #endregion
+
+        #region Imagen
         private Image CrearImageAprobada ( string urlImagen, string titulo )
         {
 
@@ -366,6 +317,21 @@ namespace AplicacionWeb
 
         }
 
+        #endregion
+
+        #region Footer de imagen.
+
+        private Panel CrearPanelEtiquetasImagenAprobada ()
+        {
+
+            Panel pnlEtiquetasImagenAprobada = new Panel();
+
+            pnlEtiquetasImagenAprobada.CssClass = "divEtiquetasImagenAprobada";
+
+            return pnlEtiquetasImagenAprobada;
+
+        }
+
         private Literal CrearLiteralEtiquetasImagenAprobada ( string etiquetasBasicas, string etiquetasOpcionales )
         {
 
@@ -377,23 +343,74 @@ namespace AplicacionWeb
 
         }
 
-        private Literal CrearLiteralImagenNoEncontrada ( string rutaRelativa )
+        #endregion 
+
+        private System.Web.UI.HtmlControls.HtmlButton CrearHtmlButtonComentariosImagenAprobada ( string idImagen )
         {
 
-            Literal litImagenNoEncontrada = new Literal();
+            string lnkComentariosImagenAprobada = string.Empty;     
+            
+            System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobada = new System.Web.UI.HtmlControls.HtmlButton();
+            
+            lnkComentariosImagenAprobada = string.Format ( "{0}", "<a href='#' id='lnkMostrarComentariosImagenAprobada' OnClick=MuestraOculta('ContentPlaceHolder_divComentariosImagenAprobada" + idImagen + "')>Mostrar-Ocultar Comentarios</a>" );
 
-            litImagenNoEncontrada.Text = string.Format ( "<h2>Falta el archivo.. {0} </h2>", rutaRelativa );
-
-            return litImagenNoEncontrada;
+            btnMostrarComentariosImagenAprobada.InnerHtml = lnkComentariosImagenAprobada;
+            
+            return btnMostrarComentariosImagenAprobada;
 
         }
 
-        private Label CrearLabelSinArchivos()
+        #region Panel de comentarios de imagen.
+
+        private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
         {
 
-            return new Label { Text = "Aún no se han subido archivos." };
+            Panel pnlComentariosImagenAprobada = new Panel();
+
+            pnlComentariosImagenAprobada.ID = string.Format ( "{0}{1}", "divComentariosImagenAprobada", idImagen );
+
+            pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
+
+            // Esta es la excepcion de aplicar estilos desde codigo, ya que asi lo requiero y es mas facil.
+            pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
+            
+            return pnlComentariosImagenAprobada;
 
         }
+
+        #region Panel de comentarios de memex.
+
+        private Panel CrearPanelComentarioUsuarioImagenAprobada()
+        {
+
+            Panel pnlComentarioUsuarioImagenAprobada = new Panel();
+
+            //pnlComentarioUsuarioImagenAprobada.ID = "divComentarioUsuarioImagenAprobada";
+
+            //pnlComentarioUsuarioImagenAprobada.CssClass = "divComentarioUsuarioImagenAprobada";
+
+            return pnlComentarioUsuarioImagenAprobada;
+
+        }
+        
+        private TextBox CrearTextBoxComentarioUsuarioImagenAprobada()
+        {
+
+            TextBox txtComentarioUsuarioImagenAprobada = new TextBox();
+
+            txtComentarioUsuarioImagenAprobada.Text = "Escribe tu comentario";
+            
+            txtComentarioUsuarioImagenAprobada.Attributes.Add ( "OnClick", "this.value = '" + string.Empty + "'" );
+
+            txtComentarioUsuarioImagenAprobada.Attributes.Add ( "OnChange", "this.value = '" + string.Empty + "'" );
+
+            return txtComentarioUsuarioImagenAprobada;
+
+        }
+
+        #endregion
+
+        #region Panel de comentarios de facebook.
 
         private Panel CrearComentariosUsuarioFacebookImagenAprobada()
         {
@@ -415,6 +432,28 @@ namespace AplicacionWeb
         }
 
         #endregion
-        
+
+        #endregion
+
+        private Literal CrearLiteralImagenNoEncontrada ( string rutaRelativa )
+        {
+
+            Literal litImagenNoEncontrada = new Literal();
+
+            litImagenNoEncontrada.Text = string.Format ( "<h2>Falta el archivo.. {0} </h2>", rutaRelativa );
+
+            return litImagenNoEncontrada;
+
+        }
+
+        private Label CrearLabelSinArchivos()
+        {
+
+            return new Label { Text = "Aún no se han subido archivos." };
+
+        }
+
+        #endregion
+
     }
 }

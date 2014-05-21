@@ -5,7 +5,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-<asp:Panel runat="server" ID="pnlImagenes" />
+<%--    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="pnlImagenes" runat="server"></asp:UpdatePanel>--%>
+
+    <asp:Panel runat="server" ID="pnlImagenes" />
 
     <%--Plugin de Facebook--%>
     <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
@@ -24,4 +27,3 @@
     <div runat="server" id="idImagenes"></div>
 
 </asp:Content>
-
