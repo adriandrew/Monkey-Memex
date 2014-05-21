@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BaseDatos.cs" />
     <Compile Include="Categorias.cs" />
+    <Compile Include="Comentarios.cs" />
     <Compile Include="Imagenes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

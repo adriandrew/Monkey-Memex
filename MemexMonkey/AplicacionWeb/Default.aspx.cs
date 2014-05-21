@@ -186,6 +186,8 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( btnMostrarComentariosImagenAprobadas );
 
+                            #region Panel de comentarios por imagen.
+
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada ( idImagen );
 
                             pnlImagen.Controls.Add ( pnlComentariosImagenAprobada );
@@ -201,6 +203,8 @@ namespace AplicacionWeb
                             Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada();
 
                             pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+
+                            #endregion
 
                             esArchivoEncontrado = true;
 

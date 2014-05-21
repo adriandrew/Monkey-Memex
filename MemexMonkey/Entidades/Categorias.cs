@@ -39,7 +39,7 @@ namespace Entidades
 
         #endregion
 
-        #region "Metodos"
+        #region "Metodos Publicos"
 
         public static List<Categorias> ObtenerListado ()
         {
