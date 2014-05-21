@@ -120,8 +120,8 @@ namespace AplicacionWeb.Miembros
 
                 ReiniciarValores();
 
-
-
+                Redireccionar();
+                
             }
             else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
@@ -259,6 +259,12 @@ namespace AplicacionWeb.Miembros
 
         }
 
+        private void Redireccionar() 
+        {
+
+            Response.Redirect("~/Default.aspx");
+
+        }
         #endregion 
 
     }

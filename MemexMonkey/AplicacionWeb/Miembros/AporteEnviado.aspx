@@ -3,7 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     
-        Gracias por enviar tu aporte. Lo vamos a filtrar y te prometo que si es lo suficientemente bueno se publicará en breve.
+    <asp:Label ID="lblGracias" runat="server" Text="Gracias por enviar tu aporte. Lo vamos a filtrar y te prometo que si es lo suficientemente bueno se publicará en breve.
         Quieres enviar otro aporte o volver a la pagina principal?
+    "></asp:Label>
+    
+    <asp:HyperLink ID="hlEnviarAporte" runat="server" NavigateUrl="~/Miembros/EnviarAporte.aspx">Volver a Enviar Aporte</asp:HyperLink>
+    <asp:HyperLink ID="hlPaginaPrincipal" runat="server" NavigateUrl="~/Default.aspx">Volver a Pagina Principal</asp:HyperLink>
     
 </asp:Content>
