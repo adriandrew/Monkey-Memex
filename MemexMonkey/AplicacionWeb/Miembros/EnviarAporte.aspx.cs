@@ -90,7 +90,7 @@ namespace AplicacionWeb.Miembros
         private void SubirAporte() 
         {
 
-            if ( !string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
+            if ( ! string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
                 // Para guardar los datos que van en la tabla imagenes.
@@ -142,20 +142,20 @@ namespace AplicacionWeb.Miembros
 
             System.IO.DirectoryInfo _dirInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(SubirArchivo.DestinationFolder));
 
-            if (_dirInfo.Exists)
+            if ( _dirInfo.Exists )
             {
                 System.IO.FileInfo[] _filesInfo = _dirInfo.GetFiles();
                 foreach (System.IO.FileInfo _f in _filesInfo)
                 {
                     Image _img = new Image();
-                    _img.ImageUrl = string.Format("{0}/{1}", SubirArchivo.DestinationFolder, _f);
-                    _img.Height = new Unit(50);
-                    pnlImagenes.Controls.Add(_img);
+                    _img.ImageUrl = string.Format( "{0}/{1}", SubirArchivo.DestinationFolder, _f );
+                    _img.Height = new Unit ( 50 );
+                    pnlImagenes.Controls.Add ( _img );
                 }
             }
             else
             {
-                pnlImagenes.Controls.Add(new Label { Text = "Aún no se han subido archivos." });
+                pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
             }
 
         }
@@ -163,7 +163,7 @@ namespace AplicacionWeb.Miembros
         private void SubirImagenes() 
         {
         
-             SubirArchivo.UploadFiles(true);
+             SubirArchivo.UploadFiles ( true );
 
         }
 
@@ -250,33 +250,33 @@ namespace AplicacionWeb.Miembros
         private void AgregarOnClick()
         {
 
-            txtPersonaje.Attributes.Add("OnClick", "this.value = '#'");
+            txtPersonaje.Attributes.Add ( "OnClick", "this.value = '#'" );
 
-            txtEtiquetasOpcionales.Attributes.Add("OnClick", "this.value = '#'");
+            txtEtiquetasOpcionales.Attributes.Add ( "OnClick", "this.value = '#'" );
 
-            txtEquipo.Attributes.Add("OnClick", "this.value = '#'");
-
-            txtLiga.Attributes.Add("OnClick", "this.value = '#'");
+            txtEquipo.Attributes.Add ( "OnClick", "this.value = '#'" );
+             
+            txtLiga.Attributes.Add ( "OnClick", "this.value = '#'" );
 
         }
 
         private void AgregarOnChange()
         {
 
-            txtPersonaje.Attributes.Add("OnChange", "this.value = '#'");
+            txtPersonaje.Attributes.Add ( "OnChange", "this.value = '#'" );
 
-            txtEtiquetasOpcionales.Attributes.Add("OnChange", "this.value = '#'");
+            txtEtiquetasOpcionales.Attributes.Add ( "OnChange", "this.value = '#'" );
 
-            txtEquipo.Attributes.Add("OnChange", "this.value = '#'");
+            txtEquipo.Attributes.Add ( "OnChange", "this.value = '#'" );
 
-            txtLiga.Attributes.Add("OnChange", "this.value = '#'");
+            txtLiga.Attributes.Add ( "OnChange", "this.value = '#'" );
 
         }
 
         private void Redireccionar() 
         {
 
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect ( "~/Default.aspx" );
 
         }
         #endregion 

@@ -37,8 +37,15 @@ namespace AplicacionWeb
             //pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
 
             MostrarImagenes();
-
+                        
         }
+
+        //protected void txtComentarioUsuarioImagenAprobada_Click(object sender, EventArgs e)
+        //{
+
+        //    GuardarComentario();
+
+        //}
 
         #endregion
 
@@ -404,6 +411,10 @@ namespace AplicacionWeb
 
             txtComentarioUsuarioImagenAprobada.Attributes.Add ( "OnChange", "this.value = '" + string.Empty + "'" );
 
+            //txtComentarioUsuarioImagenAprobada.Attributes.Add("OnClick", "txtComentarioUsuarioImagenAprobada_Click");
+
+            txtComentarioUsuarioImagenAprobada.TextChanged += delegate { GuardarComentario(); };
+
             return txtComentarioUsuarioImagenAprobada;
 
         }
@@ -450,6 +461,18 @@ namespace AplicacionWeb
         {
 
             return new Label { Text = "Aún no se han subido archivos." };
+
+        }
+
+        private void GuardarComentario()
+        {
+
+            string prueba;
+
+            //if ((int)e.KeyChar == (int)Keys.Enter)
+            //{
+            //    //aqui codigo
+            //}
 
         }
 
