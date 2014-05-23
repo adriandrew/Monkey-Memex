@@ -38,7 +38,7 @@ namespace AplicacionWeb
 
             MostrarImagenes();
 
-            txtComentarioUsuarioImagenAprobada_TextChanged(sender, e);
+            //txtComentarioUsuarioImagenAprobada_TextChanged(sender, e);
 
         }
 
@@ -207,21 +207,21 @@ namespace AplicacionWeb
 
                             #region Panel de comentarios de memex.
 
-                            Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
+                            //Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
 
-                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
+                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
 
-                            TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
+                            //TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
 
-                            pnlComentariosImagenAprobada.Controls.Add ( txtComentarioUsuarioImagenAprobada );
+                            //pnlComentariosImagenAprobada.Controls.Add ( txtComentarioUsuarioImagenAprobada );
 
                             #endregion
 
                             #region Panel de comentarios de facebook.
 
-                            //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada();
+                            Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
 
-                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
 
                             #endregion
 
@@ -381,7 +381,7 @@ namespace AplicacionWeb
             pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
 
             // Esta es la excepcion de aplicar estilos desde codigo, ya que asi lo requiero y es mas facil.
-            pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
+            //pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
             
             return pnlComentariosImagenAprobada;
 
@@ -423,20 +423,18 @@ namespace AplicacionWeb
 
         #region Panel de comentarios de facebook.
 
-        private Panel CrearComentariosUsuarioFacebookImagenAprobada()
+        private Panel CrearComentariosUsuarioFacebookImagenAprobada(string idImagen)
         {
 
             Panel pnlComentariosUsuarioFacebookImagenAprobada = new Panel();
 
             pnlComentariosUsuarioFacebookImagenAprobada.CssClass = "fb-comments";
 
-            //pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("style", "data-href=\'http://monkey.somee.com/\' data-numposts='5' data-colorscheme='dark'");
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add ( "data-href", "http://monkey.somee.com/" + idImagen );
 
-            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-href", "http://monkey.somee.com/");
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add ( "data-numposts", "5" );
 
-            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-numposts", "5");
-
-            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add("data-colorscheme", "dark");
+            pnlComentariosUsuarioFacebookImagenAprobada.Attributes.Add ( "data-colorscheme", "dark" );
 
             return pnlComentariosUsuarioFacebookImagenAprobada;
 

@@ -5,9 +5,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-<%--    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="pnlImagenes" runat="server"></asp:UpdatePanel>--%>
-
     <asp:Panel runat="server" ID="pnlImagenes" />
 
     <%--Plugin de Facebook--%>
