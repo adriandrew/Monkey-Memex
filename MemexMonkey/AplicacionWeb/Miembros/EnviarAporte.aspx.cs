@@ -40,6 +40,9 @@ namespace AplicacionWeb.Miembros
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //if (!IsPostBack)
+            //    Validate();
+
             CargarCategorias();
 
             CargarCaracteristicasControlImagenes();

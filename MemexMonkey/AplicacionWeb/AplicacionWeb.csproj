@@ -67,6 +67,7 @@
     <Content Include="Css\elementosDinamicos.css" />
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Images\aprobado.jpg" />
     <Content Include="Images\dislike.png" />
     <Content Include="Images\icoInfo.png" />
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Miembros\AporteEnviado.aspx.cs">
       <DependentUpon>AporteEnviado.aspx</DependentUpon>
