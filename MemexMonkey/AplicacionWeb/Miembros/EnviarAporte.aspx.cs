@@ -51,12 +51,6 @@ namespace AplicacionWeb.Miembros
 
             AgregarOnChange();
 
-            //Server.Transfer("~/Default.aspx", true);
-
-            //Default defaultt = new Default();
-
-            //defaultt.InsertarDivExternamente();
-
         }
        
         protected void btnEnviarAporte_Click(object sender, EventArgs e)

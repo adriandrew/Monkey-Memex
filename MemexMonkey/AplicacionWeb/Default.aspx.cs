@@ -29,8 +29,6 @@ namespace AplicacionWeb
 
             //}
 
-            //InsertarDiv();
-
 
             //Label lblNumeroUsuariosOnline = MostrarNumeroUsuariosOnline();
 
@@ -38,9 +36,14 @@ namespace AplicacionWeb
 
             MostrarImagenes();
 
+            // TODO Es para poder guardar comentarios con el enter.
+
             //txtComentarioUsuarioImagenAprobada_TextChanged(sender, e);
 
         }
+
+        
+        // TODO Es para poder guardar comentarios con el enter.
 
         private void txtComentarioUsuarioImagenAprobada_TextChanged ( Object sender, System.EventArgs e )
         {
@@ -52,42 +55,6 @@ namespace AplicacionWeb
         #endregion
 
         #region Metodos Publicos
-
-        public void InsertarDiv()
-        {
-                    
-            Panel panel = new Panel();
-
-            panel.ID = "idPanel";
-
-            pnlImagenes.Controls.Add ( panel );
-
-            Literal literal = new Literal();
-
-            literal.Text = "<h2> Prueba </h2>";
-
-            panel.Controls.Add ( literal );
-            
-        }
-
-        public void InsertarDivExternamente() 
-        {
-            
-            idImagenes.InnerHtml = "<h2> prueba </h2>";
-            
-            Panel panel = new Panel();
-
-            panel.ID = "idPanel";
-
-            pnlImagenes.Controls.Add(panel);
-
-            Literal literal = new Literal();
-
-            literal.Text = "<h2> Prueba </h2>";
-
-            panel.Controls.Add(literal);
-
-        }
 
         #endregion
 
