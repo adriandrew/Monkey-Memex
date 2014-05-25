@@ -17,24 +17,16 @@ namespace AplicacionWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Se verifica la conexion a la base de datos.
 
-            // TODO Se crea el objeto de la clase y se invoca el metodo para autoverificar la solucion. PENDIENTE.
+            if ( ! IsPostBack )
+            {
+ 
+            VerificarConexionBaseDatos();
 
-            //LogicaNegocio.Autoverificacion autoverificacion = new LogicaNegocio.Autoverificacion();
+            //VerificarArchivos();
 
-            //if (! autoverificacion.AutoverificarSolucion().Equals("Exitoso"))
-            //{
-
-            //    Response.Write("<script>window.alert('"+ autoverificacion.AutoverificarSolucion() +"');</script>"); 
-
-            //}
-
-
-            //Label lblNumeroUsuariosOnline = MostrarNumeroUsuariosOnline();
-
-            //pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
-
-            MostrarImagenes();
+            }
 
             // TODO Es para poder guardar comentarios con el enter.
 
@@ -56,11 +48,55 @@ namespace AplicacionWeb
 
         #region Metodos Publicos
 
+        public void VerificarConexionBaseDatos()
+        {
+
+            Entidades.ConexionBaseDatos conexionBaseDatos = new Entidades.ConexionBaseDatos();
+
+            bool esConexionCorrecta = conexionBaseDatos.VerificarConexionBaseDatos();
+
+            if ( ! esConexionCorrecta )
+            { 
+            
+                string script = @"<script type='text/javascript'> alert('{0}');</script>";
+                
+                script = string.Format(script, "Conexion a Base de Datos Incorrecta :(");
+                
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alerta", script, false);
+
+            }
+            else if( esConexionCorrecta )
+            {
+
+                MostrarImagenes();
+
+            // MostrarNumeroUsuariosOnline();
+
+            }
+
+        }
+
+        public void VerificarArchivos()
+        { 
+
+            // TODO Se crea el objeto de la clase y se invoca el metodo para autoverificar la solucion. PENDIENTE (CAMBIAR SCRIPT DE ALERTA).
+
+            //LogicaNegocio.Autoverificacion autoverificacion = new LogicaNegocio.Autoverificacion();
+
+            //if (! autoverificacion.AutoverificarSolucion().Equals("Exitoso"))
+            //{
+
+            //    Response.Write("<script>window.alert('"+ autoverificacion.AutoverificarSolucion() +"');</script>"); 
+
+            //}
+
+        }
+
         #endregion
 
         #region Metodos Privados
 
-        private Label MostrarNumeroUsuariosOnline()
+        private void MostrarNumeroUsuariosOnline()
         {
 
             Label lblNumeroUsuariosOnline = new Label();
@@ -70,7 +106,7 @@ namespace AplicacionWeb
 
             lblNumeroUsuariosOnline.Text = string.IsNullOrEmpty ( lblNumeroUsuariosOnline.Text.ToString() ) ? "0" : lblNumeroUsuariosOnline.Text.ToString() ;
 
-            return lblNumeroUsuariosOnline;
+            pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
 
         }
 
