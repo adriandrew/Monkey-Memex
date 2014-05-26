@@ -64,6 +64,8 @@ namespace AplicacionWeb
                 
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Alerta", script, false);
 
+                //Response.Redirect ("~/Error.aspx");
+
             }
             else if( esConexionCorrecta )
             {
