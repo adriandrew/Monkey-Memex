@@ -20,6 +20,8 @@ namespace AplicacionWeb
 
             rutas.MapPageRoute ( "RegistrarMiembro", "Registrarse", "~/RegistrarMiembro.aspx" );
 
+            rutas.MapPageRoute ( "PublicacionIndividual", "PublicacionIndividual/{idImagen}", "~/PublicacionIndividual.aspx" );
+
         }
 
         protected void Application_Start(object sender, EventArgs e)

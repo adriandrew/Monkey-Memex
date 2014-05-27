@@ -118,7 +118,7 @@ namespace AplicacionWeb
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
-            List<Entidades.Imagenes> listaImagenes = new List<Entidades.Imagenes>();
+            List < Entidades.Imagenes > listaImagenes = new List < Entidades.Imagenes > ();
 
             listaImagenes = imagenes.ObtenerListadoAprobados();
 
@@ -147,7 +147,7 @@ namespace AplicacionWeb
 
                 string esAprobado = elementoImagenes.EsAprobado.ToString();
 
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
 
                 if ( directorioInfo.Exists )
                 {

@@ -12,13 +12,18 @@ namespace AplicacionWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            int idImagen = 0;
+            if ( ! IsPostBack )
+            {
 
-            string id = Page.RouteData.Values["idImagen"].ToString();
+                int idImagen = 0;
 
-            if ( int.TryParse ( id,  out idImagen ) )
- 
-            CargarCaracteristicas ( idImagen );
+                string id = Page.RouteData.Values [ "idImagen" ].ToString();
+
+                if ( int.TryParse ( id, out idImagen ) )
+
+                CargarCaracteristicas ( idImagen );
+
+            }
 
         }
 
@@ -30,13 +35,29 @@ namespace AplicacionWeb
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
-            // TODO Metodo pendiente de crear, buscar la imagen por id.
+            List < Entidades.Imagenes > listaImagen = imagenes.ObtenerPorIdImagen ( idImagen );
 
-            imagenes.ObtenerPorIdImagen ( idImagen );
+            if ( listaImagen.Count == 1 )
+            {
+                // TODO Faltan poner los demas parametros.
 
-            // TODO Pienso mejor obtenerlos en una lista ya que es mas facil de usar con objetos que una string con split.
+                imgIndividual.ImageUrl = listaImagen [ 0 ].RutaRelativa;
 
-            imgIndividual.ImageUrl = imagenes.RutaRelativa;
+                lblTitulo.Text = listaImagen [ 0 ].Titulo;
+
+            }
+            else if ( listaImagen.Count != 1 )
+            {
+                
+                string script = @"<script type='text/javascript'> alert('{0}'); </script>";
+
+                script = string.Format ( script, "Esta publicacion no pudo ser cargada :(" );
+
+                ScriptManager.RegisterStartupScript ( this, typeof ( Page ), "Alerta", script, false );
+
+                Response.Redirect ( "~/Default.aspx" );
+
+            }
 
         }
 

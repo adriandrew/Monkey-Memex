@@ -162,6 +162,80 @@ namespace Entidades
 
         }
 
+        public List < Imagenes > ObtenerPorIdImagen ( int idImagen )
+        { 
+            List < Imagenes > lista = new List < Imagenes > ();
+
+            try
+            {
+
+                string sql = "SELECT * FROM Imagenes WHERE IdImagen = @idImagen";
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                comando.Parameters.AddWithValue ( "@idImagen", idImagen );
+
+                BaseDatos.conexion.Open();
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                Imagenes imagenes;
+
+                while ( reader.Read() )
+                {
+
+                    imagenes = new Imagenes();
+
+                    imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
+
+                    imagenes.Titulo = reader [ "Titulo" ].ToString();
+
+                    imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ].ToString();
+
+                    imagenes.RutaRelativa = reader [ "RutaRelativa" ].ToString();
+
+                    imagenes.EnlaceExterno = reader [ "EnlaceExterno" ].ToString();
+
+                    imagenes.EtiquetasBasicas = reader [ "EtiquetasBasicas" ].ToString();
+
+                    imagenes.EtiquetasOpcionales = reader [ "EtiquetasOpcionales" ].ToString();
+
+                    imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ].ToString() );
+
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ].ToString() );
+
+                    imagenes.UserId = new Guid( reader [ "UserId" ].ToString() );
+
+                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ].ToString() );
+
+                    lista.Add ( imagenes );
+
+                }
+
+                BaseDatos.conexion.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+            
+            }
+            
+            return lista;
+
+        }
+
         public List < Imagenes > ObtenerListadoAprobados()
         {
 
