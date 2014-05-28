@@ -239,7 +239,7 @@ namespace Entidades
         public List < Imagenes > ObtenerListadoAprobados()
         {
 
-            List<Imagenes> lista = new List<Imagenes>();
+            List < Imagenes > lista = new List < Imagenes > ();
 
             try
             {
@@ -311,7 +311,7 @@ namespace Entidades
 
         public List < Imagenes > ObtenerListadoPendientes() {
 
-            List<Imagenes> lista = new List<Imagenes>();
+            List < Imagenes > lista = new List < Imagenes > ();
 
             try 
             {
@@ -335,25 +335,25 @@ namespace Entidades
                     
                     imagenes = new Imagenes();
 
-                    imagenes.IdImagen = Convert.ToInt32(reader["IdImagen"]);
+                    imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
-                    imagenes.Titulo = reader["Titulo"].ToString();
+                    imagenes.Titulo = reader [ "Titulo" ] .ToString();
 
-                    imagenes.DirectorioRelativo = reader["DirectorioRelativo"].ToString();
+                    imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ].ToString();
 
-                    imagenes.RutaRelativa = reader["RutaRelativa"].ToString();
+                    imagenes.RutaRelativa = reader [ "RutaRelativa" ].ToString();
 
-                    imagenes.EnlaceExterno = reader["EnlaceExterno"].ToString();
+                    imagenes.EnlaceExterno = reader [ "EnlaceExterno" ].ToString();
 
-                    imagenes.EtiquetasBasicas = reader["EtiquetasBasicas"].ToString();
+                    imagenes.EtiquetasBasicas = reader [ "EtiquetasBasicas" ].ToString();
 
-                    imagenes.EtiquetasOpcionales = reader["EtiquetasOpcionales"].ToString();
+                    imagenes.EtiquetasOpcionales = reader [ "EtiquetasOpcionales" ].ToString();
 
-                    imagenes.FechaSubida = Convert.ToDateTime(reader["FechaSubida"]);
+                    imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ] );
 
-                    imagenes.IdCategoria = Convert.ToInt32(reader["IdCategoria"]);
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] );
 
-                    imagenes.UserId = new Guid(reader["UserId"].ToString());
+                    imagenes.UserId = new Guid ( reader [ "UserId" ].ToString() );
 
                     imagenes.EsAprobado = Convert.ToInt32(reader["EsAprobado"]);
 
@@ -381,6 +381,8 @@ namespace Entidades
 
         }
 
+        // TODO: Terminar metodo PENDIENTE
+
         public List < Imagenes > ObtenerListadoUsuarios() 
         {
 
@@ -389,7 +391,6 @@ namespace Entidades
             try
             {
 
-                // TODO: Terminar metodo PENDIENTE
 
                 string sql = "SELECT * FROM ";
 

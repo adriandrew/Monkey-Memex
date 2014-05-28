@@ -64,6 +64,7 @@
   <ItemGroup>
     <Content Include="Administradores\PanelControl.aspx" />
     <Content Include="Controles\SubirArchivo.ascx" />
+    <Content Include="Css\publicacionIndividual.css" />
     <Content Include="Css\elementosDinamicos.css" />
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
@@ -75,6 +76,7 @@
     <Content Include="Images\icoWarning.png" />
     <Content Include="Images\like.png" />
     <Content Include="Images\rechazado.jpg" />
+    <Content Include="Images\XaviReclama.jpg" />
     <Content Include="Js\scripts.js" />
     <Content Include="Miembros\AporteEnviado.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />

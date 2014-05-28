@@ -23,7 +23,6 @@
 
     <div runat="server" id="idImagenes">
         <a href='PublicacionIndividual/1'>Prueba</a>
-
     </div>
 
 </asp:Content>

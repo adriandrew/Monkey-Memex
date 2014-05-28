@@ -12,18 +12,18 @@ namespace AplicacionWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if ( ! IsPostBack )
-            {
+            //if ( ! IsPostBack )
+            //{
 
-                int idImagen = 0;
+            //    int idImagen = 0;
 
-                string id = Page.RouteData.Values [ "idImagen" ].ToString();
+            //    string id = Page.RouteData.Values [ "idImagen" ].ToString();
 
-                if ( int.TryParse ( id, out idImagen ) )
+            //    if ( int.TryParse ( id, out idImagen ) )
 
-                CargarCaracteristicas ( idImagen );
+            //    CargarCaracteristicas ( idImagen );
 
-            }
+            //}
 
         }
 
@@ -39,11 +39,14 @@ namespace AplicacionWeb
 
             if ( listaImagen.Count == 1 )
             {
+
                 // TODO Faltan poner los demas parametros.
 
-                imgIndividual.ImageUrl = listaImagen [ 0 ].RutaRelativa;
+                tituloImagen.InnerHtml = listaImagen [ 0 ].Titulo;
 
-                lblTitulo.Text = listaImagen [ 0 ].Titulo;
+                imagenIndividual.Src = listaImagen[0].RutaRelativa;
+
+
 
             }
             else if ( listaImagen.Count != 1 )
