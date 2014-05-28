@@ -22,7 +22,7 @@
     <%--Termina plugin de Facebook--%>
 
     <div runat="server" id="idImagenes">
-        <a href='PublicacionIndividual/1'>Prueba</a>
+        <%--<a href='PublicacionIndividual/1'>Ver publicacion individual -></a>--%>
     </div>
 
 </asp:Content>

@@ -60,14 +60,14 @@ namespace AplicacionWeb
             
                 string script = @"<script type='text/javascript'> alert('{0}');</script>";
                 
-                script = string.Format(script, "Conexion a Base de Datos Incorrecta :(");
+                script = string.Format ( script, "Conexion a Base de Datos Incorrecta :(" );
                 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alerta", script, false);
+                ScriptManager.RegisterStartupScript ( this, typeof ( Page ), "Alerta", script, false );
 
                 //Response.Redirect ("~/Error.aspx");
 
             }
-            else if( esConexionCorrecta )
+            else if ( esConexionCorrecta )
             {
 
                 MostrarImagenes();
@@ -184,9 +184,13 @@ namespace AplicacionWeb
 
                             #endregion
 
+                            System.Web.UI.HtmlControls.HtmlAnchor lnkPublicacionIndividual = CrearHtmlAnchorPublicacionIndividual ( idImagen );
+
+                            pnlImagen.Controls.Add ( lnkPublicacionIndividual );
+
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
-                            pnlImagen.Controls.Add ( imgAprobada );
+                            lnkPublicacionIndividual.Controls.Add(imgAprobada);
 
                             #region Footer de imagen.
 
@@ -316,6 +320,18 @@ namespace AplicacionWeb
         #endregion
 
         #region Imagen
+
+        private System.Web.UI.HtmlControls.HtmlAnchor CrearHtmlAnchorPublicacionIndividual ( string idImagen )
+        {
+             
+            System.Web.UI.HtmlControls.HtmlAnchor lnkPublicacionIndividual = new System.Web.UI.HtmlControls.HtmlAnchor();
+
+            lnkPublicacionIndividual.HRef = string.Format ( "{0}{1}", "~/PublicacionIndividual/", idImagen );
+
+            return lnkPublicacionIndividual;
+
+        }
+
         private Image CrearImageAprobada ( string urlImagen, string titulo )
         {
 
@@ -386,7 +402,8 @@ namespace AplicacionWeb
             pnlComentariosImagenAprobada.CssClass = "divComentariosImagenAprobada";
 
             // Esta es la excepcion de aplicar estilos desde codigo, ya que asi lo requiero y es mas facil.
-            //pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
+            
+            pnlComentariosImagenAprobada.Attributes.Add ( "style", "display: none;" );
             
             return pnlComentariosImagenAprobada;
 
@@ -428,7 +445,7 @@ namespace AplicacionWeb
 
         #region Panel de comentarios de facebook.
 
-        private Panel CrearComentariosUsuarioFacebookImagenAprobada(string idImagen)
+        private Panel CrearComentariosUsuarioFacebookImagenAprobada ( string idImagen )
         {
 
             Panel pnlComentariosUsuarioFacebookImagenAprobada = new Panel();
@@ -454,7 +471,7 @@ namespace AplicacionWeb
 
             Literal litImagenNoEncontrada = new Literal();
 
-            litImagenNoEncontrada.Text = string.Format ( "<h2>Falta el archivo.. {0} </h2>", rutaRelativa );
+            litImagenNoEncontrada.Text = string.Format ( "<h2> Falta el archivo.. {0} </h2>", rutaRelativa );
 
             return litImagenNoEncontrada;
 

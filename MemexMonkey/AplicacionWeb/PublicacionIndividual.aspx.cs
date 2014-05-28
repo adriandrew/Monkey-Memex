@@ -12,18 +12,18 @@ namespace AplicacionWeb
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if ( ! IsPostBack )
-            //{
+            if (!IsPostBack)
+            {
 
-            //    int idImagen = 0;
+                int idImagen = 0;
 
-            //    string id = Page.RouteData.Values [ "idImagen" ].ToString();
+                string id = Page.RouteData.Values["idImagen"].ToString();
 
-            //    if ( int.TryParse ( id, out idImagen ) )
+                if (int.TryParse(id, out idImagen))
 
-            //    CargarCaracteristicas ( idImagen );
+                    CargarCaracteristicas(idImagen);
 
-            //}
+            }
 
         }
 
@@ -42,11 +42,17 @@ namespace AplicacionWeb
 
                 // TODO Faltan poner los demas parametros.
 
-                tituloImagen.InnerHtml = listaImagen [ 0 ].Titulo;
+                tituloImagen.InnerText = listaImagen [ 0 ].Titulo;
 
-                imagenIndividual.Src = listaImagen[0].RutaRelativa;
+                usuarioAportador.InnerText = listaImagen [ 0 ].UserId.ToString();
 
+                fechaPublicacion.InnerText = listaImagen [ 0 ].FechaSubida.ToString();
 
+                imagenIndividual.Src = listaImagen [ 0 ].RutaRelativa;
+
+                etiquetas.InnerText = string.Format ( "{0} | {1}", listaImagen[0].EtiquetasBasicas, listaImagen[0].EtiquetasOpcionales );
+
+                pluginComentariosFacebook.Attributes.Add ( "data-href", string.Format ( "{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", listaImagen [ 0 ].IdImagen ) );
 
             }
             else if ( listaImagen.Count != 1 )
