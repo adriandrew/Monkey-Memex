@@ -94,6 +94,12 @@ namespace AplicacionWeb.Miembros
 
                 Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
+                imagenes.IdCategoria = Convert.ToInt32 ( ddlCategoria.SelectedValue );
+
+                imagenes.UserId = ( Guid ) Membership.GetUser().ProviderUserKey;
+
+                imagenes.EsAprobado = 1;
+
                 imagenes.Titulo = txtTituloImagen.Text;
 
                 imagenes.DirectorioRelativo = AplicacionWeb.Miembros.EnviarAporte.DirectorioRelativo;
@@ -108,11 +114,9 @@ namespace AplicacionWeb.Miembros
 
                 imagenes.FechaSubida = DateTime.Now;
 
-                imagenes.IdCategoria = Convert.ToInt32 ( ddlCategoria.SelectedValue );
+                // Va en ceros porque aun no se sabe si será publicada.
 
-                imagenes.UserId = ( Guid ) Membership.GetUser().ProviderUserKey;
-
-                imagenes.EsAprobado = 1;
+                imagenes.FechaPublicacion = new DateTime ( 0000, 0, 0 );
 
                 imagenes.Guardar();
 

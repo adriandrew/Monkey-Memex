@@ -13,6 +13,12 @@ namespace Entidades
 
         private int idImagen;
 
+        private int idCategoria;
+
+        private Guid userId;
+
+        private int esAprobado;
+
         private string titulo;
 
         private string directorioRelativo;
@@ -27,12 +33,8 @@ namespace Entidades
 
         private DateTime fechaSubida;
 
-        private int idCategoria;
-
-        private Guid userId;
-
-        private int esAprobado;
-                
+        private DateTime fechaPublicacion;
+                        
         #endregion
 
         #region Propiedades
@@ -42,6 +44,24 @@ namespace Entidades
             get { return idImagen; }
             set { idImagen = value; }
         }
+
+        public int IdCategoria
+        {
+            get { return idCategoria; }
+            set { idCategoria = value; }
+        }
+
+        public Guid UserId
+        {
+            get { return userId; }
+            set { userId = value; }
+        }
+
+        public int EsAprobado
+        {
+            get { return esAprobado; }
+            set { esAprobado = value; }
+        }        
 
         public string Titulo
         {
@@ -84,23 +104,12 @@ namespace Entidades
             set { fechaSubida = value; }
         }
 
-        public int IdCategoria
-        {
-            get { return idCategoria; }
-            set { idCategoria = value; }
-        }
 
-        public Guid UserId
+        public DateTime FechaPublicacion
         {
-            get { return userId; }
-            set { userId = value; }
+            get { return fechaPublicacion; }
+            set { fechaPublicacion = value; }
         }
-
-        public int EsAprobado
-        {
-            get { return esAprobado; }
-            set { esAprobado = value; }
-        }        
 
         #endregion
 
@@ -112,13 +121,19 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Imagenes ( Titulo, DirectorioRelativo, RutaRelativa, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, IdCategoria, UserId, EsAprobado ) VALUES ( @titulo, @directorioRelativo, @rutaRelativa, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @idCategoria, @userId, @esAprobado )";
+                string sql = "INSERT INTO Imagenes ( IdCategoria, UserId, EsAprobado, Titulo, DirectorioRelativo, RutaRelativa, EnlaceExterno, EtiquetasBasicas, EtiquetasOpcionales, FechaSubida, FechaPublicacion ) VALUES ( @idCategoria, @userId, @esAprobado, @titulo, @directorioRelativo, @rutaRelativa, @enlaceExterno, @etiquetasBasicas, @etiquetasOpcionales, @fechaSubida, @FechaPublicacion )";
 
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = BaseDatos.conexion;
 
                 comando.CommandText = sql;
+
+                comando.Parameters.AddWithValue ( "@idCategoria", this.IdCategoria );
+
+                comando.Parameters.AddWithValue ( "@userId", this.UserId );
+
+                comando.Parameters.AddWithValue ( "@esAprobado", this.EsAprobado );
 
                 comando.Parameters.AddWithValue ( "@titulo", this.Titulo );
 
@@ -134,11 +149,7 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@fechaSubida", this.FechaSubida );
 
-                comando.Parameters.AddWithValue ( "@idCategoria", this.IdCategoria );
-
-                comando.Parameters.AddWithValue ( "@userId", this.UserId );
-
-                comando.Parameters.AddWithValue ( "@esAprobado", this.EsAprobado );
+                comando.Parameters.AddWithValue ( "@fechaPublicacion", this.FechaPublicacion );
 
                 BaseDatos.conexion.Open();
 
@@ -192,6 +203,12 @@ namespace Entidades
 
                     imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ].ToString() );
+
+                    imagenes.UserId = new Guid( reader [ "UserId" ].ToString() );
+
+                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ].ToString() );
+
                     imagenes.Titulo = reader [ "Titulo" ].ToString();
 
                     imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ].ToString();
@@ -206,11 +223,7 @@ namespace Entidades
 
                     imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ].ToString() );
 
-                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ].ToString() );
-
-                    imagenes.UserId = new Guid( reader [ "UserId" ].ToString() );
-
-                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ].ToString() );
+                    imagenes.FechaPublicacion = Convert.ToDateTime ( reader [ "FechaPublicacion" ].ToString() );
 
                     lista.Add ( imagenes );
 
@@ -265,6 +278,12 @@ namespace Entidades
 
                     imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] .ToString() );
+
+                    imagenes.UserId = new Guid ( reader [ "UserId" ] .ToString() );
+
+                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ] .ToString() );
+
                     imagenes.Titulo = reader [ "Titulo" ] .ToString();
 
                     imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ] .ToString();
@@ -279,11 +298,7 @@ namespace Entidades
 
                     imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ] .ToString() );
 
-                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] .ToString() );
-
-                    imagenes.UserId = new Guid ( reader [ "UserId" ] .ToString() );
-
-                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ] .ToString() );
+                    imagenes.FechaPublicacion = Convert.ToDateTime ( reader [ "FechaPublicacion" ].ToString() );
 
                     lista.Add ( imagenes );
 
@@ -337,6 +352,12 @@ namespace Entidades
 
                     imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] );
+
+                    imagenes.UserId = new Guid ( reader [ "UserId" ].ToString() );
+
+                    imagenes.EsAprobado = Convert.ToInt32(reader["EsAprobado"]);
+                    
                     imagenes.Titulo = reader [ "Titulo" ] .ToString();
 
                     imagenes.DirectorioRelativo = reader [ "DirectorioRelativo" ].ToString();
@@ -351,11 +372,7 @@ namespace Entidades
 
                     imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ] );
 
-                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] );
-
-                    imagenes.UserId = new Guid ( reader [ "UserId" ].ToString() );
-
-                    imagenes.EsAprobado = Convert.ToInt32(reader["EsAprobado"]);
+                    imagenes.FechaPublicacion = Convert.ToDateTime ( reader [ "FechaPublicacion" ].ToString());
 
                     lista.Add ( imagenes );
 

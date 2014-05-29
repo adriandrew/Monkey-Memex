@@ -37,6 +37,12 @@ namespace AplicacionWeb.Administradores
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
 
+                string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+                string userId = elementoImagenes.UserId.ToString();
+
+                string esAprobado = elementoImagenes.EsAprobado.ToString();
+
                 string titulo = elementoImagenes.Titulo.ToString();
 
                 string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
@@ -51,11 +57,7 @@ namespace AplicacionWeb.Administradores
 
                 string fechaSubida = elementoImagenes.FechaSubida.ToString();
 
-                string idCategoria = elementoImagenes.IdCategoria.ToString();
-
-                string userId = elementoImagenes.UserId.ToString();
-
-                string esAprobado = elementoImagenes.EsAprobado.ToString();
+                string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
 
                 System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
 

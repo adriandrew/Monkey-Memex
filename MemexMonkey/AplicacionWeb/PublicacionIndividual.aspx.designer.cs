@@ -13,57 +13,57 @@ namespace AplicacionWeb {
     public partial class PublicacionIndividual {
         
         /// <summary>
-        /// Control tituloImagen.
+        /// Control uiTituloImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloImagen;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiTituloImagen;
         
         /// <summary>
-        /// Control usuarioAportador.
+        /// Control uiUsuarioAportador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usuarioAportador;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiUsuarioAportador;
         
         /// <summary>
-        /// Control fechaPublicacion.
+        /// Control uiFechaPublicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fechaPublicacion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiFechaPublicacion;
         
         /// <summary>
-        /// Control imagenIndividual.
+        /// Control uiImagenIndividual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imagenIndividual;
+        protected global::System.Web.UI.HtmlControls.HtmlImage uiImagenIndividual;
         
         /// <summary>
-        /// Control etiquetas.
+        /// Control uiEtiquetas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl etiquetas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiEtiquetas;
         
         /// <summary>
-        /// Control pluginComentariosFacebook.
+        /// Control uiPluginComentariosFacebook.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pluginComentariosFacebook;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiPluginComentariosFacebook;
     }
 }

@@ -9,6 +9,7 @@ namespace AplicacionWeb
 {
     public partial class PublicacionIndividual : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -40,19 +41,41 @@ namespace AplicacionWeb
             if ( listaImagen.Count == 1 )
             {
 
+                string idCategoria = listaImagen[0].IdCategoria.ToString(); ;
+
+                string userId = listaImagen[0].UserId.ToString();
+
+                string esAprobado = listaImagen[0].EsAprobado.ToString();
+
+                string titulo = listaImagen[0].Titulo;
+
+                string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+
+                string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
+
+                string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
+
+                string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
+
+                string fechaSubida = listaImagen[0].FechaSubida.ToString();
+
+                string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
+                
                 // TODO Faltan poner los demas parametros.
 
-                tituloImagen.InnerText = listaImagen [ 0 ].Titulo;
+                uiTituloImagen.InnerText = titulo;
 
-                usuarioAportador.InnerText = listaImagen [ 0 ].UserId.ToString();
+                uiUsuarioAportador.InnerText = userId;
 
-                fechaPublicacion.InnerText = listaImagen [ 0 ].FechaSubida.ToString();
+                uiFechaPublicacion.InnerText = fechaPublicacion;
 
-                imagenIndividual.Src = listaImagen [ 0 ].RutaRelativa;
+                uiImagenIndividual.Src = rutaRelativa;
 
-                etiquetas.InnerText = string.Format ( "{0} | {1}", listaImagen[0].EtiquetasBasicas, listaImagen[0].EtiquetasOpcionales );
+                uiEtiquetas.InnerText = string.Format ( "{0} | {1}", etiquetasBasicas, etiquetasOpcionales );
 
-                pluginComentariosFacebook.Attributes.Add ( "data-href", string.Format ( "{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", listaImagen [ 0 ].IdImagen ) );
+                uiPluginComentariosFacebook.Attributes.Add ( "data-href", string.Format ( "{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", idImagen ) );
 
             }
             else if ( listaImagen.Count != 1 )

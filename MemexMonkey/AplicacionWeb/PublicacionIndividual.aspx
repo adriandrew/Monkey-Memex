@@ -5,12 +5,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-    <h2 runat="server" id="tituloImagen"> Y la publicación, donde está la publicación? </h2>
-    <h4 runat="server" id="usuarioAportador"> Aporte por: </h4>
-    <h6 runat="server" id="fechaPublicacion"> Fecha publicacion. </h6>
-    <img runat="server" id="imagenIndividual" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
-    <h6 runat="server" id="etiquetas"> #xavi #monkey | #xavi reclama la publicacion #soy memex </h6>
-    <div runat="server" id="pluginComentariosFacebook" class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
+    <h2 runat="server" id="uiTituloImagen"> Y la publicación, donde está la publicación? </h2>
+    <h4 runat="server" id="uiUsuarioAportador"> Aporte por: </h4>
+    <h6 runat="server" id="uiFechaPublicacion"> Fecha publicacion. </h6>
+    <img runat="server" id="uiImagenIndividual" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
+    <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #soy memex </h6>
+    <div runat="server" id="uiPluginComentariosFacebook" class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
     
     <%--Plugin de Facebook--%>
     <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
