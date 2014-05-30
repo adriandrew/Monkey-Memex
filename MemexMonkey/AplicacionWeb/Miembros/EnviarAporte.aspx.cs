@@ -49,7 +49,7 @@ namespace AplicacionWeb.Miembros
 
             AgregarOnClick();
 
-            AgregarOnChange();
+            //AgregarOnChange();
 
         }
        
@@ -116,7 +116,7 @@ namespace AplicacionWeb.Miembros
 
                 // Va en ceros porque aun no se sabe si será publicada.
 
-                imagenes.FechaPublicacion = new DateTime ( 0000, 0, 0 );
+                imagenes.FechaPublicacion = new DateTime ( 2001, 01, 01 );
 
                 imagenes.Guardar();
 
@@ -277,7 +277,7 @@ namespace AplicacionWeb.Miembros
         private void Redireccionar() 
         {
 
-            Response.Redirect ( "~/Default.aspx" );
+            Response.Redirect ( "~/AporteEnviado.aspx" );
 
         }
         #endregion 
