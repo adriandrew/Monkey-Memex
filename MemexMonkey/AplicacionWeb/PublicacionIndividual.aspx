@@ -5,13 +5,19 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
+    <div id="uiImagen">
     <h2 runat="server" id="uiTituloImagen"> Y la publicación, donde está la publicación? </h2>
     <h4 runat="server" id="uiUsuarioAportador"> Aporte por: </h4>
     <h6 runat="server" id="uiFechaPublicacion"> Fecha publicacion. </h6>
     <img runat="server" id="uiImagenIndividual" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
     <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #soy memex </h6>
-    <div runat="server" id="uiPluginComentariosFacebook" class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
+    </div> <!-- Termina uiImagen -->
     
+    <div id="uiComentarios">
+        <a runat="server" href="#" id="uiMostrarComentariosFacebook" onclick="MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook')">Comentarios Facebook</a>
+    <div runat="server" id="uiPluginComentariosFacebook" class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
+    </div> <!-- Termina uiComentarios -->
+
     <%--Plugin de Facebook--%>
     <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
 
