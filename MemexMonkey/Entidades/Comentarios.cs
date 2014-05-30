@@ -11,7 +11,11 @@ namespace Entidades
 
         #region Campos
 
-        private int userId;
+        private int idComentario;
+
+        private Guid userId;
+
+        private int idImagen;
 
         private string comentario;
 
@@ -23,10 +27,22 @@ namespace Entidades
 
         #region Propiedades 
 
-        public int UserId
+        public int IdComentario
+        {
+            get { return idComentario; }
+            set { idComentario = value; }
+        }
+
+        public Guid UserId
         {
             get { return userId; }
             set { userId = value; }
+        }
+
+        public int IdImagen
+        {
+            get { return idImagen; }
+            set { idImagen = value; }
         }
 
         public string Comentario
@@ -56,7 +72,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Comentarios ( UserId, Comentario, FechaPublicacion, EsAplauso ) VALUES ( @userId, @comentario, @fechaPublicacion, @esAplauso )";
+                string sql = "INSERT INTO Comentarios ( UserId, IdImagen, Comentario, FechaPublicacion, EsAplauso ) VALUES ( @userId, @idImagen, @comentario, @fechaPublicacion, @esAplauso )";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -65,6 +81,8 @@ namespace Entidades
                 comando.CommandText = sql;
 
                 comando.Parameters.AddWithValue ( "@userId", this.UserId );
+
+                comando.Parameters.AddWithValue ( "@idImagen", this.IdImagen );
 
                 comando.Parameters.AddWithValue ( "@comentario", this.Comentario );
 
