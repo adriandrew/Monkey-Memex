@@ -58,15 +58,6 @@ namespace AplicacionWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiEtiquetas;
         
         /// <summary>
-        /// Control uiMostrarComentariosFacebook.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor uiMostrarComentariosFacebook;
-        
-        /// <summary>
         /// Control uiPluginComentariosFacebook.
         /// </summary>
         /// <remarks>
@@ -74,5 +65,23 @@ namespace AplicacionWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiPluginComentariosFacebook;
+        
+        /// <summary>
+        /// Control uiComentariosMemex.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosMemex;
+        
+        /// <summary>
+        /// Control uiComentar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText uiComentar;
     }
 }

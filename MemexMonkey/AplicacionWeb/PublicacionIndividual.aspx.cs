@@ -63,8 +63,6 @@ namespace AplicacionWeb
 
                 string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
                 
-                // TODO Faltan poner los demas parametros.
-
                 uiTituloImagen.InnerText = titulo;
 
                 uiUsuarioAportador.InnerText = userId;
@@ -75,7 +73,15 @@ namespace AplicacionWeb
 
                 uiEtiquetas.InnerText = string.Format ( "{0} | {1}", etiquetasBasicas, etiquetasOpcionales );
 
+                uiPluginComentariosFacebook.Attributes.Add ( "style", "display: none;" );
+
                 uiPluginComentariosFacebook.Attributes.Add ( "data-href", string.Format ( "{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", idImagen ) );
+
+                uiComentariosMemex.Attributes.Add ( "style", "display: none;" );
+
+                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('prueba')" );
+
+                //uiComentariosMemex.Attributes.Add("OnClick", "Response.Redirect('~/Default.aspx')");
 
             }
             else if ( listaImagen.Count != 1 )

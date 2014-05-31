@@ -218,21 +218,21 @@ namespace AplicacionWeb
 
                             #region Panel de comentarios de memex.
 
-                            //Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
+                            Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
 
-                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
+                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentarioUsuarioImagenAprobada );
 
-                            //TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
+                            TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
 
-                            //pnlComentariosImagenAprobada.Controls.Add ( txtComentarioUsuarioImagenAprobada );
+                            pnlComentariosImagenAprobada.Controls.Add ( txtComentarioUsuarioImagenAprobada );
 
                             #endregion
 
                             #region Panel de comentarios de facebook.
 
-                            Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
+                            //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
 
-                            pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
 
                             #endregion
 

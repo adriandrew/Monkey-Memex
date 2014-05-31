@@ -9,10 +9,10 @@
 
     <link href="~/Css/subirArchivos.css" rel="stylesheet" type="text/css" />
     <link href="~/Css/elementosDinamicos.css" rel="stylesheet" type="text/css" />
+    <link href="~/Css/publicacionIndividual.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="../Js/scripts.js"></script>
-
-        
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

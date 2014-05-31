@@ -16,6 +16,6 @@ window.onload = function ()
 
     /*hace que se cargue la función lo que predetermina que div estará oculto hasta llamar a la función nuevamente*/
 
-    //MuestraOculta('divComentariosImagenAprobada');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
+    //MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
 
 }
