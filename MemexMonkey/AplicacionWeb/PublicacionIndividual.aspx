@@ -5,20 +5,21 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-    <div id="uiImagen">
+    <div id="uiContenedorImagen">
         <h2 runat="server" id="uiTituloImagen"> Y la publicación, donde está la publicación? </h2>
         <h4 runat="server" id="uiUsuarioAportador"> Aporte por: </h4>
         <h6 runat="server" id="uiFechaPublicacion"> Fecha publicacion. </h6>
-        <img runat="server" id="uiImagenIndividual" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
+        <img runat="server" id="uiImagen" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
         <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #soy memex </h6>
     </div> <!-- Termina uiImagen -->
     
-    <div id="uiComentarios">
+    <div id="uiContenedorComentarios">
         <a href="#uiPluginComentariosFacebook" name="uiPluginComentariosFacebook" onclick="MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook')">Comentarios Facebook</a>
             <div runat="server" id="uiPluginComentariosFacebook"  class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
         <a href="#uiComentariosMemex" name="uiComentariosMemex" onclick="MuestraOculta('ContentPlaceHolder_uiComentariosMemex')">Comentarios Memex</a>
             <div runat="server" id="uiComentariosMemex" >
-                <input runat="server" type="text" id="uiComentar" value="" />
+                <input runat="server" type="text" id="uiAreaComentario" value=""/>
+                <button runat="server" id="uiEnviarComentario" type="submit" onserverclick="uiEnviarComentario_Click">Comentar</button>
             </div> <!-- Termina uiContenidoComentariosMemex -->
     </div> <!-- Termina uiComentarios -->
 

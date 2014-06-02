@@ -15,6 +15,12 @@ namespace AplicacionWeb
 
             if (!IsPostBack)
             {
+                
+                // TODO Propiedad para definir boton por default en el formulario.
+
+                //this.Form.DefaultButton = uiEnviarComentario.ID;
+
+                // Esto es para validar el id que se pasa por el enrutamiento.
 
                 int idImagen = 0;
 
@@ -26,6 +32,26 @@ namespace AplicacionWeb
 
             }
                         
+        }
+
+        protected void uiEnviarComentario_Click(object sender, EventArgs e)
+        {
+
+            if ( IsPostBack )
+            {
+
+                GuardarComentario();      
+
+            }
+
+
+        }
+
+        private void GuardarComentario() 
+        {
+
+            uiImagen.Visible = false;
+
         }
 
 
@@ -69,7 +95,7 @@ namespace AplicacionWeb
 
                 uiFechaPublicacion.InnerText = fechaPublicacion;
 
-                uiImagenIndividual.Src = rutaRelativa;
+                uiImagen.Src = rutaRelativa;
 
                 uiEtiquetas.InnerText = string.Format ( "{0} | {1}", etiquetasBasicas, etiquetasOpcionales );
 
@@ -84,7 +110,7 @@ namespace AplicacionWeb
                 //uiComentariosMemex.Attributes.Add("OnClick", "Response.Redirect('~/Default.aspx')");
 
             }
-            else if ( listaImagen.Count != 1 )
+            else if ( listaImagen.Count != 1 ) 
             {
                 
                 string script = @"<script type='text/javascript'> alert('{0}'); </script>";

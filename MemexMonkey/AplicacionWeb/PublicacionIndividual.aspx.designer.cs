@@ -40,13 +40,13 @@ namespace AplicacionWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiFechaPublicacion;
         
         /// <summary>
-        /// Control uiImagenIndividual.
+        /// Control uiImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage uiImagenIndividual;
+        protected global::System.Web.UI.HtmlControls.HtmlImage uiImagen;
         
         /// <summary>
         /// Control uiEtiquetas.
@@ -76,12 +76,21 @@ namespace AplicacionWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosMemex;
         
         /// <summary>
-        /// Control uiComentar.
+        /// Control uiAreaComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uiComentar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText uiAreaComentario;
+        
+        /// <summary>
+        /// Control uiEnviarComentario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton uiEnviarComentario;
     }
 }
