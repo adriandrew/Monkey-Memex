@@ -41,7 +41,23 @@ namespace AplicacionWeb
             if ( IsPostBack )
             {
 
-                GuardarComentario ( idImagen );      
+                try
+                {
+
+                    if ( !Membership.GetUser().ProviderUserKey.Equals(string.Empty))
+                    {
+
+                        GuardarComentario(idImagen);
+
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    uiImagen.Visible = false;
+
+                }
 
             }
 
@@ -62,7 +78,7 @@ namespace AplicacionWeb
 
             comentarios.MeGusta = 0;
 
-            uiImagen.Visible = false;
+            comentarios.Guardar();
 
         }
 
