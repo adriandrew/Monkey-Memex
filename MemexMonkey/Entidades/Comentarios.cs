@@ -21,7 +21,7 @@ namespace Entidades
 
         private string fechaPublicacion;
 
-        private bool esAplauso;
+        private int meGusta;
 
         #endregion
 
@@ -57,10 +57,10 @@ namespace Entidades
             set { fechaPublicacion = value; }
         }
 
-        public bool EsAplauso
+        public int MeGusta
         {
-            get { return esAplauso; }
-            set { esAplauso = value; }
+            get { return meGusta; }
+            set { meGusta = value; }
         }
 
         #endregion  
@@ -72,7 +72,7 @@ namespace Entidades
             try
             {
 
-                string sql = "INSERT INTO Comentarios ( UserId, IdImagen, Comentario, FechaPublicacion, EsAplauso ) VALUES ( @userId, @idImagen, @comentario, @fechaPublicacion, @esAplauso )";
+                string sql = "INSERT INTO Comentarios ( UserId, IdImagen, Comentario, FechaPublicacion, MeGusta ) VALUES ( @userId, @idImagen, @comentario, @fechaPublicacion, @meGusta )";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -88,7 +88,7 @@ namespace Entidades
 
                 comando.Parameters.AddWithValue ( "@fechaPublicacion", this.FechaPublicacion );
 
-                comando.Parameters.AddWithValue ( "@esAplauso", this.EsAplauso );
+                comando.Parameters.AddWithValue ( "@meGusta", this.MeGusta );
 
                 BaseDatos.conexion.Open();
 

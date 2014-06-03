@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,10 +11,12 @@ namespace AplicacionWeb
     public partial class PublicacionIndividual : System.Web.UI.Page
     {
 
+        int idImagen = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            if ( ! IsPostBack )
             {
                 
                 // TODO Propiedad para definir boton por default en el formulario.
@@ -22,13 +25,11 @@ namespace AplicacionWeb
 
                 // Esto es para validar el id que se pasa por el enrutamiento.
 
-                int idImagen = 0;
-
                 string id = Page.RouteData.Values["idImagen"].ToString();
 
-                if (int.TryParse(id, out idImagen))
+                if ( int.TryParse ( id, out idImagen ) )
 
-                    CargarCaracteristicas(idImagen);
+                    CargarCaracteristicas ( idImagen );
 
             }
                         
@@ -40,15 +41,26 @@ namespace AplicacionWeb
             if ( IsPostBack )
             {
 
-                GuardarComentario();      
+                GuardarComentario ( idImagen );      
 
             }
 
-
         }
 
-        private void GuardarComentario() 
+        private void GuardarComentario ( int idImagen ) 
         {
+
+            Entidades.Comentarios comentarios = new Entidades.Comentarios();
+
+            comentarios.UserId = ( Guid ) Membership.GetUser().ProviderUserKey;
+
+            comentarios.IdImagen = idImagen;
+
+            comentarios.Comentario = uiAreaComentario.Value;
+
+            comentarios.FechaPublicacion = DateTime.Now.ToShortDateString();
+
+            comentarios.MeGusta = 0;
 
             uiImagen.Visible = false;
 
