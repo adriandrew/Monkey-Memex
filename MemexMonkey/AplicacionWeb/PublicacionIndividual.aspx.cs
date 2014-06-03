@@ -25,11 +25,15 @@ namespace AplicacionWeb
 
                 // Esto es para validar el id que se pasa por el enrutamiento.
 
-                string id = Page.RouteData.Values["idImagen"].ToString();
+                string idImagenString = Page.RouteData.Values["idImagen"].ToString();
 
-                if ( int.TryParse ( id, out idImagen ) )
+                int idImagenEntero = 0;
 
-                    CargarCaracteristicas ( idImagen );
+                if (int.TryParse(idImagenString, out idImagenEntero))
+
+                    idImagen = idImagenEntero;
+
+                    CargarCaracteristicas ( idImagenEntero );
 
             }
                         
@@ -44,7 +48,7 @@ namespace AplicacionWeb
                 try
                 {
 
-                    if ( !Membership.GetUser().ProviderUserKey.Equals(string.Empty))
+                    if ( User.Identity.IsAuthenticated )
                     {
 
                         GuardarComentario(idImagen);
@@ -74,7 +78,7 @@ namespace AplicacionWeb
 
             comentarios.Comentario = uiAreaComentario.Value;
 
-            comentarios.FechaPublicacion = DateTime.Now.ToShortDateString();
+            comentarios.FechaPublicacion = DateTime.Now;
 
             comentarios.MeGusta = 0;
 
@@ -86,7 +90,7 @@ namespace AplicacionWeb
         // TODO Pendiente rellenar con la informacion correspondiente.
 
         private void CargarCaracteristicas ( int idImagen )
-        {
+        { 
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
@@ -132,6 +136,23 @@ namespace AplicacionWeb
                 uiPluginComentariosFacebook.Attributes.Add ( "data-href", string.Format ( "{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", idImagen ) );
 
                 uiComentariosMemex.Attributes.Add ( "style", "display: none;" );
+
+                if ( User.Identity.IsAuthenticated )
+                {
+
+                    uiAreaComentario.Attributes.Add("style", "display: inline;");
+
+                    uiEnviarComentario.Attributes.Add("style", "display: inline;");
+
+                }
+                else if ( ! User.Identity.IsAuthenticated )
+                {
+
+                    uiAreaComentario.Attributes.Add("style", "display: none;");
+
+                    uiEnviarComentario.Attributes.Add("style", "display: none;");
+
+                }
 
                 //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('prueba')" );
 

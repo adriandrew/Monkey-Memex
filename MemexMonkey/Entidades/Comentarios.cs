@@ -19,7 +19,7 @@ namespace Entidades
 
         private string comentario;
 
-        private string fechaPublicacion;
+        private DateTime fechaPublicacion;
 
         private int meGusta;
 
@@ -51,7 +51,7 @@ namespace Entidades
             set { comentario = value; }
         }
 
-        public string FechaPublicacion
+        public DateTime FechaPublicacion
         {
             get { return fechaPublicacion; }
             set { fechaPublicacion = value; }
