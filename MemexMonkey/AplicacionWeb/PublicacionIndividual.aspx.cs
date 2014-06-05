@@ -227,10 +227,10 @@ namespace AplicacionWeb
         private System.Web.UI.HtmlControls.HtmlGenericControl CrearDivComentariosPorUsuariosMemex()
         {
 
-            System.Web.UI.HtmlControls.HtmlGenericControl divComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl();
+            System.Web.UI.HtmlControls.HtmlGenericControl divComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl("div");
 
-            divComentariosPorUsuarioMemex.InnerHtml = string.Format ( "{0}", "<div id='uiComentariosPorUsuario'><div>" );
-                                               
+            divComentariosPorUsuarioMemex.Attributes.Add ("id",  "uiComentariosPorUsuario");
+                                   
             return divComentariosPorUsuarioMemex;
 
         }
@@ -239,6 +239,8 @@ namespace AplicacionWeb
         {
 
             System.Web.UI.HtmlControls.HtmlAnchor aComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlAnchor();
+
+            aComentariosPorUsuarioMemex.HRef = "#";
 
             aComentariosPorUsuarioMemex.InnerText = userId;
 
@@ -249,14 +251,13 @@ namespace AplicacionWeb
         private System.Web.UI.HtmlControls.HtmlGenericControl CrearParagraphComentariosPorUsuariosMemex ( string comentario )
         {
 
-            System.Web.UI.HtmlControls.HtmlGenericControl pComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl();
+            System.Web.UI.HtmlControls.HtmlGenericControl pComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl("p");
 
-            pComentariosPorUsuarioMemex.InnerHtml = string.Format ( "{0}{1}{2}", "<p>", comentario, "</p>" ) ;
+            pComentariosPorUsuarioMemex.InnerText = comentario;
 
             return pComentariosPorUsuarioMemex;
 
         }
-
-
+        
     }
 }
