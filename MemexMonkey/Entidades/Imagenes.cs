@@ -205,7 +205,7 @@ namespace Entidades
 
                     imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ].ToString() );
 
-                    imagenes.UserId = new Guid( reader [ "UserId" ].ToString() );
+                    imagenes.UserId = new Guid ( reader [ "UserId" ].ToString() );
 
                     imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ].ToString() );
 

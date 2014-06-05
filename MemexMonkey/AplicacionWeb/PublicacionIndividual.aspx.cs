@@ -11,8 +11,6 @@ namespace AplicacionWeb
     public partial class PublicacionIndividual : System.Web.UI.Page
     {
 
-        int idImagen = 0;
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,11 +27,13 @@ namespace AplicacionWeb
 
                 int idImagenEntero = 0;
 
-                if (int.TryParse(idImagenString, out idImagenEntero))
+                if ( int.TryParse ( idImagenString, out idImagenEntero ) )
 
-                    idImagen = idImagenEntero;
+                    Session["idImagen"] = idImagenEntero;
 
                     CargarCaracteristicas ( idImagenEntero );
+
+                    MostrarComentarios();
 
             }
                         
@@ -51,7 +51,9 @@ namespace AplicacionWeb
                     if ( User.Identity.IsAuthenticated )
                     {
 
-                        GuardarComentario(idImagen);
+                        GuardarComentario();
+
+                        LimpiarComentarios();
 
                     }
 
@@ -67,14 +69,21 @@ namespace AplicacionWeb
 
         }
 
-        private void GuardarComentario ( int idImagen ) 
+        private void LimpiarComentarios()
+        {
+
+            uiAreaComentario.Value = string.Empty;
+        
+        }
+
+        private void GuardarComentario() 
         {
 
             Entidades.Comentarios comentarios = new Entidades.Comentarios();
 
             comentarios.UserId = ( Guid ) Membership.GetUser().ProviderUserKey;
 
-            comentarios.IdImagen = idImagen;
+            comentarios.IdImagen = Convert.ToInt32( Session["idImagen"] );
 
             comentarios.Comentario = uiAreaComentario.Value;
 
@@ -86,7 +95,48 @@ namespace AplicacionWeb
 
         }
 
+        private void MostrarComentarios()
+        {
 
+            Entidades.Comentarios comentarios = new Entidades.Comentarios();
+            
+            List < Entidades.Comentarios> listaComentarios = new List < Entidades.Comentarios >();
+
+            int idImagen = Convert.ToInt32 ( Session["idImagen"] ) ;
+
+            listaComentarios = comentarios.ObtenerListadoPorIdImagen ( idImagen );
+
+            foreach ( Entidades.Comentarios elementoComentarios in listaComentarios )
+            {
+
+                string idComentario = elementoComentarios.IdComentario.ToString();
+
+                string userId = elementoComentarios.UserId.ToString();
+
+                // idImagen ya tenemos su valor.
+
+                string comentario = elementoComentarios.Comentario;
+
+                string fechaPublicacion = elementoComentarios.FechaPublicacion.ToString();
+
+                string meGusta = elementoComentarios.MeGusta.ToString();
+
+                System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosPorUsuariosMemex = CrearDivComentariosPorUsuariosMemex();
+
+                uiComentariosMemex.Controls.Add ( uiComentariosPorUsuariosMemex );
+
+                System.Web.UI.HtmlControls.HtmlAnchor uiNombreUsuarioComentador = CrearAnchorComentariosPorUsuariosMemex ( userId );
+
+                uiComentariosPorUsuariosMemex.Controls.Add ( uiNombreUsuarioComentador );
+
+                System.Web.UI.HtmlControls.HtmlGenericControl uiAreaComentariosPorUsuariosMemex = CrearParagraphComentariosPorUsuariosMemex(comentario);
+
+                uiComentariosPorUsuariosMemex.Controls.Add ( uiAreaComentariosPorUsuariosMemex );
+                
+            }
+
+        }
+        
         // TODO Pendiente rellenar con la informacion correspondiente.
 
         private void CargarCaracteristicas ( int idImagen )
@@ -173,6 +223,40 @@ namespace AplicacionWeb
             }
 
         }
+
+        private System.Web.UI.HtmlControls.HtmlGenericControl CrearDivComentariosPorUsuariosMemex()
+        {
+
+            System.Web.UI.HtmlControls.HtmlGenericControl divComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl();
+
+            divComentariosPorUsuarioMemex.InnerHtml = string.Format ( "{0}", "<div id='uiComentariosPorUsuario'><div>" );
+                                               
+            return divComentariosPorUsuarioMemex;
+
+        }
+
+        private System.Web.UI.HtmlControls.HtmlAnchor CrearAnchorComentariosPorUsuariosMemex ( string userId )
+        {
+
+            System.Web.UI.HtmlControls.HtmlAnchor aComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlAnchor();
+
+            aComentariosPorUsuarioMemex.InnerText = userId;
+
+            return aComentariosPorUsuarioMemex;
+
+        }
+
+        private System.Web.UI.HtmlControls.HtmlGenericControl CrearParagraphComentariosPorUsuariosMemex ( string comentario )
+        {
+
+            System.Web.UI.HtmlControls.HtmlGenericControl pComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlGenericControl();
+
+            pComentariosPorUsuarioMemex.InnerHtml = string.Format ( "{0}{1}{2}", "<p>", comentario, "</p>" ) ;
+
+            return pComentariosPorUsuarioMemex;
+
+        }
+
 
     }
 }

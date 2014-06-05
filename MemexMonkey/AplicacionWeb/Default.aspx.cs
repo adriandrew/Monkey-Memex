@@ -192,7 +192,7 @@ namespace AplicacionWeb
 
                             Image imgAprobada = CrearImageAprobada ( urlImagen, titulo );
 
-                            lnkPublicacionIndividual.Controls.Add(imgAprobada);
+                            lnkPublicacionIndividual.Controls.Add ( imgAprobada );
 
                             #region Footer de imagen.
 
@@ -232,7 +232,7 @@ namespace AplicacionWeb
 
                             //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
 
-                            //pnlComentariosImagenAprobada.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+                            //aComentariosPorUsuarioMemex.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
 
                             #endregion
 

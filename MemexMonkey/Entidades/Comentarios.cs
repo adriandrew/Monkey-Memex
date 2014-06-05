@@ -69,6 +69,7 @@ namespace Entidades
 
         public void Guardar()
         {
+
             try
             {
 
@@ -80,15 +81,15 @@ namespace Entidades
 
                 comando.CommandText = sql;
 
-                comando.Parameters.AddWithValue ( "@userId", this.UserId );
+                comando.Parameters.AddWithValue("@userId", this.UserId);
 
-                comando.Parameters.AddWithValue ( "@idImagen", this.IdImagen );
+                comando.Parameters.AddWithValue("@idImagen", this.IdImagen);
 
-                comando.Parameters.AddWithValue ( "@comentario", this.Comentario );
+                comando.Parameters.AddWithValue("@comentario", this.Comentario);
 
-                comando.Parameters.AddWithValue ( "@fechaPublicacion", this.FechaPublicacion );
+                comando.Parameters.AddWithValue("@fechaPublicacion", this.FechaPublicacion);
 
-                comando.Parameters.AddWithValue ( "@meGusta", this.MeGusta );
+                comando.Parameters.AddWithValue("@meGusta", this.MeGusta);
 
                 BaseDatos.conexion.Open();
 
@@ -99,10 +100,79 @@ namespace Entidades
             }
             catch (Exception)
             {
-                
+
                 throw;
 
-            }            
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+        }
+
+        public List < Comentarios > ObtenerListadoPorIdImagen ( int idImagen )
+        {
+
+            List < Comentarios > lista = new List < Comentarios > ();
+
+            try
+            {
+
+                string sql = "SELECT * FROM Comentarios WHERE IdImagen = @idImagen";
+
+                SqlCommand comando = new SqlCommand();
+                
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                comando.Parameters.AddWithValue ("@idImagen", idImagen );
+
+                BaseDatos.conexion.Open();
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                Comentarios comentarios;
+
+                while ( reader.Read() )
+                {
+
+                    comentarios = new Comentarios();
+
+                    comentarios.IdComentario = Convert.ToInt32 ( reader ["IdComentario"] );
+
+                    comentarios.UserId = new Guid ( reader["UserId"].ToString() );
+
+                    comentarios.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
+
+                    comentarios.Comentario = reader["Comentario"].ToString();
+
+                    comentarios.FechaPublicacion = Convert.ToDateTime ( reader["FechaPublicacion"] );
+
+                    comentarios.MeGusta = Convert.ToInt32 ( reader["MeGusta"] );
+
+                    lista.Add ( comentarios );
+
+                }
+
+            }
+            catch ( Exception )
+            {
+
+                throw;
+
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+            return lista;
 
         }
 
