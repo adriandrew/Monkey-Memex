@@ -15,7 +15,7 @@
     
     <div id="uiContenedorComentarios">
         <a href="#uiPluginComentariosFacebook" name="uiPluginComentariosFacebook" onclick="MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook')">Comentarios Facebook</a>
-            <div runat="server" id="uiPluginComentariosFacebook"  class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
+            <div runat="server" id="uiPluginComentariosFacebook" class="fb-comments" data-href="http://monkey.somee.com/PublicacionIndividual/0" data-numposts="5" data-colorscheme="dark"></div>
         <a href="#uiComentariosMemex" name="uiComentariosMemex" onclick="MuestraOculta('ContentPlaceHolder_uiComentariosMemex')">Comentarios Memex</a>
             <div runat="server" id="uiComentariosMemex" >
                 <input runat="server" type="text" id="uiAreaComentario" value=""/>

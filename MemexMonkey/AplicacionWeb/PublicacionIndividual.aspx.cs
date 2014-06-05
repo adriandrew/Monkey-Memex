@@ -33,7 +33,7 @@ namespace AplicacionWeb
 
                     CargarCaracteristicas ( idImagenEntero );
 
-                    MostrarComentarios();
+                    MostrarComentarios2();
 
             }
                         
@@ -136,7 +136,51 @@ namespace AplicacionWeb
             }
 
         }
-        
+
+        private void MostrarComentarios2()
+        {
+
+            Entidades.ComentariosAspNet_Users comentarios = new Entidades.ComentariosAspNet_Users();
+
+            List<Entidades.ComentariosAspNet_Users> listaComentarios = new List<Entidades.ComentariosAspNet_Users>();
+
+            int idImagen = Convert.ToInt32(Session["idImagen"]);
+
+            listaComentarios = comentarios.ObtenerListadoPorIdImagen(idImagen);
+
+            foreach (Entidades.ComentariosAspNet_Users elementoComentarios in listaComentarios)
+            {
+
+                string idComentario = elementoComentarios.IdComentario.ToString();
+
+                string userId = elementoComentarios.UserId.ToString();
+
+                // idImagen ya tenemos su valor.
+
+                string comentario = elementoComentarios.Comentario;
+
+                string fechaPublicacion = elementoComentarios.FechaPublicacion.ToString();
+
+                string meGusta = elementoComentarios.MeGusta.ToString();
+
+                string nombreUsuario = elementoComentarios.UserName;
+
+                System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosPorUsuariosMemex = CrearDivComentariosPorUsuariosMemex();
+
+                uiComentariosMemex.Controls.Add(uiComentariosPorUsuariosMemex);
+
+                System.Web.UI.HtmlControls.HtmlAnchor uiNombreUsuarioComentador = CrearAnchorComentariosPorUsuariosMemex(nombreUsuario);
+
+                uiComentariosPorUsuariosMemex.Controls.Add(uiNombreUsuarioComentador);
+
+                System.Web.UI.HtmlControls.HtmlGenericControl uiAreaComentariosPorUsuariosMemex = CrearParagraphComentariosPorUsuariosMemex(comentario);
+
+                uiComentariosPorUsuariosMemex.Controls.Add(uiAreaComentariosPorUsuariosMemex);
+
+            }
+
+        }
+
         // TODO Pendiente rellenar con la informacion correspondiente.
 
         private void CargarCaracteristicas ( int idImagen )
@@ -235,14 +279,14 @@ namespace AplicacionWeb
 
         }
 
-        private System.Web.UI.HtmlControls.HtmlAnchor CrearAnchorComentariosPorUsuariosMemex ( string userId )
+        private System.Web.UI.HtmlControls.HtmlAnchor CrearAnchorComentariosPorUsuariosMemex ( string nombreUsuario )
         {
 
             System.Web.UI.HtmlControls.HtmlAnchor aComentariosPorUsuarioMemex = new System.Web.UI.HtmlControls.HtmlAnchor();
 
             aComentariosPorUsuarioMemex.HRef = "#";
 
-            aComentariosPorUsuarioMemex.InnerText = userId;
+            aComentariosPorUsuarioMemex.InnerText = nombreUsuario;
 
             return aComentariosPorUsuarioMemex;
 
