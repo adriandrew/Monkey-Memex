@@ -31,7 +31,7 @@ namespace AplicacionWeb
 
                     Session["idImagen"] = idImagenEntero;
 
-                    CargarCaracteristicas ( idImagenEntero );
+                    MostrarImagen2 ( idImagenEntero );
 
                     MostrarComentarios2();
 
@@ -163,13 +163,23 @@ namespace AplicacionWeb
 
                 string meGusta = elementoComentarios.MeGusta.ToString();
 
-                string nombreUsuario = elementoComentarios.UserName;
+                string applicationId = elementoComentarios.ApplicationId.ToString();
+
+                string userName = elementoComentarios.UserName;
+
+                string loweredUserName = elementoComentarios.LoweredUserName;
+
+                string mobileAlias = elementoComentarios.MobileAlias;
+
+                string isAnonymous = elementoComentarios.IsAnonymous.ToString();
+
+                string lastActivityDate = elementoComentarios.LastActivityDate.ToString();
 
                 System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosPorUsuariosMemex = CrearDivComentariosPorUsuariosMemex();
 
                 uiComentariosMemex.Controls.Add(uiComentariosPorUsuariosMemex);
 
-                System.Web.UI.HtmlControls.HtmlAnchor uiNombreUsuarioComentador = CrearAnchorComentariosPorUsuariosMemex(nombreUsuario);
+                System.Web.UI.HtmlControls.HtmlAnchor uiNombreUsuarioComentador = CrearAnchorComentariosPorUsuariosMemex(userName);
 
                 uiComentariosPorUsuariosMemex.Controls.Add(uiNombreUsuarioComentador);
 
@@ -183,7 +193,7 @@ namespace AplicacionWeb
 
         // TODO Pendiente rellenar con la informacion correspondiente.
 
-        private void CargarCaracteristicas ( int idImagen )
+        private void MostrarImagen ( int idImagen )
         { 
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
@@ -263,6 +273,103 @@ namespace AplicacionWeb
                 ScriptManager.RegisterStartupScript ( this, typeof ( Page ), "Alerta", script, false );
 
                 Response.Redirect ( "~/Default.aspx" );
+
+            }
+
+        }
+
+        private void MostrarImagen2(int idImagen)
+        {
+
+            Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
+
+            List<Entidades.ImagenesAspNet_Users> listaImagen = imagenes.ObtenerPorIdImagen(idImagen);
+
+            if (listaImagen.Count == 1)
+            {
+
+                string idCategoria = listaImagen[0].IdCategoria.ToString(); ;
+
+                string userId = listaImagen[0].UserId.ToString();
+
+                string esAprobado = listaImagen[0].EsAprobado.ToString();
+
+                string titulo = listaImagen[0].Titulo;
+
+                string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+
+                string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
+
+                string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
+
+                string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
+
+                string fechaSubida = listaImagen[0].FechaSubida.ToString();
+
+                string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
+
+                string applicationId = listaImagen[0].ApplicationId.ToString();
+
+                string userName = listaImagen[0].UserName;
+
+                string loweredUserName = listaImagen[0].LoweredUserName;
+
+                string mobileAlias = listaImagen[0].MobileAlias;
+
+                string isAnonymous = listaImagen[0].IsAnonymous.ToString();
+
+                string lastActivityDate = listaImagen[0].LastActivityDate.ToString();
+
+                uiTituloImagen.InnerText = titulo;
+
+                uiUsuarioAportador.InnerText = string.Format ("{0}{1}", "Aporte por: ", userName );
+
+                uiFechaPublicacion.InnerText = fechaPublicacion;
+
+                uiImagen.Src = rutaRelativa;
+
+                uiEtiquetas.InnerText = string.Format("{0} | {1}", etiquetasBasicas, etiquetasOpcionales);
+
+                uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
+
+                uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/PublicacionIndividual/", idImagen));
+
+                uiComentariosMemex.Attributes.Add("style", "display: none;");
+
+                if (User.Identity.IsAuthenticated)
+                {
+
+                    uiAreaComentario.Attributes.Add("style", "display: inline;");
+
+                    uiEnviarComentario.Attributes.Add("style", "display: inline;");
+
+                }
+                else if (!User.Identity.IsAuthenticated)
+                {
+
+                    uiAreaComentario.Attributes.Add("style", "display: none;");
+
+                    uiEnviarComentario.Attributes.Add("style", "display: none;");
+
+                }
+
+                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('prueba')" );
+
+                //uiComentariosMemex.Attributes.Add("OnClick", "Response.Redirect('~/Default.aspx')");
+
+            }
+            else if (listaImagen.Count != 1)
+            {
+
+                string script = @"<script type='text/javascript'> alert('{0}'); </script>";
+
+                script = string.Format(script, "Esta publicacion no pudo ser cargada :(");
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alerta", script, false);
+
+                Response.Redirect("~/Default.aspx");
 
             }
 

@@ -184,7 +184,7 @@ namespace Entidades
 
         #region Metodos Publicos
 
-        public List < ImagenesAspNet_Users > ObtenerListadoPorIdImagen ( int idImagen )
+        public List < ImagenesAspNet_Users > ObtenerPorIdImagen ( int idImagen )
         {
 
             List < ImagenesAspNet_Users > lista = new List < ImagenesAspNet_Users > ();
@@ -252,6 +252,93 @@ namespace Entidades
                     lista.Add(imagenesAspnet_users);
 
                 }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+            return lista;
+
+        }
+
+        public List<ImagenesAspNet_Users> ObtenerListadoAprobados()
+        {
+
+            List<ImagenesAspNet_Users> lista = new List<ImagenesAspNet_Users>();
+
+            try
+            {
+
+                string sql = "SELECT AspNet_Users.*, Imagenes.* FROM Imagenes INNER JOIN AspNet_Users ON Imagenes.UserId = aspnet_Users.UserId WHERE EsAprobado = 1 ORDER BY FechaSubida DESC";
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                BaseDatos.conexion.Open();
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                ImagenesAspNet_Users imagenesAspnet_users;
+
+                while (reader.Read())
+                {
+
+                    imagenesAspnet_users = new ImagenesAspNet_Users();
+
+                    imagenesAspnet_users.IdImagen = Convert.ToInt32(reader["IdImagen"]);
+
+                    imagenesAspnet_users.IdCategoria = Convert.ToInt32(reader["IdCategoria"].ToString());
+
+                    imagenesAspnet_users.UserId = new Guid(reader["UserId"].ToString());
+
+                    imagenesAspnet_users.EsAprobado = Convert.ToInt32(reader["EsAprobado"].ToString());
+
+                    imagenesAspnet_users.Titulo = reader["Titulo"].ToString();
+
+                    imagenesAspnet_users.DirectorioRelativo = reader["DirectorioRelativo"].ToString();
+
+                    imagenesAspnet_users.RutaRelativa = reader["RutaRelativa"].ToString();
+
+                    imagenesAspnet_users.EnlaceExterno = reader["EnlaceExterno"].ToString();
+
+                    imagenesAspnet_users.EtiquetasBasicas = reader["EtiquetasBasicas"].ToString();
+
+                    imagenesAspnet_users.EtiquetasOpcionales = reader["EtiquetasOpcionales"].ToString();
+
+                    imagenesAspnet_users.FechaSubida = Convert.ToDateTime(reader["FechaSubida"].ToString());
+
+                    imagenesAspnet_users.FechaPublicacion = Convert.ToDateTime(reader["FechaPublicacion"].ToString());
+
+                    imagenesAspnet_users.ApplicationId = new Guid(reader["ApplicationId"].ToString());
+
+                    imagenesAspnet_users.UserName = reader["UserName"].ToString();
+
+                    imagenesAspnet_users.LoweredUserName = reader["LoweredUserName"].ToString();
+
+                    imagenesAspnet_users.MobileAlias = reader["MobileAlias"].ToString();
+
+                    imagenesAspnet_users.IsAnonymous = Convert.ToInt32(reader["IsAnonymous"]);
+
+                    imagenesAspnet_users.LastActivityDate = Convert.ToDateTime(reader["LastActivityDate"]);
+
+                    lista.Add(imagenesAspnet_users);
+
+                }
+
+                BaseDatos.conexion.Close();
 
             }
             catch (Exception)

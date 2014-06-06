@@ -90,7 +90,7 @@ namespace AplicacionWeb.Miembros
             if ( ! string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
-                // Para guardar los datos que van en la tabla imagenes.
+                // Para guardar los datos que van en la tabla imagenesAspnet_users.
 
                 Entidades.Imagenes imagenes = new Entidades.Imagenes();
 

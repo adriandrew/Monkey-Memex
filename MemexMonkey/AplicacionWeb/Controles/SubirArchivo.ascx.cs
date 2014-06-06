@@ -176,7 +176,7 @@ namespace AplicacionWeb.Controles
                             HttpPostedFile _postedF = _fcol[i];
                             if (_postedF.ContentLength > 0)
                             {
-                                // Aquí va el nombreUsuario de la imgAprobada que se va a guardar.
+                                // Aquí va el userName de la imgAprobada que se va a guardar.
                                 //string _f2save = string.Format("{0}\\{1}", _dirPath, Path.GetFileName(_postedF.FileName));
 
                                 extensionArchivo = Path.GetExtension(_postedF.FileName);
@@ -193,10 +193,10 @@ namespace AplicacionWeb.Controles
                                 _fSizes += _postedF.ContentLength;
                                 _cantFiles++;
 
-                                // Aqui se envia el directorio relativo de cada una de las imagenes del miembro de Memex.
+                                // Aqui se envia el directorio relativo de cada una de las imagenesAspnet_users del miembro de Memex.
                                 AplicacionWeb.Miembros.EnviarAporte.DirectorioRelativo = directorioRelativo;
 
-                                // Aqui se envia la ruta relativa de cada una de las imagenes del miembro de Memex.
+                                // Aqui se envia la ruta relativa de cada una de las imagenesAspnet_users del miembro de Memex.
                                 AplicacionWeb.Miembros.EnviarAporte.RutaRelativa = rutaRelativa;
                                 
                             }
