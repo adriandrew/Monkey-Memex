@@ -70,7 +70,7 @@ namespace AplicacionWeb
             else if ( esConexionCorrecta )
             {
 
-                MostrarImagenes();
+                MostrarImagenes2();
 
             // MostrarNumeroUsuariosOnline();
 
@@ -274,13 +274,13 @@ namespace AplicacionWeb
         private void MostrarImagenes2()
         {
 
-            Entidades.Imagenes imagenes = new Entidades.Imagenes();
+            Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
 
-            List<Entidades.Imagenes> listaImagenes = new List<Entidades.Imagenes>();
+            List<Entidades.ImagenesAspNet_Users> listaImagenes = new List<Entidades.ImagenesAspNet_Users>();
 
             listaImagenes = imagenes.ObtenerListadoAprobados();
 
-            foreach (Entidades.Imagenes elementoImagenes in listaImagenes)
+            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaImagenes)
             {
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
@@ -306,6 +306,18 @@ namespace AplicacionWeb
                 string fechaSubida = elementoImagenes.FechaSubida.ToString();
 
                 string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+                string applicationId = elementoImagenes.ApplicationId.ToString();
+
+                string userName = elementoImagenes.UserName;
+
+                string loweredUserName = elementoImagenes.LoweredUserName;
+
+                string mobileAlias = elementoImagenes.MobileAlias;
+
+                string isAnonymous = elementoImagenes.IsAnonymous.ToString();
+
+                string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
 
                 System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
 
@@ -334,7 +346,7 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add(litTituloImagenAprobada);
 
-                            Literal litNombreUsuarioImagenAprobada = CrearLiteralNombreUsuarioImagenAprobada(userId);
+                            Literal litNombreUsuarioImagenAprobada = CrearLiteralNombreUsuarioImagenAprobada(userName);
 
                             pnlImagen.Controls.Add(litNombreUsuarioImagenAprobada);
 
