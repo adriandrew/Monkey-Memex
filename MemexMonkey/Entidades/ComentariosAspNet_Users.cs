@@ -31,7 +31,7 @@ namespace Entidades
 
         private Guid applicationId;
 
-        // UserId ya se encuentra en tabla de comentarios.
+        // UserId ya se encuentra en tabla de comentariosAspnet_users.
 
         // private Guid userId;
 
@@ -133,10 +133,12 @@ namespace Entidades
 
         #endregion
 
+        #region Metodos Publicos
+
         public List < ComentariosAspNet_Users > ObtenerListadoPorIdImagen ( int idImagen )
         {
 
-            List<ComentariosAspNet_Users> lista = new List<ComentariosAspNet_Users>();
+            List < ComentariosAspNet_Users > lista = new List < ComentariosAspNet_Users > ();
 
             try
             {
@@ -155,38 +157,38 @@ namespace Entidades
 
                 SqlDataReader reader = comando.ExecuteReader();
 
-                ComentariosAspNet_Users comentarios;
+                ComentariosAspNet_Users comentariosAspnet_users;
 
                 while ( reader.Read() )
                 {
 
-                    comentarios = new ComentariosAspNet_Users();
+                    comentariosAspnet_users = new ComentariosAspNet_Users();
 
-                    comentarios.IdComentario = Convert.ToInt32 ( reader["IdComentario"] );
+                    comentariosAspnet_users.IdComentario = Convert.ToInt32 ( reader["IdComentario"] );
 
-                    comentarios.UserId = new Guid ( reader["UserId"].ToString() );
+                    comentariosAspnet_users.UserId = new Guid ( reader["UserId"].ToString() );
 
-                    comentarios.IdImagen = Convert.ToInt32 ( reader["IdImagen"] );
+                    comentariosAspnet_users.IdImagen = Convert.ToInt32 ( reader["IdImagen"] );
 
-                    comentarios.Comentario = reader["Comentario"].ToString();
+                    comentariosAspnet_users.Comentario = reader["Comentario"].ToString();
 
-                    comentarios.FechaPublicacion = Convert.ToDateTime ( reader["FechaPublicacion"] );
+                    comentariosAspnet_users.FechaPublicacion = Convert.ToDateTime ( reader["FechaPublicacion"] );
 
-                    comentarios.MeGusta = Convert.ToInt32 ( reader["MeGusta"] );
+                    comentariosAspnet_users.MeGusta = Convert.ToInt32 ( reader["MeGusta"] );
 
-                    comentarios.ApplicationId = new Guid ( reader["ApplicationId"].ToString() );
+                    comentariosAspnet_users.ApplicationId = new Guid ( reader["ApplicationId"].ToString() );
 
-                    comentarios.UserName = reader["UserName"].ToString();
+                    comentariosAspnet_users.UserName = reader["UserName"].ToString();
 
-                    comentarios.LoweredUserName = reader["LoweredUserName"].ToString();
+                    comentariosAspnet_users.LoweredUserName = reader["LoweredUserName"].ToString();
 
-                    comentarios.MobileAlias = reader["MobileAlias"].ToString();
+                    comentariosAspnet_users.MobileAlias = reader["MobileAlias"].ToString();
 
-                    comentarios.IsAnonymous = Convert.ToInt32 ( reader["IsAnonymous"] );
+                    comentariosAspnet_users.IsAnonymous = Convert.ToInt32 ( reader["IsAnonymous"] );
 
-                    comentarios.LastActivityDate = Convert.ToDateTime ( reader["LastActivityDate"].ToString() );
+                    comentariosAspnet_users.LastActivityDate = Convert.ToDateTime ( reader["LastActivityDate"] );
 
-                    lista.Add ( comentarios );
+                    lista.Add ( comentariosAspnet_users );
 
                 }
 
@@ -207,6 +209,8 @@ namespace Entidades
             return lista;
 
         }
-        
+
+        #endregion
+
     }
 }

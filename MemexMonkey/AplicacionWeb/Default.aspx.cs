@@ -28,14 +28,14 @@ namespace AplicacionWeb
 
             }
 
-            // TODO Es para poder guardar comentarios con el enter.
+            // TODO Es para poder guardar comentariosAspnet_users con el enter.
 
             //txtComentarioUsuarioImagenAprobada_TextChanged(sender, e);
 
         }
 
         
-        // TODO Es para poder guardar comentarios con el enter.
+        // TODO Es para poder guardar comentariosAspnet_users con el enter.
 
         private void txtComentarioUsuarioImagenAprobada_TextChanged ( Object sender, System.EventArgs e )
         {
@@ -210,13 +210,13 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( btnMostrarComentariosImagenAprobadas );
 
-                            #region Panel de comentarios de imagen.
+                            #region Panel de comentariosAspnet_users de imagen.
 
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada ( idImagen );
 
                             pnlImagen.Controls.Add ( pnlComentariosImagenAprobada );
 
-                            #region Panel de comentarios de memex.
+                            #region Panel de comentariosAspnet_users de memex.
 
                             Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
 
@@ -228,7 +228,7 @@ namespace AplicacionWeb
 
                             #endregion
 
-                            #region Panel de comentarios de facebook.
+                            #region Panel de comentariosAspnet_users de facebook.
 
                             //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
 
@@ -392,7 +392,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Panel de comentarios de imagen.
+        #region Panel de comentariosAspnet_users de imagen.
 
         private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
         {
@@ -411,7 +411,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Panel de comentarios de memex.
+        #region Panel de comentariosAspnet_users de memex.
 
         private Panel CrearPanelComentarioUsuarioImagenAprobada()
         {
@@ -445,7 +445,7 @@ namespace AplicacionWeb
 
         #endregion
 
-        #region Panel de comentarios de facebook.
+        #region Panel de comentariosAspnet_users de facebook.
 
         private Panel CrearComentariosUsuarioFacebookImagenAprobada ( string idImagen )
         {

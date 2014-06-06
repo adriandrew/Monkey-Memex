@@ -48,6 +48,7 @@
     <Compile Include="ComentariosAspNet_Users.cs" />
     <Compile Include="ConexionBaseDatos.cs" />
     <Compile Include="Imagenes.cs" />
+    <Compile Include="ImagenesAspNet_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

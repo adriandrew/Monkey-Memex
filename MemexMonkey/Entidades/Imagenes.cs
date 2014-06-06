@@ -203,11 +203,11 @@ namespace Entidades
 
                     imagenes.IdImagen = Convert.ToInt32 ( reader [ "IdImagen" ] );
 
-                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ].ToString() );
+                    imagenes.IdCategoria = Convert.ToInt32 ( reader [ "IdCategoria" ] );
 
                     imagenes.UserId = new Guid ( reader [ "UserId" ].ToString() );
 
-                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ].ToString() );
+                    imagenes.EsAprobado = Convert.ToInt32 ( reader [ "EsAprobado" ] );
 
                     imagenes.Titulo = reader [ "Titulo" ].ToString();
 
@@ -221,9 +221,9 @@ namespace Entidades
 
                     imagenes.EtiquetasOpcionales = reader [ "EtiquetasOpcionales" ].ToString();
 
-                    imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ].ToString() );
+                    imagenes.FechaSubida = Convert.ToDateTime ( reader [ "FechaSubida" ] );
 
-                    imagenes.FechaPublicacion = Convert.ToDateTime ( reader [ "FechaPublicacion" ].ToString() );
+                    imagenes.FechaPublicacion = Convert.ToDateTime ( reader [ "FechaPublicacion" ] );
 
                     lista.Add ( imagenes );
 
