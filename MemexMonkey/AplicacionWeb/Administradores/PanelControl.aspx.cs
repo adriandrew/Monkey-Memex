@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace AplicacionWeb.Administradores
 {
@@ -15,10 +16,38 @@ namespace AplicacionWeb.Administradores
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            AdministrarImagenes();
+            if ( User.IsInRole ( "Administradores" ) )
+
+                AdministrarImagenes();
+
+            else if ( ! User.IsInRole ( "Administradores" ) )
+
+                Response.Redirect ( "Inicio" );
 
         }
-        
+
+        protected void btnAprobar_Click(object sender, EventArgs e)
+        {
+
+            //AprobarPublicacion ( idImagen );
+
+            //Label ea = new Label();
+
+            //ea.Text = "funciono";
+
+            //pnlImagenes.Controls.Add (ea);
+
+            CambiarColorFondo ( (Button) sender);
+            
+        }
+
+        protected void btnAprobar_DoubleClick(object sender, EventArgs e)
+        {
+
+        //    AprobarPublicacion(idImagen);
+
+        }
+
         #endregion
 
         #region Metodos Privados
@@ -84,11 +113,11 @@ namespace AplicacionWeb.Administradores
 
                             pnlImagen.Controls.Add ( imgPendiente );
 
-                            Panel pnlCalificar = CrearPanelCalificar( idImagen );
+                            Panel pnlCalificar = CrearPanelCalificar ( idImagen );
 
                             pnlImagen.Controls.Add ( pnlCalificar );
 
-                            Button btnAprobar = CrearButtonAprobar();
+                            Button btnAprobar = CrearButtonAprobar ( idImagen );
 
                             pnlCalificar.Controls.Add ( btnAprobar );
 
@@ -129,12 +158,45 @@ namespace AplicacionWeb.Administradores
 
         }
 
+        private void CambiarColorFondo ( Button btnAprobar )
+        {
+
+            btnAprobar.BackColor = System.Drawing.Color.Black;
+
+        }
+
+        private void AprobarPublicacion ( string idImagen) 
+        {
+
+            Entidades.Imagenes imagenes = new Entidades.Imagenes();
+
+            imagenes.IdImagen = Convert.ToInt32 ( idImagen );
+
+            imagenes.EsAprobado = 1;
+
+            imagenes.Actualizar();
+        
+        }
+
+        private void RechazarPublicacion(string idImagen)
+        {
+
+            Entidades.Imagenes imagenes = new Entidades.Imagenes();
+
+            imagenes.IdImagen = Convert.ToInt32(idImagen);
+
+            imagenes.EsAprobado = 0;
+
+            imagenes.Actualizar();
+
+        }
+
         private Panel CrearPanelImagen ( string idImagen )
         {
 
             Panel pnlImagen = new Panel();
 
-            pnlImagen.ID = idImagen;
+            pnlImagen.Attributes.Add ( "id", idImagen );
 
             pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left;" );
 
@@ -147,7 +209,7 @@ namespace AplicacionWeb.Administradores
 
             Panel pnlCalificar = new Panel();
 
-            pnlCalificar.ID = idImagen;
+            pnlCalificar.Attributes.Add ( "id", idImagen );
 
             pnlCalificar.Attributes.Add("style", "clear: both; display: inherit;");
 
@@ -174,12 +236,16 @@ namespace AplicacionWeb.Administradores
 
         }
 
-        private Button CrearButtonAprobar()
+        private Button CrearButtonAprobar ( string idImagen )
         {
 
             Button btnAprobar = new Button();
 
-            btnAprobar.ID = "1";
+            btnAprobar.Attributes.Add ( "id", idImagen ) ;
+
+            // btnAprobar.OnClientClick = AprobarPublicacion ( idImagen );
+
+            btnAprobar.Click += new EventHandler ( this.btnAprobar_Click );
 
             btnAprobar.Width = 177;
 
@@ -191,12 +257,13 @@ namespace AplicacionWeb.Administradores
 
         }
 
+
         private Button CrearButtonRechazar()
         {
 
             Button btnRechazar = new Button();
 
-            btnRechazar.ID = "0";
+            btnRechazar.Attributes.Add("id", "0");
 
             btnRechazar.Width = 177;
 

@@ -173,6 +173,46 @@ namespace Entidades
 
         }
 
+        public void Actualizar()
+        {
+
+            try
+            {
+
+                string sql = "UPDATE Imagenes SET EsAprobado = @esAprobado WHERE IdImagen = @idImagen";
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                comando.Parameters.AddWithValue ( "@esAprobado", this.EsAprobado );
+
+                comando.Parameters.AddWithValue ( "@idImagen", this.IdImagen );
+
+                BaseDatos.conexion.Open();
+
+                comando.ExecuteNonQuery();
+
+                BaseDatos.conexion.Close();
+
+            }
+            catch ( Exception )
+            {
+                
+                throw;
+            
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+        }
+
         public List < Imagenes > ObtenerPorIdImagen ( int idImagen )
         { 
             List < Imagenes > lista = new List < Imagenes > ();
