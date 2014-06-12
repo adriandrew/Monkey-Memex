@@ -29,22 +29,22 @@ namespace AplicacionWeb.Administradores
         protected void btnAprobar_Click(object sender, EventArgs e)
         {
 
-            //AprobarPublicacion ( idImagen );
+            Button btnAprobarCopia = (Button)sender;
 
-            //Label ea = new Label();
+            string idImagen = btnAprobarCopia.ID;
 
-            //ea.Text = "funciono";
+            AprobarPublicacion ( idImagen );
 
-            //pnlImagenes.Controls.Add (ea);
-
-            CambiarColorFondo ( (Button) sender);
+            // CambiarColorFondo ( (Button) sender );
             
         }
 
-        protected void btnAprobar_DoubleClick(object sender, EventArgs e)
+        protected void btnAprobar_Click2(object sender, EventArgs e, string idImagen)
         {
 
-        //    AprobarPublicacion(idImagen);
+            //AprobarPublicacion ( idImagen );
+
+            // CambiarColorFondo ( (Button) sender);
 
         }
 
@@ -241,11 +241,15 @@ namespace AplicacionWeb.Administradores
 
             Button btnAprobar = new Button();
 
-            btnAprobar.Attributes.Add ( "id", idImagen ) ;
+            //btnAprobar.Attributes.Add ( "id", idImagen ) ;
+
+            btnAprobar.ID = idImagen;
 
             // btnAprobar.OnClientClick = AprobarPublicacion ( idImagen );
 
             btnAprobar.Click += new EventHandler ( this.btnAprobar_Click );
+
+            //btnAprobar.Click += delegate(object sender, EventArgs e) { this.btnAprobar_Click2( sender, e, idImagen); };
 
             btnAprobar.Width = 177;
 

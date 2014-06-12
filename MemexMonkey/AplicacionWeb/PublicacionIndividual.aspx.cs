@@ -17,7 +17,7 @@ namespace AplicacionWeb
             if ( ! IsPostBack )
             {
                 
-                // TODO Propiedad para definir boton por default en el formulario.
+                // TODO Propiedad para definir btnAprobarCopia por default en el formulario.
 
                 //this.Form.DefaultButton = uiEnviarComentario.ID;
 
