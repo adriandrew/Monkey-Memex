@@ -261,7 +261,6 @@ namespace AplicacionWeb.Administradores
 
         }
 
-
         private Button CrearButtonRechazar()
         {
 
