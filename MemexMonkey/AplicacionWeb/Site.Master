@@ -11,6 +11,12 @@
     <link href="~/Css/elementosDinamicos.css" rel="stylesheet" type="text/css" />
     <link href="~/Css/publicacionIndividual.css" rel="stylesheet" type="text/css" />
 
+
+        <script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
+    <script src="Scripts/Scrolling.js" type="text/javascript"></script>
+    <script src="Scripts/modalLoad.js" type="text/javascript"></script>
+
+
     <script type="text/javascript" src="../Js/scripts.js"></script>
     
     <asp:ContentPlaceHolder ID="head" runat="server">

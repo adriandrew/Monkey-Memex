@@ -21,6 +21,11 @@
 
     <%--Termina plugin de Facebook--%>
 
+    
+    <ul id="dataPlaceHolder" runat="server">
+    </ul>
+
+
     <div runat="server" id="idImagenes">
         <%--<a href='PublicacionIndividual/1'>Ver publicacion individual -></a>--%>
     </div>

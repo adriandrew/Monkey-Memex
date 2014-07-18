@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Security;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -69,8 +70,8 @@ namespace AplicacionWeb
             }
             else if ( esConexionCorrecta )
             {
-
-                MostrarImagenes2();
+                //  TODO: Es para la prueba con el scroll infinito.
+                //MostrarImagenes2();
 
             // MostrarNumeroUsuariosOnline();
 
@@ -440,6 +441,202 @@ namespace AplicacionWeb
             }
 
         }
+
+        private void MostrarImagenes3()
+        {
+
+            Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
+
+            List<Entidades.ImagenesAspNet_Users> listaImagenes = new List<Entidades.ImagenesAspNet_Users>();
+
+            listaImagenes = imagenes.ObtenerListadoAprobados();
+
+            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaImagenes)
+            {
+
+                string idImagen = elementoImagenes.IdImagen.ToString();
+
+                string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+                string userId = elementoImagenes.UserId.ToString();
+
+                string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+                string titulo = elementoImagenes.Titulo.ToString();
+
+                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+                string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+                string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+                string applicationId = elementoImagenes.ApplicationId.ToString();
+
+                string userName = elementoImagenes.UserName;
+
+                string loweredUserName = elementoImagenes.LoweredUserName;
+
+                string mobileAlias = elementoImagenes.MobileAlias;
+
+                string isAnonymous = elementoImagenes.IsAnonymous.ToString();
+
+                string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
+
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+                if (directorioInfo.Exists)
+                {
+
+                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
+
+                    bool esArchivoEncontrado = false;
+
+                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    {
+
+                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+
+                        if (rutaRelativa.Equals(urlImagen))
+                        {
+
+                            Panel pnlImagen = CrearPanelImagen(idImagen);
+
+                            pnlImagenes.Controls.Add(pnlImagen);
+
+                            #region Header de imagen.
+
+                            Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada(titulo);
+
+                            pnlImagen.Controls.Add(litTituloImagenAprobada);
+
+                            Literal litNombreUsuarioImagenAprobada = CrearLiteralNombreUsuarioImagenAprobada(userName);
+
+                            pnlImagen.Controls.Add(litNombreUsuarioImagenAprobada);
+
+                            Literal litFechaPublicacionImagenAprobada = CrearLiteralFechaPublicacionImagenAprobada(fechaSubida);
+
+                            pnlImagen.Controls.Add(litFechaPublicacionImagenAprobada);
+
+                            #endregion
+
+                            System.Web.UI.HtmlControls.HtmlAnchor lnkPublicacionIndividual = CrearHtmlAnchorPublicacionIndividual(idImagen);
+
+                            pnlImagen.Controls.Add(lnkPublicacionIndividual);
+
+                            Image imgAprobada = CrearImageAprobada(urlImagen, titulo);
+
+                            lnkPublicacionIndividual.Controls.Add(imgAprobada);
+
+                            #region Footer de imagen.
+
+                            Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
+
+                            pnlImagen.Controls.Add(pnlEtiquetasImagenAprobada);
+
+                            Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada(etiquetasBasicas, etiquetasOpcionales);
+
+                            pnlEtiquetasImagenAprobada.Controls.Add(litEtiquetasImagenAprobada);
+
+                            #endregion
+
+                            System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobadas = CrearHtmlButtonComentariosImagenAprobada(idImagen);
+
+                            pnlImagen.Controls.Add(btnMostrarComentariosImagenAprobadas);
+
+                            #region Panel de comentariosAspnet_users de imagen.
+
+                            Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada(idImagen);
+
+                            pnlImagen.Controls.Add(pnlComentariosImagenAprobada);
+
+                            #region Panel de comentariosAspnet_users de memex.
+
+                            Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
+
+                            pnlComentariosImagenAprobada.Controls.Add(pnlComentarioUsuarioImagenAprobada);
+
+                            TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
+
+                            pnlComentariosImagenAprobada.Controls.Add(txtComentarioUsuarioImagenAprobada);
+
+                            #endregion
+
+                            #region Panel de comentariosAspnet_users de facebook.
+
+                            //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
+
+                            //aComentariosPorUsuarioMemex.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
+
+                            #endregion
+
+                            #endregion
+
+                            esArchivoEncontrado = true;
+
+                        }
+
+                    }
+
+                    if (!esArchivoEncontrado)
+                    {
+
+                        Panel pnlImagen = CrearPanelImagen(idImagen);
+
+                        pnlImagenes.Controls.Add(pnlImagen);
+
+                        Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada(rutaRelativa);
+
+                        pnlImagen.Controls.Add(litImagenNoEncontrada);
+
+                    }
+
+                }
+                else
+                {
+
+                    Label lblSinArchivos = CrearLabelSinArchivos();
+
+                    pnlImagenes.Controls.Add(lblSinArchivos);
+
+                }
+
+            }
+
+        }
+
+        [WebMethod]
+        public static string LoadTexts(int Skip, int Take)
+        {
+            var lstText = new List<string>();
+            var lstTextReturn = new StringBuilder();
+
+            System.Threading.Thread.Sleep(1000);
+
+            //Simulate a collection of data with a list<string>
+            for (int i = 0; i < 1000; i++)
+            {
+                lstText.Add("Text " + i);
+            }
+
+            var lstSelectedText = (from text in lstText select text).Skip(Skip).Take(Take);
+            foreach (var text in lstSelectedText)
+            {
+                lstTextReturn.AppendFormat("<li>");
+                lstTextReturn.AppendFormat(string.Format("{0}", text));
+                lstTextReturn.AppendFormat("</li>");
+
+            }
+            return lstTextReturn.ToString();
+        }
+
 
         private Panel CrearPanelImagen ( string idImagen )
         {

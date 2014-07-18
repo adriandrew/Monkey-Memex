@@ -69,6 +69,7 @@
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Grid.aspx" />
     <Content Include="Images\aprobado.jpg" />
     <Content Include="Images\dislike.png" />
     <Content Include="Images\icoInfo.png" />
@@ -80,12 +81,17 @@
     <Content Include="Js\scripts.js" />
     <Content Include="Miembros\AporteEnviado.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
+    <Content Include="ProgressBar\loading.gif" />
     <Content Include="PublicacionIndividual.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Js\jquery-1.4.1-vsdoc.js" />
     <Content Include="Js\jquery-1.4.1.js" />
     <Content Include="Js\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\modalLoad.js" />
+    <Content Include="Scripts\Scrolling.js" />
+    <Content Include="Styles\Site.css" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -118,6 +124,10 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Grid.aspx.cs">
+      <DependentUpon>Grid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\AporteEnviado.aspx.cs">
       <DependentUpon>AporteEnviado.aspx</DependentUpon>
