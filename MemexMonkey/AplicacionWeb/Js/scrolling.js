@@ -1,5 +1,5 @@
 ﻿var Skip = 0;
-var Take = 3; 
+var Take = 1; 
 function Load(Skip, Take) {
 
     showLoad();

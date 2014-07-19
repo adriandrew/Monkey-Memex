@@ -593,9 +593,11 @@ namespace AplicacionWeb
 
                             //lstText.Add("Text " + titulo);
 
-                            lstTextReturn.AppendFormat("<li>");
-                            lstTextReturn.AppendFormat(string.Format("{0}", titulo));
-                            lstTextReturn.AppendFormat("</li>");
+                            lstTextReturn.AppendFormat("<img src='" + urlImagen + "' alt=" + titulo + " class='imgImagenAprobada'>");
+
+                            //lstTextReturn.AppendFormat("<li>");
+                            //lstTextReturn.AppendFormat(string.Format("{0}", titulo));
+                            //lstTextReturn.AppendFormat("</li>");
 
 
                             esArchivoEncontrado = true;
