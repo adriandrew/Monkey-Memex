@@ -442,8 +442,15 @@ namespace AplicacionWeb
 
         }
 
-        private void MostrarImagenes3()
+        [WebMethod]
+        public static string MostrarImagenes3(int Skip, int Take)
         {
+
+            var lstText = new List<string>();
+            var lstTextReturn = new StringBuilder();
+
+            //System.Threading.Thread.Sleep(5000);
+
 
             Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
 
@@ -451,7 +458,9 @@ namespace AplicacionWeb
 
             listaImagenes = imagenes.ObtenerListadoAprobados();
 
-            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaImagenes)
+            var lstSelectedText = (from text in listaImagenes select text).Skip(Skip).Take(Take);
+
+            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in lstSelectedText)
             {
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
@@ -506,7 +515,8 @@ namespace AplicacionWeb
 
                         if (rutaRelativa.Equals(urlImagen))
                         {
-
+                            /*
+                             
                             Panel pnlImagen = CrearPanelImagen(idImagen);
 
                             pnlImagenes.Controls.Add(pnlImagen);
@@ -579,6 +589,15 @@ namespace AplicacionWeb
 
                             #endregion
 
+                            */
+
+                            //lstText.Add("Text " + titulo);
+
+                            lstTextReturn.AppendFormat("<li>");
+                            lstTextReturn.AppendFormat(string.Format("{0}", titulo));
+                            lstTextReturn.AppendFormat("</li>");
+
+
                             esArchivoEncontrado = true;
 
                         }
@@ -588,13 +607,13 @@ namespace AplicacionWeb
                     if (!esArchivoEncontrado)
                     {
 
-                        Panel pnlImagen = CrearPanelImagen(idImagen);
+                        //Panel pnlImagen = CrearPanelImagen(idImagen);
 
-                        pnlImagenes.Controls.Add(pnlImagen);
+                        //pnlImagenes.Controls.Add(pnlImagen);
 
-                        Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada(rutaRelativa);
+                        //Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada(rutaRelativa);
 
-                        pnlImagen.Controls.Add(litImagenNoEncontrada);
+                        //pnlImagen.Controls.Add(litImagenNoEncontrada);
 
                     }
 
@@ -602,13 +621,17 @@ namespace AplicacionWeb
                 else
                 {
 
-                    Label lblSinArchivos = CrearLabelSinArchivos();
+                    //Label lblSinArchivos = CrearLabelSinArchivos();
 
-                    pnlImagenes.Controls.Add(lblSinArchivos);
+                    //pnlImagenes.Controls.Add(lblSinArchivos);
 
                 }
 
             }
+
+
+            return lstTextReturn.ToString();
+
 
         }
 

@@ -1,5 +1,5 @@
 ﻿var Skip = 0;
-var Take = 32; 
+var Take = 3; 
 function Load(Skip, Take) {
 
     showLoad();
@@ -7,7 +7,7 @@ function Load(Skip, Take) {
     //return new records from server
     $.ajax({
         type: "POST",
-        url: "Default.aspx/LoadTexts",
+        url: "Default.aspx/MostrarImagenes3",
         data: "{ Skip:" + Skip + ", Take:" + Take + " }",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
