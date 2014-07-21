@@ -27,7 +27,7 @@ namespace AplicacionWeb
         protected void Application_Start(object sender, EventArgs e)
         {
 
-            // Aquí se invoca el metodo que registra las rutas que se van a sobreescribir.
+            // Aquí se invoca el metodo que registra las rutas que se van linkImagen sobreescribir.
 
             RegistrarRutas ( RouteTable.Routes );
 

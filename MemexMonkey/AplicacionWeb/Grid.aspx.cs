@@ -22,7 +22,7 @@ public partial class Grid : System.Web.UI.Page
 
         System.Threading.Thread.Sleep(1000);
 
-        //Simulate a collection of data with a list<string>
+        //Simulate linkImagen collection of data with linkImagen list<string>
         for (int i = 0; i < 1000; i++)
         {
             lstText.Add("Text " + i);

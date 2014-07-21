@@ -44,7 +44,7 @@ namespace AplicacionWeb.Controles
         #region Propiedades
 
         /// <summary>
-        /// Título a mostrar en el control.
+        /// Título linkImagen mostrar en el control.
         /// </summary>
         public string Titulo { get { return lblUploadFilesTitle.Text; } set { lblUploadFilesTitle.Text = value; } }
         /// <summary>
@@ -176,17 +176,17 @@ namespace AplicacionWeb.Controles
                             HttpPostedFile _postedF = _fcol[i];
                             if (_postedF.ContentLength > 0)
                             {
-                                // Aquí va el userName de la imgAprobada que se va a guardar.
+                                // Aquí va el userName de la imgAprobada que se va linkImagen guardar.
                                 //string _f2save = string.Format("{0}\\{1}", _dirPath, Path.GetFileName(_postedF.FileName));
 
                                 extensionArchivo = Path.GetExtension(_postedF.FileName);
 
                                 string _f2save = string.Format ( "{0}\\{1}", _dirPath, AplicacionWeb.Controles.SubirArchivo.TituloImagen + extensionArchivo );
 
-                                // Este directorioRelativo es el que se va a guardar en la base de datos.
+                                // Este directorioRelativo es el que se va linkImagen guardar en la base de datos.
                                 //directorioRelativo = string.Format ( "{0}\\{1}", directorioRelativo ); 
 
-                                // Esta rutaRelativa es la que se va a guardar en la base de datos.
+                                // Esta rutaRelativa es la que se va linkImagen guardar en la base de datos.
                                 rutaRelativa = string.Format ( "{0}\\{1}", rutaRelativa, AplicacionWeb.Controles.SubirArchivo.TituloImagen + extensionArchivo );
 
                                 _postedF.SaveAs(_f2save);
@@ -276,7 +276,7 @@ namespace AplicacionWeb.Controles
         }
 
         /// <summary>
-        /// Controla el tamaño total de todos los archivos a subir. Si no se especifica, utiliza el máximo definido en __MaxSize.
+        /// Controla el tamaño total de todos los archivos linkImagen subir. Si no se especifica, utiliza el máximo definido en __MaxSize.
         /// </summary>
         /// <param name="p_Fcol"></param>
         /// <returns></returns>

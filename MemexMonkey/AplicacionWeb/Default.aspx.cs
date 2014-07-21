@@ -18,7 +18,7 @@ namespace AplicacionWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Se verifica la conexion a la base de datos.
+            // Se verifica la conexion linkImagen la base de datos.
 
             if ( ! IsPostBack )
             {
@@ -171,7 +171,7 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add ( pnlImagen );
 
-                            #region Header de imagen.
+                            #region Header de contenidoDivImagen.
 
                             Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada ( titulo );
 
@@ -195,7 +195,7 @@ namespace AplicacionWeb
 
                             lnkPublicacionIndividual.Controls.Add ( imgAprobada );
 
-                            #region Footer de imagen.
+                            #region Footer de contenidoDivImagen.
 
                             Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
 
@@ -211,7 +211,7 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add ( btnMostrarComentariosImagenAprobadas );
 
-                            #region Panel de comentariosAspnet_users de imagen.
+                            #region Panel de comentariosAspnet_users de contenidoDivImagen.
 
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada ( idImagen );
 
@@ -341,7 +341,7 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add(pnlImagen);
 
-                            #region Header de imagen.
+                            #region Header de contenidoDivImagen.
 
                             Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada(titulo);
 
@@ -365,7 +365,7 @@ namespace AplicacionWeb
 
                             lnkPublicacionIndividual.Controls.Add(imgAprobada);
 
-                            #region Footer de imagen.
+                            #region Footer de contenidoDivImagen.
 
                             Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
 
@@ -381,7 +381,7 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add(btnMostrarComentariosImagenAprobadas);
 
-                            #region Panel de comentariosAspnet_users de imagen.
+                            #region Panel de comentariosAspnet_users de contenidoDivImagen.
 
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada(idImagen);
 
@@ -521,7 +521,7 @@ namespace AplicacionWeb
 
                             pnlImagenes.Controls.Add(pnlImagen);
 
-                            #region Header de imagen.
+                            #region Header de contenidoDivImagen.
 
                             Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada(titulo);
 
@@ -545,7 +545,7 @@ namespace AplicacionWeb
 
                             lnkPublicacionIndividual.Controls.Add(imgAprobada);
 
-                            #region Footer de imagen.
+                            #region Footer de contenidoDivImagen.
 
                             Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
 
@@ -561,7 +561,7 @@ namespace AplicacionWeb
 
                             pnlImagen.Controls.Add(btnMostrarComentariosImagenAprobadas);
 
-                            #region Panel de comentariosAspnet_users de imagen.
+                            #region Panel de comentariosAspnet_users de contenidoDivImagen.
 
                             Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada(idImagen);
 
@@ -593,7 +593,27 @@ namespace AplicacionWeb
 
                             //lstText.Add("Text " + titulo);
 
-                            lstTextReturn.AppendFormat("<img src='" + urlImagen + "' alt=" + titulo + " class='imgImagenAprobada'>");
+                            string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
+
+                            string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
+
+                            string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
+
+                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagenAprobada" );
+
+                            string linkImagen = string.Format ( "<a href={0}{1}>{2}</a>", "PublicacionIndividual/", idImagen, archivoImagen );
+
+                            string etiquetas = string.Format ( "<h6>{0} {1}</h6>", etiquetasBasicas, etiquetasOpcionales );
+
+                            string divEtiquetas = string.Format ( "<div class={0}>{1}</div>", "divEtiquetasImagenAprobada", etiquetas );
+
+                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas );
+
+                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagenAprobada", contenidoDivImagen );
+
+                            lstTextReturn.AppendFormat ( divImagen );
+
+                            //lstTextReturn.AppendFormat("<archivoImagen src='" + urlImagen + "' alt=" + titulo + " class='imgImagenAprobada'>");
 
                             //lstTextReturn.AppendFormat("<li>");
                             //lstTextReturn.AppendFormat(string.Format("{0}", titulo));
@@ -606,7 +626,7 @@ namespace AplicacionWeb
 
                     }
 
-                    if (!esArchivoEncontrado)
+                    if ( !esArchivoEncontrado )
                     {
 
                         //Panel pnlImagen = CrearPanelImagen(idImagen);
@@ -617,23 +637,27 @@ namespace AplicacionWeb
 
                         //pnlImagen.Controls.Add(litImagenNoEncontrada);
 
+                        string imagenNoEncontrada = string.Format("<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa); 
+
+                        string divImagen = string.Format("<div class={0}>{1}</div>", "divImagenAprobada", imagenNoEncontrada);
+
+                        lstTextReturn.AppendFormat( divImagen );
+
                     }
 
                 }
                 else
                 {
 
-                    //Label lblSinArchivos = CrearLabelSinArchivos();
+                    lstTextReturn.Clear();
 
-                    //pnlImagenes.Controls.Add(lblSinArchivos);
+                    lstTextReturn.AppendFormat ( string.Format ( "<h2>{0}</h2>", "Aun no se han subido archivos!" ) );
 
                 }
 
             }
 
-
             return lstTextReturn.ToString();
-
 
         }
 
@@ -645,7 +669,7 @@ namespace AplicacionWeb
 
             System.Threading.Thread.Sleep(1000);
 
-            //Simulate a collection of data with a list<string>
+            //Simulate linkImagen collection of data with linkImagen list<string>
             for (int i = 0; i < 1000; i++)
             {
                 lstText.Add("Text " + i);
@@ -676,7 +700,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Header de imagen.
+        #region Header de contenidoDivImagen.
         
         private Literal CrearLiteralTituloImagenAprobada ( string titulo )
         {
@@ -743,7 +767,7 @@ namespace AplicacionWeb
 
         #endregion
 
-        #region Footer de imagen.
+        #region Footer de contenidoDivImagen.
 
         private Panel CrearPanelEtiquetasImagenAprobada ()
         {
@@ -784,7 +808,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Panel de comentariosAspnet_users de imagen.
+        #region Panel de comentariosAspnet_users de contenidoDivImagen.
 
         private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
         {

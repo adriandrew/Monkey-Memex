@@ -13,7 +13,7 @@ function Load(Skip, Take) {
         dataType: "json",
         success: function (data) {
             if (data != "") {
-                $('#ContentPlaceHolder_idImagenes').append(data.d);
+                $('#ContentPlaceHolder_pnlImagenes').append(data.d);
             }
             hideLoad();
         },
