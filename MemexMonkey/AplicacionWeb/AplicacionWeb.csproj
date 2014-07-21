@@ -69,7 +69,6 @@
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Grid.aspx" />
     <Content Include="Images\aprobado.jpg" />
     <Content Include="Images\dislike.png" />
     <Content Include="Images\icoInfo.png" />
@@ -88,7 +87,6 @@
     <None Include="Js\jquery-1.4.1-vsdoc.js" />
     <Content Include="Js\jquery-1.4.1.js" />
     <Content Include="Js\jquery-1.4.1.min.js" />
-    <Content Include="Js\modalLoad.js" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -121,10 +119,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Grid.aspx.cs">
-      <DependentUpon>Grid.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Miembros\AporteEnviado.aspx.cs">
       <DependentUpon>AporteEnviado.aspx</DependentUpon>

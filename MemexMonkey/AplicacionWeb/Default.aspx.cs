@@ -95,6 +95,131 @@ namespace AplicacionWeb
 
         }
 
+        [WebMethod]
+        public static string MostrarImagenes3 ( int posicionImagenes, int cantidadImagenes )
+        {
+
+            var htmlImagenes = new StringBuilder();
+
+            //System.Threading.Thread.Sleep(5000);
+
+            Entidades.ImagenesAspNet_Users imagenesUsuarios = new Entidades.ImagenesAspNet_Users();
+
+            List<Entidades.ImagenesAspNet_Users> listaTotalImagenes = new List<Entidades.ImagenesAspNet_Users>();
+
+            listaTotalImagenes = imagenesUsuarios.ObtenerListadoAprobados();
+
+            var listaParcialImagenes = ( from elemento in listaTotalImagenes select elemento ).Skip ( posicionImagenes ).Take ( cantidadImagenes );
+
+            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaParcialImagenes)
+            {
+
+                string idImagen = elementoImagenes.IdImagen.ToString();
+
+                string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+                string userId = elementoImagenes.UserId.ToString();
+
+                string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+                string titulo = elementoImagenes.Titulo.ToString();
+
+                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+                string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+                string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+                string applicationId = elementoImagenes.ApplicationId.ToString();
+
+                string userName = elementoImagenes.UserName;
+
+                string loweredUserName = elementoImagenes.LoweredUserName;
+
+                string mobileAlias = elementoImagenes.MobileAlias;
+
+                string isAnonymous = elementoImagenes.IsAnonymous.ToString();
+
+                string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
+
+                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+                if (directorioInfo.Exists)
+                {
+
+                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
+
+                    bool esArchivoEncontrado = false;
+
+                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    {
+
+                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+
+                        if (rutaRelativa.Equals(urlImagen))
+                        {
+
+                            string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
+
+                            string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
+
+                            string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
+
+                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagenAprobada" );
+
+                            string linkImagen = string.Format ( "<a href={0}{1}>{2}</a>", "PublicacionIndividual/", idImagen, archivoImagen );
+
+                            string etiquetas = string.Format ( "<h6>{0} {1}</h6>", etiquetasBasicas, etiquetasOpcionales );
+
+                            string divEtiquetas = string.Format ( "<div class={0}>{1}</div>", "divEtiquetasImagenAprobada", etiquetas );
+
+                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas );
+
+                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagenAprobada", contenidoDivImagen );
+
+                            htmlImagenes.AppendFormat ( divImagen );
+
+                            esArchivoEncontrado = true;
+
+                        }
+
+                    }
+
+                    if ( !esArchivoEncontrado )
+                    {
+
+                        string imagenNoEncontrada = string.Format("<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa); 
+
+                        string divImagen = string.Format("<div class={0}>{1}</div>", "divImagenAprobada", imagenNoEncontrada);
+
+                        htmlImagenes.AppendFormat( divImagen );
+
+                    }
+
+                }
+                else
+                {
+
+                    htmlImagenes.Clear();
+
+                    htmlImagenes.AppendFormat ( string.Format ( "<h2>{0}</h2>", "Aun no se han subido archivos!" ) );
+
+                }
+
+            }
+
+            return htmlImagenes.ToString();
+
+        }
+
         #endregion
 
         #region Metodos Privados
@@ -442,251 +567,6 @@ namespace AplicacionWeb
 
         }
 
-        [WebMethod]
-        public static string MostrarImagenes3(int Skip, int Take)
-        {
-
-            var lstText = new List<string>();
-            var lstTextReturn = new StringBuilder();
-
-            //System.Threading.Thread.Sleep(5000);
-
-
-            Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
-
-            List<Entidades.ImagenesAspNet_Users> listaImagenes = new List<Entidades.ImagenesAspNet_Users>();
-
-            listaImagenes = imagenes.ObtenerListadoAprobados();
-
-            var lstSelectedText = (from text in listaImagenes select text).Skip(Skip).Take(Take);
-
-            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in lstSelectedText)
-            {
-
-                string idImagen = elementoImagenes.IdImagen.ToString();
-
-                string idCategoria = elementoImagenes.IdCategoria.ToString();
-
-                string userId = elementoImagenes.UserId.ToString();
-
-                string esAprobado = elementoImagenes.EsAprobado.ToString();
-
-                string titulo = elementoImagenes.Titulo.ToString();
-
-                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
-
-                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
-
-                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
-
-                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
-
-                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
-
-                string fechaSubida = elementoImagenes.FechaSubida.ToString();
-
-                string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
-
-                string applicationId = elementoImagenes.ApplicationId.ToString();
-
-                string userName = elementoImagenes.UserName;
-
-                string loweredUserName = elementoImagenes.LoweredUserName;
-
-                string mobileAlias = elementoImagenes.MobileAlias;
-
-                string isAnonymous = elementoImagenes.IsAnonymous.ToString();
-
-                string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
-
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
-
-                if (directorioInfo.Exists)
-                {
-
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
-
-                    bool esArchivoEncontrado = false;
-
-                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
-                    {
-
-                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
-
-                        if (rutaRelativa.Equals(urlImagen))
-                        {
-                            /*
-                             
-                            Panel pnlImagen = CrearPanelImagen(idImagen);
-
-                            pnlImagenes.Controls.Add(pnlImagen);
-
-                            #region Header de contenidoDivImagen.
-
-                            Literal litTituloImagenAprobada = CrearLiteralTituloImagenAprobada(titulo);
-
-                            pnlImagen.Controls.Add(litTituloImagenAprobada);
-
-                            Literal litNombreUsuarioImagenAprobada = CrearLiteralNombreUsuarioImagenAprobada(userName);
-
-                            pnlImagen.Controls.Add(litNombreUsuarioImagenAprobada);
-
-                            Literal litFechaPublicacionImagenAprobada = CrearLiteralFechaPublicacionImagenAprobada(fechaSubida);
-
-                            pnlImagen.Controls.Add(litFechaPublicacionImagenAprobada);
-
-                            #endregion
-
-                            System.Web.UI.HtmlControls.HtmlAnchor lnkPublicacionIndividual = CrearHtmlAnchorPublicacionIndividual(idImagen);
-
-                            pnlImagen.Controls.Add(lnkPublicacionIndividual);
-
-                            Image imgAprobada = CrearImageAprobada(urlImagen, titulo);
-
-                            lnkPublicacionIndividual.Controls.Add(imgAprobada);
-
-                            #region Footer de contenidoDivImagen.
-
-                            Panel pnlEtiquetasImagenAprobada = CrearPanelEtiquetasImagenAprobada();
-
-                            pnlImagen.Controls.Add(pnlEtiquetasImagenAprobada);
-
-                            Literal litEtiquetasImagenAprobada = CrearLiteralEtiquetasImagenAprobada(etiquetasBasicas, etiquetasOpcionales);
-
-                            pnlEtiquetasImagenAprobada.Controls.Add(litEtiquetasImagenAprobada);
-
-                            #endregion
-
-                            System.Web.UI.HtmlControls.HtmlButton btnMostrarComentariosImagenAprobadas = CrearHtmlButtonComentariosImagenAprobada(idImagen);
-
-                            pnlImagen.Controls.Add(btnMostrarComentariosImagenAprobadas);
-
-                            #region Panel de comentariosAspnet_users de contenidoDivImagen.
-
-                            Panel pnlComentariosImagenAprobada = CrearPanelComentariosImagenAprobada(idImagen);
-
-                            pnlImagen.Controls.Add(pnlComentariosImagenAprobada);
-
-                            #region Panel de comentariosAspnet_users de memex.
-
-                            Panel pnlComentarioUsuarioImagenAprobada = CrearPanelComentarioUsuarioImagenAprobada();
-
-                            pnlComentariosImagenAprobada.Controls.Add(pnlComentarioUsuarioImagenAprobada);
-
-                            TextBox txtComentarioUsuarioImagenAprobada = CrearTextBoxComentarioUsuarioImagenAprobada();
-
-                            pnlComentariosImagenAprobada.Controls.Add(txtComentarioUsuarioImagenAprobada);
-
-                            #endregion
-
-                            #region Panel de comentariosAspnet_users de facebook.
-
-                            //Panel pnlComentariosUsuarioFacebookImagenAprobada = CrearComentariosUsuarioFacebookImagenAprobada(idImagen);
-
-                            //aComentariosPorUsuarioMemex.Controls.Add ( pnlComentariosUsuarioFacebookImagenAprobada );
-
-                            #endregion
-
-                            #endregion
-
-                            */
-
-                            //lstText.Add("Text " + titulo);
-
-                            string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
-
-                            string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
-
-                            string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
-
-                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagenAprobada" );
-
-                            string linkImagen = string.Format ( "<a href={0}{1}>{2}</a>", "PublicacionIndividual/", idImagen, archivoImagen );
-
-                            string etiquetas = string.Format ( "<h6>{0} {1}</h6>", etiquetasBasicas, etiquetasOpcionales );
-
-                            string divEtiquetas = string.Format ( "<div class={0}>{1}</div>", "divEtiquetasImagenAprobada", etiquetas );
-
-                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas );
-
-                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagenAprobada", contenidoDivImagen );
-
-                            lstTextReturn.AppendFormat ( divImagen );
-
-                            //lstTextReturn.AppendFormat("<archivoImagen src='" + urlImagen + "' alt=" + titulo + " class='imgImagenAprobada'>");
-
-                            //lstTextReturn.AppendFormat("<li>");
-                            //lstTextReturn.AppendFormat(string.Format("{0}", titulo));
-                            //lstTextReturn.AppendFormat("</li>");
-
-
-                            esArchivoEncontrado = true;
-
-                        }
-
-                    }
-
-                    if ( !esArchivoEncontrado )
-                    {
-
-                        //Panel pnlImagen = CrearPanelImagen(idImagen);
-
-                        //pnlImagenes.Controls.Add(pnlImagen);
-
-                        //Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada(rutaRelativa);
-
-                        //pnlImagen.Controls.Add(litImagenNoEncontrada);
-
-                        string imagenNoEncontrada = string.Format("<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa); 
-
-                        string divImagen = string.Format("<div class={0}>{1}</div>", "divImagenAprobada", imagenNoEncontrada);
-
-                        lstTextReturn.AppendFormat( divImagen );
-
-                    }
-
-                }
-                else
-                {
-
-                    lstTextReturn.Clear();
-
-                    lstTextReturn.AppendFormat ( string.Format ( "<h2>{0}</h2>", "Aun no se han subido archivos!" ) );
-
-                }
-
-            }
-
-            return lstTextReturn.ToString();
-
-        }
-
-        [WebMethod]
-        public static string LoadTexts(int Skip, int Take)
-        {
-            var lstText = new List<string>();
-            var lstTextReturn = new StringBuilder();
-
-            System.Threading.Thread.Sleep(1000);
-
-            //Simulate linkImagen collection of data with linkImagen list<string>
-            for (int i = 0; i < 1000; i++)
-            {
-                lstText.Add("Text " + i);
-            }
-
-            var lstSelectedText = (from text in lstText select text).Skip(Skip).Take(Take);
-            foreach (var text in lstSelectedText)
-            {
-                lstTextReturn.AppendFormat("<li>");
-                lstTextReturn.AppendFormat(string.Format("{0}", text));
-                lstTextReturn.AppendFormat("</li>");
-
-            }
-            return lstTextReturn.ToString();
-        }
-
-
         private Panel CrearPanelImagen ( string idImagen )
         {
 
@@ -700,7 +580,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Header de contenidoDivImagen.
+        #region Header de Imagen.
         
         private Literal CrearLiteralTituloImagenAprobada ( string titulo )
         {
@@ -767,7 +647,7 @@ namespace AplicacionWeb
 
         #endregion
 
-        #region Footer de contenidoDivImagen.
+        #region Footer de Imagen.
 
         private Panel CrearPanelEtiquetasImagenAprobada ()
         {
@@ -808,7 +688,7 @@ namespace AplicacionWeb
 
         }
 
-        #region Panel de comentariosAspnet_users de contenidoDivImagen.
+        #region Panel de comentariosAspnet_users de Imagen.
 
         private Panel CrearPanelComentariosImagenAprobada ( string idImagen )
         {

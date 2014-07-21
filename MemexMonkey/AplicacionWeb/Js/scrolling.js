@@ -1,44 +1,61 @@
-﻿var Skip = 0;
-var Take = 1; 
-function Load(Skip, Take) {
+﻿var posicionImagenes = 0;
+var cantidadImagenes = 1;
 
-    showLoad();
+function cargarContenido(posicionImagenes, cantidadImagenes) {
 
-    //return new records from server
+    mostrarCarga();
+
+    // Inyecta los nuevos registros devueltos del servidor. 
     $.ajax({
         type: "POST",
         url: "Default.aspx/MostrarImagenes3",
-        data: "{ Skip:" + Skip + ", Take:" + Take + " }",
+        data: "{ posicionImagenes:" + posicionImagenes + ", cantidadImagenes:" + cantidadImagenes + " }",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
             if (data != "") {
                 $('#ContentPlaceHolder_pnlImagenes').append(data.d);
             }
-            hideLoad();
+            ocultarCarga();
         },
         error: function (data) {
-            hideLoad();
+            ocultarCarga();
         }
 
     });
 
 };
 
-$(document).ready(function () {
-    Load(Skip, Take);
+function mostrarCarga() {
 
-    //When scroll down we attach a function to fire the Load function
+    $('#divLoadProgress').remove();
+
+    var $loadDiv = $('<div class="modalDialog" id="divLoadProgress" style="display: none;"><div><img src="Images/loading.gif"></div></div>').appendTo('body');;
+    $loadDiv.fadeIn();
+
+}
+
+function ocultarCarga() {
+
+    $('#divLoadProgress').remove();
+
+}
+
+$(document).ready(function () {
+
+    cargarContenido(posicionImagenes, cantidadImagenes);
+
+    // Cuando el scroll baja se invoca la funcion cargarContenido.
     $(window).scroll(function () {
 
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-            if (Skip == 0) {
-                Skip = Take;
+            if (posicionImagenes == 0) {
+                posicionImagenes = cantidadImagenes;
             }
             else {
-                Skip = Skip + Take;
+                posicionImagenes = posicionImagenes + cantidadImagenes;
             }
-            Load(Skip, Take);
+            cargarContenido(posicionImagenes, cantidadImagenes);
             
         }
     });
