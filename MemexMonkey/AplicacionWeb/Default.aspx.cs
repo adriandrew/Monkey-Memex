@@ -169,19 +169,21 @@ namespace AplicacionWeb
 
                             string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
 
+                            string pruebaIframe = string.Format("<a click='pruebaFancy()' href='PublicacionIndividual/4'>Prueba iframe desde codigo</a");
+
                             string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
 
                             string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
 
                             string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagenAprobada" );
 
-                            string linkImagen = string.Format ( "<a href={0}{1}>{2}</a>", "PublicacionIndividual/", idImagen, archivoImagen );
+                            string linkImagen = string.Format ( "<a id={0} href={1}{2}>{3}</a>", "iframe", "PublicacionIndividual/", idImagen, archivoImagen );
 
                             string etiquetas = string.Format ( "<h6>{0} {1}</h6>", etiquetasBasicas, etiquetasOpcionales );
 
                             string divEtiquetas = string.Format ( "<div class={0}>{1}</div>", "divEtiquetasImagenAprobada", etiquetas );
 
-                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas );
+                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}{5}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas, pruebaIframe );
 
                             string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagenAprobada", contenidoDivImagen );
 

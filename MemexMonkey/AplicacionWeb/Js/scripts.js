@@ -19,3 +19,8 @@ window.onload = function ()
     //MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook');/* "contenido_a_mostrar" es el nombre que le dimos al DIV */
 
 }
+
+$(document).ready(function () {
+
+
+});

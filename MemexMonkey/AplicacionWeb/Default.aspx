@@ -7,6 +7,8 @@
 
     <asp:Panel runat="server" ID="pnlImagenes" />
 
+    <a id="iframe" href="PublicacionIndividual/4">Prueba iframe</a>
+
     <%--Plugin de Facebook--%>
     <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
 
