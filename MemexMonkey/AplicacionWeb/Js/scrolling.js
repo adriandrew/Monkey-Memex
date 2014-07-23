@@ -45,15 +45,18 @@ $(document).ready(function () {
 
     //alert("document is loaded");
 
-    // Aplicando efectos a todos los enlaces con el id iframe.
-    $("#iframe").fancybox({
-        'width': '75%',
-        'height': '75%',
-        'autoScale': false,
-        'transitionIn': 'none',
-        'transitionOut': 'none',
-        'type': 'iframe'
-    });
+    //// Aplicando efectos a todos los enlaces con el id iframe.
+    //$("#iframe").fancybox({
+    //    'width': '75%',
+    //    'height': '75%',
+    //    'autoScale': false,
+    //    'transitionIn': 'none',
+    //    'transitionOut': 'none',
+    //    'type': 'iframe'
+    //}).trigger("click");
+
+    ////launch on load after 5 second delay
+    //window.setTimeout('$("#iframe")', 5000);
 
     cargarContenido(posicionImagenes, cantidadImagenes);
 
@@ -75,34 +78,34 @@ $(document).ready(function () {
 
 });
 
-function pruebaFancy() {
+//function pruebaFancy() {
 
-    // Aplicando efectos a todos los enlaces con el id iframe.
-    $("#iframe").fancybox({
-        'width': '75%',
-        'height': '75%',
-        'autoScale': false,
-        'transitionIn': 'none',
-        'transitionOut': 'none',
-        'type': 'iframe'
-    });
+//    // Aplicando efectos a todos los enlaces con el id iframe.
+//    $("#iframe").fancybox({
+//        'width': '75%',
+//        'height': '75%',
+//        'autoScale': false,
+//        'transitionIn': 'none',
+//        'transitionOut': 'none',
+//        'type': 'iframe'
+//    });
 
-}
+//}
 
-$(window).load(function () {
-    // executes when complete page is fully loaded, including all frames, objects and images
-    //alert("window is loaded");
+//$(window).load(function () {
+//    // executes when complete page is fully loaded, including all frames, objects and images
+//    //alert("window is loaded");
 
-    $("#iframe").trigger('click');
+//    $("#iframe").trigger('click');
 
-    // Aplicando efectos a todos los enlaces con el id iframe.
-    //$("#iframe").fancybox({
-    //    'width': '75%',
-    //    'height': '75%',
-    //    'autoScale': false,
-    //    'transitionIn': 'none',
-    //    'transitionOut': 'none',
-    //    'type': 'iframe'
-    //});
+//    // Aplicando efectos a todos los enlaces con el id iframe.
+//    //$("#iframe").fancybox({
+//    //    'width': '75%',
+//    //    'height': '75%',
+//    //    'autoScale': false,
+//    //    'transitionIn': 'none',
+//    //    'transitionOut': 'none',
+//    //    'type': 'iframe'
+//    //});
 
-});
+//});
