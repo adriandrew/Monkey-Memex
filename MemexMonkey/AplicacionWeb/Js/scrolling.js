@@ -43,7 +43,7 @@ function ocultarCarga() {
 
 $(document).ready(function () {
    
-    invocarFancybox
+    invocarFancybox();
 
     cargarContenido(posicionImagenes, cantidadImagenes);
 

@@ -169,8 +169,6 @@ namespace AplicacionWeb
 
                             string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
 
-                            //string pruebaIframe = string.Format("<a class='iframe' href='PublicacionIndividual/4'>Prueba iframe desde codigo</a");
-
                             string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
 
                             string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
