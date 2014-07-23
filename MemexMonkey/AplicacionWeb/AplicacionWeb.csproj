@@ -100,6 +100,7 @@
     <Content Include="Images\icoNew.png" />
     <Content Include="Images\icoWarning.png" />
     <Content Include="Images\like.png" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\rechazado.jpg" />
     <Content Include="Images\XaviReclama.jpg" />
     <Content Include="Js\scripts.js" />

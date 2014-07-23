@@ -1,5 +1,5 @@
 ﻿var posicionImagenes = 0;
-var cantidadImagenes = 1;
+var cantidadImagenes = 2;
 
 function cargarContenido(posicionImagenes, cantidadImagenes) {
 
@@ -43,20 +43,9 @@ function ocultarCarga() {
 
 $(document).ready(function () {
 
+    //invocarFancybox
+
     //alert("document is loaded");
-
-    //// Aplicando efectos a todos los enlaces con el id iframe.
-    //$("#iframe").fancybox({
-    //    'width': '75%',
-    //    'height': '75%',
-    //    'autoScale': false,
-    //    'transitionIn': 'none',
-    //    'transitionOut': 'none',
-    //    'type': 'iframe'
-    //}).trigger("click");
-
-    ////launch on load after 5 second delay
-    //window.setTimeout('$("#iframe")', 5000);
 
     cargarContenido(posicionImagenes, cantidadImagenes);
 
@@ -64,48 +53,60 @@ $(document).ready(function () {
     $(window).scroll(function () {
 
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+
             if (posicionImagenes == 0) {
                 posicionImagenes = cantidadImagenes;
             }
             else {
                 posicionImagenes = posicionImagenes + cantidadImagenes;
             }
+
             cargarContenido(posicionImagenes, cantidadImagenes);
             
         }
+
+        //Aplicando efectos a todos los enlaces con el id iframe.
+        $(".iframe").fancybox({
+            'width': '75%',
+            'height': '75%',
+            'autoScale': false,
+            'transitionIn': 'none',
+            'transitionOut': 'none',
+            'type': 'iframe'
+        });
 
     });
 
 });
 
-//function pruebaFancy() {
+function invocarFancybox() {
 
-//    // Aplicando efectos a todos los enlaces con el id iframe.
-//    $("#iframe").fancybox({
-//        'width': '75%',
-//        'height': '75%',
-//        'autoScale': false,
-//        'transitionIn': 'none',
-//        'transitionOut': 'none',
-//        'type': 'iframe'
-//    });
+    //Aplicando efectos a todos los enlaces con el id iframe.
+    $(".iframe").fancybox({
+        'width': '75%',
+        'height': '75%',
+        'autoScale': false,
+        'transitionIn': 'none',
+        'transitionOut': 'none',
+        'type': 'iframe'
+    });
 
-//}
+}
 
-//$(window).load(function () {
-//    // executes when complete page is fully loaded, including all frames, objects and images
-//    //alert("window is loaded");
+$(window).load(function () {
+    // executes when complete page is fully loaded, including all frames, objects and images
+    //alert("window is loaded");
 
-//    $("#iframe").trigger('click');
+    //invocarFancybox
 
-//    // Aplicando efectos a todos los enlaces con el id iframe.
-//    //$("#iframe").fancybox({
-//    //    'width': '75%',
-//    //    'height': '75%',
-//    //    'autoScale': false,
-//    //    'transitionIn': 'none',
-//    //    'transitionOut': 'none',
-//    //    'type': 'iframe'
-//    //});
+    // Aplicando efectos a todos los enlaces con el id iframe.
+    $(".iframe").fancybox({
+        'width': '75%',
+        'height': '75%',
+        'autoScale': false,
+        'transitionIn': 'none',
+        'transitionOut': 'none',
+        'type': 'iframe'
+    });
 
-//});
+});
