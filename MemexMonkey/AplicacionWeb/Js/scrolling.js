@@ -42,16 +42,14 @@ function ocultarCarga() {
 }
 
 $(document).ready(function () {
-
-    //invocarFancybox
-
-    //alert("document is loaded");
+   
+    invocarFancybox
 
     cargarContenido(posicionImagenes, cantidadImagenes);
 
     // Cuando el scroll baja se invoca la funcion cargarContenido.
-    $(window).scroll(function () {
-
+    $(window).scroll(function () {        
+        
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
 
             if (posicionImagenes == 0) {
@@ -65,16 +63,8 @@ $(document).ready(function () {
             
         }
 
-        //Aplicando efectos a todos los enlaces con el id iframe.
-        $(".iframe").fancybox({
-            'width': '75%',
-            'height': '75%',
-            'autoScale': false,
-            'transitionIn': 'none',
-            'transitionOut': 'none',
-            'type': 'iframe'
-        });
-
+        invocarFancybox();
+        
     });
 
 });
@@ -94,19 +84,7 @@ function invocarFancybox() {
 }
 
 $(window).load(function () {
-    // executes when complete page is fully loaded, including all frames, objects and images
-    //alert("window is loaded");
 
-    //invocarFancybox
-
-    // Aplicando efectos a todos los enlaces con el id iframe.
-    $(".iframe").fancybox({
-        'width': '75%',
-        'height': '75%',
-        'autoScale': false,
-        'transitionIn': 'none',
-        'transitionOut': 'none',
-        'type': 'iframe'
-    });
+    invocarFancybox();
 
 });
