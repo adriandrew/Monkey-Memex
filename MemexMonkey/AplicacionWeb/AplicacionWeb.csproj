@@ -103,6 +103,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\rechazado.jpg" />
     <Content Include="Images\XaviReclama.jpg" />
+    <Content Include="Js\jquery-1.4.3.min.js" />
     <Content Include="Js\scripts.js" />
     <Content Include="Js\scrolling.js" />
     <Content Include="Miembros\AporteEnviado.aspx" />
@@ -110,9 +111,6 @@
     <Content Include="PublicacionIndividual.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
-    <None Include="Js\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Js\jquery-1.4.1.js" />
-    <Content Include="Js\jquery-1.4.1.min.js" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

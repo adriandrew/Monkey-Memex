@@ -2,11 +2,11 @@
 
 }
 
-a, #iframe
+a
 {
     width: auto;
     height: 100%;        
-    display: block !important;
+    display: block;
 }
 
 #ContentPlaceHolder_pnlImagenes h1, h2, h3, h4, h5, h6
@@ -46,6 +46,10 @@ a, #iframe
 {
     /*display: none;*/
 }
+
+/*#fancybox-left{
+    display: none !important;
+}*/
 
 /*Facebook*/
 
