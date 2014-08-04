@@ -328,7 +328,9 @@ namespace AplicacionWeb
 
                 uiFechaPublicacion.InnerText = fechaPublicacion;
 
-                uiImagen.Src = rutaRelativa;
+                uiImagen.Src = string.Format("{0}{1}", ".", rutaRelativa );
+
+                uiImagen.Alt = "No se encuentra la imagen :(";
 
                 uiEtiquetas.InnerText = string.Format("{0} | {1}", etiquetasBasicas, etiquetasOpcionales);
 

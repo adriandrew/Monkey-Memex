@@ -14,7 +14,7 @@ function cargarContenido(posicionImagenes, cantidadImagenes) {
         dataType: "json",
         success: function (data) {
             if (data != "") {
-                $('#ContentPlaceHolder_pnlImagenes').append(data.d);
+                $('#contenedorImagenes').append(data.d);
             }
             ocultarCarga();
         },
@@ -51,8 +51,8 @@ function invocarFancybox() {
         'transitionIn': 'elastic',
         'transitionOut': 'elastic',
         //'hideOnContentClick': 'false',        
-        //'overlayOpacity': '.9',
-        //'overlayColor': 'red',
+        'overlayOpacity': '.8',
+        'overlayColor': 'black',
         'type': 'iframe'
     });
 

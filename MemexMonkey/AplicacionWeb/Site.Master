@@ -9,8 +9,8 @@
 
     <!-- Css -->
     <link href="~/Css/subirArchivos.css" rel="stylesheet" type="text/css" />
-    <link href="~/Css/elementosDinamicos.css" rel="stylesheet" type="text/css" />
-    <link href="~/Css/publicacionIndividual.css" rel="stylesheet" type="text/css" />    
+    <link href="~/Css/contenido.css" rel="stylesheet" type="text/css" />
+    <link href="~/Css/individuales.css" rel="stylesheet" type="text/css" />    
     <!-- Css Fancybox -->
 	<link href="~/Fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" media="screen" />
         
@@ -34,7 +34,7 @@
 
         <div id="statusUsuario">
                 
-                         <asp:LoginView ID="LoginView" runat="server">
+            <asp:LoginView ID="LoginView" runat="server">
                              <AnonymousTemplate>
                                  <asp:Login ID="Login" runat="server" DestinationPageUrl="~/Default.aspx" Orientation="Horizontal" UserNameLabelText="Usuario:">
                                      <LayoutTemplate>
@@ -76,9 +76,6 @@
                                      </LayoutTemplate>
                                  </asp:Login>
                                  <asp:LinkButton ID="lnkEnviarAporteNoMiembros" runat="server" PostBackUrl="~/RegistrarMiembro.aspx">Enviar Aporte</asp:LinkButton>
-                                 <br />
-                                 <br />
-                                 <br />
                              </AnonymousTemplate>
                              <LoggedInTemplate>
                                  Hola:
@@ -87,20 +84,19 @@
                                  <asp:LoginStatus ID="LoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" />
                                  <br />
                                  <asp:LinkButton ID="lnkEnviarAporteMiembros" runat="server" PostBackUrl="~/Miembros/EnviarAporte.aspx">Enviar Aporte</asp:LinkButton>
-                                 <br />
                              </LoggedInTemplate>
                          </asp:LoginView>
                   
         </div>
 
-     <div id="Content">
+     <div id="contenido">
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
         
         
         </asp:ContentPlaceHolder>
          
-    </div> <!-- end Content -->
+    </div> <!-- end contenido -->
 
     </form>
 </body>

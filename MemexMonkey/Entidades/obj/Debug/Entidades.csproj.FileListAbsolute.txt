@@ -13,4 +13,3 @@ C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Debug
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.dll
 C:\Users\SYS21-VIII\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.pdb
-C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache

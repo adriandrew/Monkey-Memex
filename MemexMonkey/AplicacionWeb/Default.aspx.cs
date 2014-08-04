@@ -111,7 +111,7 @@ namespace AplicacionWeb
 
             var listaParcialImagenes = ( from elemento in listaTotalImagenes select elemento ).Skip ( posicionImagenes ).Take ( cantidadImagenes );
 
-            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaParcialImagenes)
+            foreach ( Entidades.ImagenesAspNet_Users elementoImagenes in listaParcialImagenes )
             {
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
@@ -152,38 +152,36 @@ namespace AplicacionWeb
 
                 System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
 
-                if (directorioInfo.Exists)
+                if ( directorioInfo.Exists )
                 {
 
                     System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
 
                     bool esArchivoEncontrado = false;
 
-                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
                     {
 
                         string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
 
-                        if (rutaRelativa.Equals(urlImagen))
+                        if ( rutaRelativa.Equals ( urlImagen ) )
                         {
 
                             string tituloImagen = string.Format ( "<h2>{0}</h2>", titulo );
 
-                            string nombreUsuario = string.Format ( "<h4>{0}{1}</h4>", "Aporte por: ", userName );
+                            string nombreUsuario = string.Format ( "<h3>{0}{1}</h3>", "Aporte por: ", userName );
 
-                            string fechaPublicacionImagen = string.Format ( "<h6>{0}</h6>", fechaPublicacion );
+                            string fechaPublicacionImagen = string.Format ( "<h4>{0}</h4>", fechaPublicacion );
 
-                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagenAprobada" );
+                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagen" );
 
                             string linkImagen = string.Format ( "<a class={0} href={1}{2}>{3}</a>", "iframe", "PublicacionIndividual/", idImagen, archivoImagen );
 
-                            string etiquetas = string.Format ( "<h6>{0} {1}</h6>", etiquetasBasicas, etiquetasOpcionales );
+                            string etiquetas = string.Format ( "<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales );
 
-                            string divEtiquetas = string.Format ( "<div class={0}>{1}</div>", "divEtiquetasImagenAprobada", etiquetas );
+                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, etiquetas );
 
-                            string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, divEtiquetas );
-
-                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagenAprobada", contenidoDivImagen );
+                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagen", contenidoDivImagen );
 
                             htmlImagenes.AppendFormat ( divImagen );
 
@@ -196,11 +194,11 @@ namespace AplicacionWeb
                     if ( !esArchivoEncontrado )
                     {
 
-                        string imagenNoEncontrada = string.Format("<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa); 
+                        string imagenNoEncontrada = string.Format ( "<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa ); 
 
-                        string divImagen = string.Format("<div class={0}>{1}</div>", "divImagenAprobada", imagenNoEncontrada);
+                        string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagen", imagenNoEncontrada );
 
-                        htmlImagenes.AppendFormat( divImagen );
+                        htmlImagenes.AppendFormat ( divImagen );
 
                     }
 

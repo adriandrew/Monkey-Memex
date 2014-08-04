@@ -22,6 +22,8 @@ namespace AplicacionWeb
 
             rutas.MapPageRoute ( "PublicacionIndividual", "PublicacionIndividual/{idImagen}", "~/PublicacionIndividual.aspx" );
 
+            rutas.MapPageRoute("Individual", "Individual/{idImagen}", "~/Individual.aspx");
+
         }
 
         protected void Application_Start(object sender, EventArgs e)

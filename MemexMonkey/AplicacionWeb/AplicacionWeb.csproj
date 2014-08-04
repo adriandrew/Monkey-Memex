@@ -34,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,8 +65,8 @@
   <ItemGroup>
     <Content Include="Administradores\PanelControl.aspx" />
     <Content Include="Controles\SubirArchivo.ascx" />
-    <Content Include="Css\publicacionIndividual.css" />
-    <Content Include="Css\elementosDinamicos.css" />
+    <Content Include="Css\individuales.css" />
+    <Content Include="Css\contenido.css" />
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Fancybox\blank.gif" />
@@ -103,6 +104,7 @@
     <Content Include="Images\loading.gif" />
     <Content Include="Images\rechazado.jpg" />
     <Content Include="Images\XaviReclama.jpg" />
+    <Content Include="Individual.aspx" />
     <Content Include="Js\jquery-1.4.3.min.js" />
     <Content Include="Js\scripts.js" />
     <Content Include="Js\scrollingFancybox.js" />
@@ -143,6 +145,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Individual.aspx.cs">
+      <DependentUpon>Individual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Individual.aspx.designer.cs">
+      <DependentUpon>Individual.aspx</DependentUpon>
     </Compile>
     <Compile Include="Miembros\AporteEnviado.aspx.cs">
       <DependentUpon>AporteEnviado.aspx</DependentUpon>
