@@ -70,7 +70,7 @@ namespace AplicacionWeb
             }
             else if ( esConexionCorrecta )
             {
-                //  TODO: Es para la prueba con el scroll infinito.
+                //  TODO: Es para la id con el scroll infinito.
                 //MostrarImagenes2();
 
             // MostrarNumeroUsuariosOnline();

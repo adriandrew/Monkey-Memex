@@ -10,6 +10,9 @@ namespace AplicacionWeb
 {
     public partial class Individual : System.Web.UI.Page
     {
+
+        #region Eventos
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +29,7 @@ namespace AplicacionWeb
 
                     Session["idImagen"] = idImagenEntero;
 
-                MostrarImagen(idImagenEntero);
+                MostrarImagen();
 
                 MostrarComentarios();
 
@@ -64,10 +67,16 @@ namespace AplicacionWeb
 
         }
 
-        private void MostrarImagen(int idImagen)
+        #endregion
+
+        #region Metodos Privados
+
+        private void MostrarImagen()
         {
 
             Entidades.ImagenesAspNet_Users imagenes = new Entidades.ImagenesAspNet_Users();
+
+            int idImagen = Convert.ToInt32(Session["idImagen"]);
 
             List<Entidades.ImagenesAspNet_Users> listaImagen = imagenes.ObtenerPorIdImagen(idImagen);
 
@@ -202,39 +211,49 @@ namespace AplicacionWeb
 
             // Se oculta el area para comentar si el usuario no está logueado en memex.            
 
-            uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex + VerificarEstadoUsuario(); 
+            uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex;
+
+            VerificarEstadoUsuario();
 
         }
 
-        private string VerificarEstadoUsuario()
+        private void VerificarEstadoUsuario()
         {
-            
-            string inputComentario = string.Empty;
-
-            string btnComentario = string.Empty;
 
             if ( User.Identity.IsAuthenticated )
             {
 
-                inputComentario = string.Format("<input id={0} type={1} value={3} />", "uiAreaComentario", "text", string.Empty);
-
-                btnComentario = string.Format("<button id={0} onserverclick={1} type={2}>{3}</button>", "uiEnviarComentario", "uiEnviarComentario_Click", "submit", "Comentar");
-
-                return inputComentario + btnComentario;
-
-                //uiAreaComentario.Attributes.Add ( "style", "display: inline;" );
-
-                //uiEnviarComentario.Attributes.Add ( "style", "display: inline;" );
+                uiComentar.Visible = true;
 
             }
             else if ( !User.Identity.IsAuthenticated )
             {
 
-                return inputComentario = btnComentario = string.Empty;
+                uiComentar.Visible = false;
 
-                //uiAreaComentario.Attributes.Add ( "style", "display: none;" );
+            }
 
-                //uiEnviarComentario.Attributes.Add ( "style", "display: none;" );
+        }
+
+        private void GuardarComentario()
+        {
+
+            if ( !string.IsNullOrEmpty ( uiAreaComentario.Value ) )
+            { 
+  
+                Entidades.Comentarios comentarios = new Entidades.Comentarios();
+
+                comentarios.UserId = (Guid) Membership.GetUser().ProviderUserKey;
+
+                comentarios.IdImagen = Convert.ToInt32(Session["idImagen"]);
+
+                comentarios.Comentario = uiAreaComentario.Value;
+
+                comentarios.FechaPublicacion = DateTime.Now;
+
+                comentarios.MeGusta = 0;
+
+                comentarios.Guardar();
 
             }
 
@@ -247,24 +266,7 @@ namespace AplicacionWeb
 
         }
 
-        private void GuardarComentario()
-        {
-  
-            Entidades.Comentarios comentarios = new Entidades.Comentarios();
-
-            comentarios.UserId = (Guid)Membership.GetUser().ProviderUserKey;
-
-            comentarios.IdImagen = Convert.ToInt32(Session["idImagen"]);
-
-            comentarios.Comentario = uiAreaComentario.Value;
-
-            comentarios.FechaPublicacion = DateTime.Now;
-
-            comentarios.MeGusta = 0;
-
-            comentarios.Guardar();
-
-        }
+        #endregion
 
     }
 }

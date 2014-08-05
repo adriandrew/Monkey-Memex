@@ -19,8 +19,3 @@ window.onload = function ()
     MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook'); /* "ContentPlaceHolder_uiPluginComentariosFacebook" es el nombre que le dimos al DIV. */
 
 }
-
-$(document).ready(function () {
-
-
-});

@@ -258,7 +258,7 @@ namespace AplicacionWeb
 
                 }
 
-                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('prueba')" );
+                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('id')" );
 
                 //uiComentariosMemex.Attributes.Add("OnClick", "Response.Redirect('~/Default.aspx')");
 
@@ -357,7 +357,7 @@ namespace AplicacionWeb
 
                 }
 
-                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('prueba')" );
+                //uiComentariosMemex.Attributes.Add ( "OnClick", "alert('id')" );
 
                 //uiComentariosMemex.Attributes.Add("OnClick", "Response.Redirect('~/Default.aspx')");
 
