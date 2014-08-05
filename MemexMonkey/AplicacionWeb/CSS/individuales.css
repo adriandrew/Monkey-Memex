@@ -6,9 +6,10 @@
 
 /*Facebook*/
 
-#ContentPlaceHolder_uiPluginComentariosFacebook
+/* No funcionó.
+#uiPluginComentariosFacebook
 {
-
-}
+    display: block !important;
+}*/
 
 /*termina Facebook*/

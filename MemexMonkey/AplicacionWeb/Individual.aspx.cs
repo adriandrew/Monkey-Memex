@@ -123,31 +123,7 @@ namespace AplicacionWeb
                 string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
 
                 contenedorImagenes.InnerHtml = divImagen;
-
-
-                uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
-
-                uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
-
-                uiComentariosMemex.Attributes.Add("style", "display: none;");
-
-                if (User.Identity.IsAuthenticated)
-                {
-
-                    uiAreaComentario.Attributes.Add("style", "display: inline;");
-
-                    uiEnviarComentario.Attributes.Add("style", "display: inline;");
-
-                }
-                else if (!User.Identity.IsAuthenticated)
-                {
-
-                    uiAreaComentario.Attributes.Add("style", "display: none;");
-
-                    uiEnviarComentario.Attributes.Add("style", "display: none;");
-
-                }
-
+                
             }
             else if (listaImagen.Count != 1)
             {
@@ -176,6 +152,8 @@ namespace AplicacionWeb
             int idImagen = Convert.ToInt32(Session["idImagen"]);
 
             listaComentarios = comentarios.ObtenerListadoPorIdImagen(idImagen);
+
+            string divComentarioPorUsuarioMemex = string.Empty;
 
             foreach (Entidades.ComentariosAspNet_Users elementoComentarios in listaComentarios)
             {
@@ -208,9 +186,55 @@ namespace AplicacionWeb
 
                 string comentarioUsuario = string.Format("<p>{0}</p>", comentario);
 
-                string divComentariosMemex = string.Format("<div id={0}>{1}{2}</div>", "uiComentariosPorUsuario", linkUsuario, comentarioUsuario);
+                divComentarioPorUsuarioMemex = divComentarioPorUsuarioMemex + string.Format("<div id={0}>{1}{2}</div>", "uiComentariosPorUsuario", linkUsuario, comentarioUsuario);
+                
+            }
 
-                uiComentariosMemex.InnerHtml = divComentariosMemex;
+            // Se ocultan los comentarios de facebook.
+
+            uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
+
+            uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
+            
+            // Se ocultan los comentarios memex.
+
+            //uiComentariosMemex.Attributes.Add("style", "display: none;");
+
+            // Se oculta el area para comentar si el usuario no está logueado en memex.            
+
+            uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex + VerificarEstadoUsuario(); 
+
+        }
+
+        private string VerificarEstadoUsuario()
+        {
+            
+            string inputComentario = string.Empty;
+
+            string btnComentario = string.Empty;
+
+            if ( User.Identity.IsAuthenticated )
+            {
+
+                inputComentario = string.Format("<input id={0} type={1} value={3} />", "uiAreaComentario", "text", string.Empty);
+
+                btnComentario = string.Format("<button id={0} onserverclick={1} type={2}>{3}</button>", "uiEnviarComentario", "uiEnviarComentario_Click", "submit", "Comentar");
+
+                return inputComentario + btnComentario;
+
+                //uiAreaComentario.Attributes.Add ( "style", "display: inline;" );
+
+                //uiEnviarComentario.Attributes.Add ( "style", "display: inline;" );
+
+            }
+            else if ( !User.Identity.IsAuthenticated )
+            {
+
+                return inputComentario = btnComentario = string.Empty;
+
+                //uiAreaComentario.Attributes.Add ( "style", "display: none;" );
+
+                //uiEnviarComentario.Attributes.Add ( "style", "display: none;" );
 
             }
 

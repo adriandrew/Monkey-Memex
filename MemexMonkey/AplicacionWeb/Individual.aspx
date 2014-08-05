@@ -16,14 +16,14 @@
         </div>
 
         <div id="uiContenedorComentarios">
-            <a href="#uiPluginComentariosFacebook" name="uiPluginComentariosFacebook" onclick="MuestraOculta('ContentPlaceHolder_uiPluginComentariosFacebook')">Comentarios Facebook</a>
-            <div id="uiPluginComentariosFacebook" runat="server" class="fb-comments" data-colorscheme="dark" data-href="http://monkey.somee.com/Individual/0" data-numposts="5">
-            </div>
             <a href="#uiComentariosMemex" name="uiComentariosMemex" onclick="MuestraOculta('uiComentariosMemex')">Comentarios Memex</a>
             <div id="uiComentariosMemex" runat="server">
                 <input id="uiAreaComentario" runat="server" type="text" value="" />
                 <button id="uiEnviarComentario" runat="server" onserverclick="uiEnviarComentario_Click" type="submit">Comentar</button>
             </div><!-- Termina uiContenidoComentariosMemex -->
+            <a href="#uiPluginComentariosFacebook" name="uiPluginComentariosFacebook" onclick="MuestraOculta('uiPluginComentariosFacebook')">Comentarios Facebook</a>
+            <div id="uiPluginComentariosFacebook" runat="server" class="fb-comments" data-colorscheme="dark" data-href="http://monkey.somee.com/Individual/0" data-numposts="5">
+            </div><!-- Termina uiPluginComentariosFacebook -->
         </div><!-- Termina uiComentarios -->
 
         <%--Plugin de Facebook--%>
