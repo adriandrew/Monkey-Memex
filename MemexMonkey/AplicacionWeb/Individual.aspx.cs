@@ -255,6 +255,19 @@ namespace AplicacionWeb
 
                 comentarios.Guardar();
 
+                // TODO. Cambiar a refresh o algun metodo mas nativo de Visual Studio estas lineas de codigo, NO FUNCIONA NADA DE ESTO, ESTA TRONANDO. 
+                // Se redirecciona a la misma ruta (refresh) si es exitoso el comentario del usuario para que lo pueda visualizar.
+
+                MaintainScrollPositionOnPostBack = true;
+
+                int idImagen = Convert.ToInt32(Session["idImagen"]);
+
+                Response.Redirect("Ïndividual" + idImagen);
+
+            }
+            else if ( string.IsNullOrEmpty ( uiAreaComentario.Value ) )
+            {
+
             }
 
         }

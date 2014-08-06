@@ -22,7 +22,7 @@ namespace AplicacionWeb.Administradores
 
             else if ( ! User.IsInRole ( "Administradores" ) )
 
-                Response.Redirect ( "Inicio" );
+                Response.Redirect ( "../Inicio" );
 
         }
 
@@ -51,13 +51,17 @@ namespace AplicacionWeb.Administradores
         #endregion
 
         #region Metodos Privados
-        
+
+        // TODO. Falta agregar hoja de estilo con estos estilos.
+
         private void AdministrarImagenes() 
         {
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
             List < Entidades.Imagenes > listaImagenes = new List < Entidades.Imagenes > ();  
+
+            // TODO. Falta limitar las publicaciones a 5 o 10 o hacerlo con el scroll como la pagina de Inicio.
 
             listaImagenes = imagenes.ObtenerListadoPendientes();
 
@@ -178,7 +182,7 @@ namespace AplicacionWeb.Administradores
         
         }
 
-        private void RechazarPublicacion(string idImagen)
+        private void RechazarPublicacion ( string idImagen )
         {
 
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
@@ -198,7 +202,7 @@ namespace AplicacionWeb.Administradores
 
             pnlImagen.Attributes.Add ( "id", idImagen );
 
-            pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left;" );
+            pnlImagen.Attributes.Add ( "style", "margin: 30px; float: left; max-width: 540px;" );
 
             return pnlImagen;
 
@@ -226,11 +230,7 @@ namespace AplicacionWeb.Administradores
 
             imgPendiente.AlternateText = titulo;
 
-            imgPendiente.BorderWidth = 20;
-
-            imgPendiente.BorderColor = System.Drawing.Color.Black;
-
-            imgPendiente.BorderStyle = BorderStyle.Solid;
+            imgPendiente.Attributes.Add( "style", "width: 540px; max-width: 540px;" );
 
             return imgPendiente;
 

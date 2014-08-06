@@ -22,14 +22,20 @@ namespace AplicacionWeb
 
             rutas.MapPageRoute ( "PublicacionIndividual", "PublicacionIndividual/{idImagen}", "~/PublicacionIndividual.aspx" );
 
-            rutas.MapPageRoute("Individual", "Individual/{idImagen}", "~/Individual.aspx");
+            rutas.MapPageRoute ( "Individual", "Individual/{idImagen}", "~/Individual.aspx" );
+
+            rutas.MapPageRoute ( "Moderar", "Moderar", "~/Administradores/PanelControl.aspx" );
+
+            rutas.MapPageRoute ( "EnviarAporte", "EnviarAporte", "~/Miembros/EnviarAporte.aspx" );
+
+            rutas.MapPageRoute ( "AporteEnviado", "AporteEnviado", "~/Miembros/AporteEnviado.aspx" );
 
         }
 
         protected void Application_Start(object sender, EventArgs e)
         {
 
-            // Aquí se invoca el metodo que registra las rutas que se van linkImagen sobreescribir.
+            // Aquí se invoca el metodo que registra las rutas que se van a sobreescribir.
 
             RegistrarRutas ( RouteTable.Routes );
 

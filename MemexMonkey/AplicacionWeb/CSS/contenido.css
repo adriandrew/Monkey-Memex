@@ -14,6 +14,9 @@
     height: 1000px;
     max-height: 1000px;
     */
+
+    /* Es para efectos de pruebas en navegadores. */
+    height: 1000px;
 }
 
 #contenedorImagenes h1, h2, h3, h4, h5, h6

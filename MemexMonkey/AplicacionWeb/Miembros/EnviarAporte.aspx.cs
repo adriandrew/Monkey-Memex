@@ -47,9 +47,7 @@ namespace AplicacionWeb.Miembros
 
             CargarCaracteristicasControlImagenes();
 
-            AgregarOnClick();
-
-            //AgregarOnChange();
+            AgregarOnFocus();
 
         }
        
@@ -64,13 +62,20 @@ namespace AplicacionWeb.Miembros
             
         }
 
-        protected void lnkMostrarImagenes_Click(object sender, EventArgs e)
-
+        protected void btnReiniciar_Click(object sender, EventArgs e)
         {
 
-            MostrarImagenes();
+            ReiniciarFormulario();
 
         }
+
+        //protected void lnkMostrarImagenes_Click(object sender, EventArgs e)
+
+        //{
+
+        //    MostrarImagenes();
+
+        //}
 
         //protected void btnSubirImagenes_Click(object sender, EventArgs e)
 
@@ -90,7 +95,7 @@ namespace AplicacionWeb.Miembros
             if ( ! string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
             {
 
-                // Para guardar los datos que van en la tabla imagenesAspnet_users.
+                // Para guardar los datos que van en la tabla ImagenesAspnet_Users.
 
                 Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
@@ -138,28 +143,28 @@ namespace AplicacionWeb.Miembros
 
         }
 
-        private void MostrarImagenes()
-        {
+        //private void MostrarImagenes()
+        //{
 
-            System.IO.DirectoryInfo _dirInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(SubirArchivo.DestinationFolder));
+        //    System.IO.DirectoryInfo _dirInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(SubirArchivo.DestinationFolder));
 
-            if ( _dirInfo.Exists )
-            {
-                System.IO.FileInfo[] _filesInfo = _dirInfo.GetFiles();
-                foreach (System.IO.FileInfo _f in _filesInfo)
-                {
-                    Image _img = new Image();
-                    _img.ImageUrl = string.Format( "{0}/{1}", SubirArchivo.DestinationFolder, _f );
-                    _img.Height = new Unit ( 50 );
-                    pnlImagenes.Controls.Add ( _img );
-                }
-            }
-            else
-            {
-                pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
-            }
+        //    if ( _dirInfo.Exists )
+        //    {
+        //        System.IO.FileInfo[] _filesInfo = _dirInfo.GetFiles();
+        //        foreach (System.IO.FileInfo _f in _filesInfo)
+        //        {
+        //            Image _img = new Image();
+        //            _img.ImageUrl = string.Format( "{0}/{1}", SubirArchivo.DestinationFolder, _f );
+        //            _img.Height = new Unit ( 50 );
+        //            pnlImagenes.Controls.Add ( _img );
+        //        }
+        //    }
+        //    else
+        //    {
+        //        pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
+        //    }
 
-        }
+        //}
 
         private void SubirImagenes() 
         {
@@ -178,7 +183,7 @@ namespace AplicacionWeb.Miembros
                 
                 SubirArchivo.Titulo = "Subir imágenes";
                 
-                SubirArchivo.Comment = "1 archivo .png, .gif ó .jpg (máx. 10 MB).";
+                SubirArchivo.Comment = "1 archivo .png, .jpg ó .gif  (máx. 10 MB).";
                 
                 SubirArchivo.MaxFilesLimit = 5;
                 
@@ -248,38 +253,34 @@ namespace AplicacionWeb.Miembros
             
         }
 
-        private void AgregarOnClick()
+        private void AgregarOnFocus()
         {
 
-            txtPersonaje.Attributes.Add ( "OnClick", "this.value = '#'" );
+            txtPersonaje.Attributes.Add ( "OnFocusIn", "this.value = '#'" );
 
-            txtEtiquetasOpcionales.Attributes.Add ( "OnClick", "this.value = '#'" );
+            txtPersonaje.Attributes.Add("OnFocusOut", "this.value = '#personaje1 #personaje2'");
 
-            txtEquipo.Attributes.Add ( "OnClick", "this.value = '#'" );
-             
-            txtLiga.Attributes.Add ( "OnClick", "this.value = '#'" );
+            txtEtiquetasOpcionales.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-        }
+            txtEtiquetasOpcionales.Attributes.Add("OnFocusOut", "this.value = '#etiquetas opcionales #memex fan'");
 
-        private void AgregarOnChange()
-        {
+            txtEquipo.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            txtPersonaje.Attributes.Add ( "OnChange", "this.value = '#'" );
+            txtEquipo.Attributes.Add("OnFocusOut", "this.value = '#equipo1 #equipo2'");
 
-            txtEtiquetasOpcionales.Attributes.Add ( "OnChange", "this.value = '#'" );
+            txtLiga.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            txtEquipo.Attributes.Add ( "OnChange", "this.value = '#'" );
-
-            txtLiga.Attributes.Add ( "OnChange", "this.value = '#'" );
+            txtLiga.Attributes.Add("OnFocusOut", "this.value = '#liga'");
 
         }
 
         private void Redireccionar() 
         {
 
-            Response.Redirect ( "~/AporteEnviado.aspx" );
+            Response.Redirect ( "AporteEnviado" );
 
         }
+
         #endregion 
 
     }

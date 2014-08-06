@@ -66,7 +66,7 @@
                                                              <td colspan="6" style="color:Red;">
                                                                  <asp:CheckBox ID="RememberMe" runat="server" ForeColor="Black" Text="Recordármelo la próxima vez." />
                                                                  <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                                                 <asp:LinkButton ID="LinkButton" runat="server" Font-Overline="False" PostBackUrl="~/RegistrarMiembro.aspx">Registrarse</asp:LinkButton>
+                                                                 <asp:LinkButton ID="LinkButton" runat="server" Font-Overline="False" PostBackUrl="Registrarse">Registrarse</asp:LinkButton>
                                                              </td>
                                                          </tr>
                                                      </table>
@@ -75,7 +75,7 @@
                                          </table>
                                      </LayoutTemplate>
                                  </asp:Login>
-                                 <asp:LinkButton ID="lnkEnviarAporteNoMiembros" runat="server" PostBackUrl="~/RegistrarMiembro.aspx">Enviar Aporte</asp:LinkButton>
+                                 <asp:LinkButton ID="lnkEnviarAporteNoMiembros" runat="server" PostBackUrl="Registrarse">Enviar Aporte</asp:LinkButton>
                              </AnonymousTemplate>
                              <LoggedInTemplate>
                                  Hola:
@@ -83,7 +83,7 @@
                                  <br />
                                  <asp:LoginStatus ID="LoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Default.aspx" />
                                  <br />
-                                 <asp:LinkButton ID="lnkEnviarAporteMiembros" runat="server" PostBackUrl="~/Miembros/EnviarAporte.aspx">Enviar Aporte</asp:LinkButton>
+                                 <asp:LinkButton ID="lnkEnviarAporteMiembros" runat="server" PostBackUrl="EnviarAporte">Enviar Aporte</asp:LinkButton>
                              </LoggedInTemplate>
                          </asp:LoginView>
                   

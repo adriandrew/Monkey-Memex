@@ -15,11 +15,10 @@
     <br />
     <uc1:SubirArchivo ID="SubirArchivo" runat="server" />
     <%--<asp:Button ID="btnSubirImagenes" runat="server" OnClick="btnSubirImagenes_Click" Text="Subir imágenes" />--%>
-    <br />
-    <div>
+  <%--  <div>
         <asp:LinkButton ID="lnkMostrarImagenes" runat="server" onclick="lnkMostrarImagenes_Click">Mostrar las imágenes subidas</asp:LinkButton>
         <asp:Panel runat="server" ID="pnlImagenes" />
-    </div>
+    </div>--%>
 
 <%--    <asp:Label ID="lblArchivo" runat="server" Text="Archivo"></asp:Label>
     <asp:FileUpload ID="FileUpload" runat="server" Width="349px" />--%>
@@ -29,16 +28,16 @@
     <br />
     <br />
     <asp:Label ID="lblEtiquetasBasicas" runat="server" Text="Etiquetas Basicas"></asp:Label>
-    <asp:TextBox ID="txtPersonaje" runat="server" Width="237px" ForeColor="Gray">#Personaje1 #Personaje2</asp:TextBox>
-    <asp:TextBox ID="txtEquipo" runat="server" Width="200px" ForeColor="Gray">#Equipo1 #Equipo2</asp:TextBox>
-    <asp:TextBox ID="txtLiga" runat="server" Width="145px" ForeColor="Gray">#Liga</asp:TextBox>
+    <asp:TextBox ID="txtPersonaje" runat="server" Width="237px" ForeColor="Gray">#personaje1 #personaje2</asp:TextBox>
+    <asp:TextBox ID="txtEquipo" runat="server" Width="200px" ForeColor="Gray">#equipo1 #equipo2</asp:TextBox>
+    <asp:TextBox ID="txtLiga" runat="server" Width="145px" ForeColor="Gray">#liga</asp:TextBox>
     <br />
     <br />
     <asp:Label ID="lblEtiquetasOpcionales" runat="server" Text="Etiquetas Opcionales"></asp:Label>
-    <asp:TextBox ID="txtEtiquetasOpcionales" runat="server" Width="296px" ForeColor="Gray">#VivaMexico #SoyMemex</asp:TextBox>
+    <asp:TextBox ID="txtEtiquetasOpcionales" runat="server" Width="296px" ForeColor="Gray">#etiquetas opcionales #memex fan</asp:TextBox>
     <br />
     <br />
     <asp:Button ID="btnEnviarAporte" runat="server" BackColor="#00CC66" OnClick="btnEnviarAporte_Click" Text="Enviar Aporte" />
-    <asp:Button ID="btnReiniciar" runat="server" BackColor="#00CC66" Text="Reiniciar" />
+    <asp:Button ID="btnReiniciar" runat="server" BackColor="#00CC66" Text="Reiniciar" OnClick="btnReiniciar_Click" />
     <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="False"></asp:Label>
     </asp:Content>
