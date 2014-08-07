@@ -10,7 +10,7 @@
         <h4 runat="server" id="uiUsuarioAportador"> Aporte por: </h4>
         <h6 runat="server" id="uiFechaPublicacion"> Fecha publicacion. </h6>
         <img runat="server" id="uiImagen" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
-        <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #soy memex </h6>
+        <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #memex fan </h6>
     </div> <!-- Termina uiImagen -->
     
     <div id="uiContenedorComentarios">

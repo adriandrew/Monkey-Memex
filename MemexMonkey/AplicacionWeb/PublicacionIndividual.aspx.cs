@@ -11,6 +11,18 @@ namespace AplicacionWeb
     public partial class PublicacionIndividual : System.Web.UI.Page
     {
 
+        protected override void OnPreInit(EventArgs e)
+        {
+
+            if (this.Page.Master == null)
+                this.Page.MasterPageFile = "~/Site.Master";
+            else
+                this.Page.MasterPageFile = null;
+
+            base.OnPreInit(e);
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

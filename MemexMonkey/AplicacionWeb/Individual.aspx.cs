@@ -11,6 +11,18 @@ namespace AplicacionWeb
     public partial class Individual : System.Web.UI.Page
     {
 
+        // TODO. Pendiente, checar lo de heredar y desheredar la masterpage.
+
+        //protected override void OnPreInit(EventArgs e)
+        //{
+
+            //if (this.Page.Master == null)
+            //    this.Page.MasterPageFile = "~/Site.Master";
+
+            //base.OnPreInit(e);
+
+        //}
+
         #region Eventos
 
         protected void Page_Load(object sender, EventArgs e)
@@ -59,7 +71,9 @@ namespace AplicacionWeb
                 catch (Exception)
                 {
 
-                    Response.Redirect("Inicio");
+                    // Se refresca la pagina.
+
+                    Response.Redirect(Request.RawUrl);
 
                 }
 
@@ -262,7 +276,9 @@ namespace AplicacionWeb
 
                 int idImagen = Convert.ToInt32(Session["idImagen"]);
 
-                Response.Redirect("Ïndividual" + idImagen);
+                //Response.Redirect("../Individual/" + idImagen);
+
+                Response.Redirect(Request.RawUrl);
 
             }
             else if ( string.IsNullOrEmpty ( uiAreaComentario.Value ) )

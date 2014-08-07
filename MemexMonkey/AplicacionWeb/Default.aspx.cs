@@ -29,14 +29,14 @@ namespace AplicacionWeb
 
             }
 
-            // TODO Es para poder guardar comentariosAspnet_users con el enter.
+            // TODO Es para poder guardar comentarios con el enter.
 
             //txtComentarioUsuarioImagenAprobada_TextChanged(sender, e);
 
         }
 
         
-        // TODO Es para poder guardar comentariosAspnet_users con el enter.
+        // TODO Es para poder guardar comentarios con el enter.
 
         private void txtComentarioUsuarioImagenAprobada_TextChanged ( Object sender, System.EventArgs e )
         {

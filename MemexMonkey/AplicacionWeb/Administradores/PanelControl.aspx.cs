@@ -131,6 +131,8 @@ namespace AplicacionWeb.Administradores
                             
                             esArchivoEncontrado = true;
 
+                            break;
+
                         }
 
                     }
@@ -295,7 +297,35 @@ namespace AplicacionWeb.Administradores
             return new Label { Text = "Aún no se han subido archivos." };
 
         }
-        
+
+        private void EliminarImagen(string directorioRelativo, string rutaRelativa)
+        {
+
+            System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+            if (directorioInformacion.Exists)
+            {
+                System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
+                
+                foreach (System.IO.FileInfo archivo in archivos)
+                {
+                    string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
+
+                    if ( rutaRelativa.Equals(urlImagen) )
+                    {
+
+                        archivo.Delete();
+
+                        break;
+
+                    }
+
+                }
+
+            }
+
+        }
+
         #endregion
         
     }
