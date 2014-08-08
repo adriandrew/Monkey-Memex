@@ -18,14 +18,15 @@ namespace AplicacionWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Se verifica la conexion linkImagen la base de datos.
+
+            // Se verifica la conexion a la base de datos.
 
             if ( ! IsPostBack )
             {
  
-            VerificarConexionBaseDatos();
+                VerificarConexionBaseDatos();
 
-            //VerificarArchivos();
+                //VerificarArchivos();
 
             }
 
@@ -35,7 +36,6 @@ namespace AplicacionWeb
 
         }
 
-        
         // TODO Es para poder guardar comentarios con el enter.
 
         private void txtComentarioUsuarioImagenAprobada_TextChanged ( Object sender, System.EventArgs e )
@@ -59,13 +59,13 @@ namespace AplicacionWeb
             if ( ! esConexionCorrecta )
             { 
             
-                string script = @"<script type='text/javascript'> alert('{0}');</script>";
+                //string script = @"<script type='text/javascript'> alert('{0}');</script>";
                 
-                script = string.Format ( script, "Conexion a Base de Datos Incorrecta :(" );
+                //script = string.Format ( script, "Conexion a Base de Datos Incorrecta :(" );
                 
-                ScriptManager.RegisterStartupScript ( this, typeof ( Page ), "Alerta", script, false );
+                //ScriptManager.RegisterStartupScript ( this, typeof ( Page ), "Alerta", script, false );
 
-                //Response.Redirect ("~/Error.aspx");
+                Response.Redirect("Error");
 
             }
             else if ( esConexionCorrecta )
@@ -187,11 +187,13 @@ namespace AplicacionWeb
 
                             esArchivoEncontrado = true;
 
+                            break;
+
                         }
 
                     }
 
-                    if ( !esArchivoEncontrado )
+                    if ( ! esArchivoEncontrado )
                     {
 
                         string imagenNoEncontrada = string.Format ( "<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa ); 
@@ -203,12 +205,12 @@ namespace AplicacionWeb
                     }
 
                 }
-                else
+                else if ( ! directorioInfo.Exists )
                 {
 
                     htmlImagenes.Clear();
 
-                    htmlImagenes.AppendFormat ( string.Format ( "<h2>{0}</h2>", "Aun no se han subido archivos!" ) );
+                    htmlImagenes.AppendFormat ( string.Format ( "<h2>{0}</h2>", "El directorio no existe." ) );
 
                 }
 
@@ -363,6 +365,8 @@ namespace AplicacionWeb
                             #endregion
 
                             esArchivoEncontrado = true;
+
+                            break;
 
                         }
 
@@ -533,6 +537,8 @@ namespace AplicacionWeb
                             #endregion
 
                             esArchivoEncontrado = true;
+
+                            break;
 
                         }
 

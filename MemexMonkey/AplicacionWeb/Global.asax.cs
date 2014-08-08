@@ -30,6 +30,8 @@ namespace AplicacionWeb
 
             rutas.MapPageRoute ( "AporteEnviado", "AporteEnviado", "~/Miembros/AporteEnviado.aspx" );
 
+            rutas.MapPageRoute ( "ControlarErrores", "Error", "~/Error.aspx" );
+
         }
 
         protected void Application_Start(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace AplicacionWeb
             // Aquí se invoca el metodo que registra las rutas que se van a sobreescribir.
 
             RegistrarRutas ( RouteTable.Routes );
-
+           
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -70,5 +72,6 @@ namespace AplicacionWeb
         {
 
         }
+
     }
 }

@@ -151,10 +151,10 @@ namespace AplicacionWeb.Administradores
                     }
 
                 }
-                else
+                else if ( ! directorioInfo.Exists )
                 {
 
-                    Label lblSinArchivos = CrearLabelSinArchivos();
+                    Label lblSinArchivos = CrearLabelDirectorioNoExistente();
 
                     pnlImagenes.Controls.Add ( lblSinArchivos );
 
@@ -291,10 +291,10 @@ namespace AplicacionWeb.Administradores
 
         }
 
-        private Label CrearLabelSinArchivos() 
+        private Label CrearLabelDirectorioNoExistente() 
         {
 
-            return new Label { Text = "Aún no se han subido archivos." };
+            return new Label { Text = "El directorio no existe." };
 
         }
 
@@ -305,10 +305,12 @@ namespace AplicacionWeb.Administradores
 
             if (directorioInformacion.Exists)
             {
+
                 System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
                 
                 foreach (System.IO.FileInfo archivo in archivos)
                 {
+
                     string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
 
                     if ( rutaRelativa.Equals(urlImagen) )

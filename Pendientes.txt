@@ -1,16 +1,12 @@
-12. Falta poner break; en todos los for que consultan las imagenes de un directorio.
-
 7. Falta enrutar la pagina de default por Inicio.
 
 1. Falta heredar y desheredar master en la pagina individual.
 
-9. Falta limitar los aportes a 5 o 10 o hacerlo con el scroll en la moderacion (como la pagina de Inicio).
+14. Falta verificar si va a tener doble filtro la moderacion.
 
-10. Falta probar el metodo de eliminar el archivo de imagen y falta hacer el metodo de eliminar ese registro en base de datos.
+13. Falta probar el metodo de eliminar el archivo de imagen y falta probar e invocar el metodo de eliminar ese registro en base de datos.
 
-2. Falta crear la pagina de errores.
-
-3. Falta controlar errores, enrutar y redireccionar a la pagina de errores (tomar ejemplo de xavi en la pagina de publicacion individual).
+3. Falta controlar errores y redireccionar a la pagina de errores.
 
 5. Falta probar los comentarios de facebook sin errores de rutas en el servidor.
 
@@ -23,6 +19,8 @@
 8. Faltan las hojas de estilos de la moderacion e individual.
 
 6. Falta actualizar en el servidor esta version, con todo y base de datos.
+
+15. Falta validar lo del enlace externo.
 
 
 *** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END.***

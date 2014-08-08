@@ -223,9 +223,11 @@ namespace AplicacionWeb
 
             //uiComentariosMemex.Attributes.Add("style", "display: none;");
 
-            // Se oculta el area para comentar si el usuario no está logueado en memex.            
+            // Se inyecta el html con los comentarios. 
 
             uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex;
+
+            // Se oculta el area para comentar si el usuario no está logueado en memex.            
 
             VerificarEstadoUsuario();
 

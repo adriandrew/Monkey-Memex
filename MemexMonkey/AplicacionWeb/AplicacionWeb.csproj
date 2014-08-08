@@ -69,6 +69,7 @@
     <Content Include="Css\contenido.css" />
     <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Fancybox\blank.gif" />
     <Content Include="Fancybox\fancybox-x.png" />
     <Content Include="Fancybox\fancybox-y.png" />
@@ -142,6 +143,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

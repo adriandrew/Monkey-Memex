@@ -213,6 +213,44 @@ namespace Entidades
 
         }
 
+        public void Eliminar ( int idImagen )
+        {
+
+            try
+            {
+
+                string sql = "DELETE FROM Imagenes WHERE IdImagen = @IdImagen";
+
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = BaseDatos.conexion;
+
+                comando.CommandText = sql;
+
+                comando.Parameters.AddWithValue("@IdImagen", idImagen);
+
+                BaseDatos.conexion.Open();
+
+                comando.ExecuteNonQuery();
+
+                BaseDatos.conexion.Close();
+
+            }
+            catch ( Exception )
+            {
+
+                throw;
+
+            }
+            finally
+            {
+
+                BaseDatos.conexion.Close();
+
+            }
+
+        }
+
         public List < Imagenes > ObtenerPorIdImagen ( int idImagen )
         { 
             List < Imagenes > lista = new List < Imagenes > ();
@@ -371,7 +409,7 @@ namespace Entidades
             try 
             {
 
-                string sql = "SELECT * FROM Imagenes WHERE EsAprobado = 0 ORDER BY FechaSubida DESC";
+                string sql = "SELECT TOP (5) * FROM Imagenes WHERE EsAprobado = 0 ORDER BY FechaSubida DESC";
 
                 SqlCommand comando = new SqlCommand();
 
