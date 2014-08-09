@@ -10,11 +10,11 @@
 
 8. Faltan las hojas de estilos de la moderacion e individual.
 
-6. Falta actualizar en el servidor esta version, con todo y base de datos.
-
 15. Falta validar lo del enlace externo.
 
 16. Falta checar lo del click inicial que no jala el fancybox. 
+
+6. Falta actualizar en el servidor esta version, con todo y base de datos.
 
 
 *** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END.***
