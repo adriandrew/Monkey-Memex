@@ -169,7 +169,7 @@ namespace AplicacionWeb.Miembros
         private void SubirImagenes() 
         {
         
-             SubirArchivo.UploadFiles ( true );
+             ucSubirArchivo.UploadFiles ( true );
 
         }
 
@@ -181,21 +181,21 @@ namespace AplicacionWeb.Miembros
 
                 // Propiedades del control.
                 
-                SubirArchivo.Titulo = "Subir imágenes";
+                ucSubirArchivo.Titulo = "Subir imágenes";
                 
-                SubirArchivo.Comment = "1 archivo .png, .jpg ó .gif  (máx. 10 MB).";
+                ucSubirArchivo.Comment = "1 archivo .png, .jpg ó .gif  (máx. 10 MB).";
                 
-                SubirArchivo.MaxFilesLimit = 5;
+                ucSubirArchivo.MaxFilesLimit = 5;
                 
                 string fechaHoy = DateTime.Today.ToShortDateString();     
                 
-                SubirArchivo.DestinationFolder = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
+                ucSubirArchivo.DestinationFolder = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
 
                 AplicacionWeb.Controles.SubirArchivo.DirectorioRelativo = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
 
                 AplicacionWeb.Controles.SubirArchivo.RutaRelativa = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
                 
-                SubirArchivo.FileExtensionsEnabled = ".png|.jpg|.jpeg|.jpe|.gif";
+                ucSubirArchivo.FileExtensionsEnabled = ".png|.jpg|.jpeg|.jpe|.gif";
                 
             }
 
@@ -256,21 +256,23 @@ namespace AplicacionWeb.Miembros
         private void AgregarOnFocus()
         {
 
+            // TODO. Verificar bien este relajo al escribir las etiquetas.
+
             txtPersonaje.Attributes.Add ( "OnFocusIn", "this.value = '#'" );
 
-            txtPersonaje.Attributes.Add("OnFocusOut", "this.value = '#personaje1 #personaje2'");
+            //txtPersonaje.Attributes.Add("OnFocusOut", "this.value = '#personaje1 #personaje2'");
 
             txtEtiquetasOpcionales.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            txtEtiquetasOpcionales.Attributes.Add("OnFocusOut", "this.value = '#etiquetas opcionales #memex fan'");
+            //txtEtiquetasOpcionales.Attributes.Add("OnFocusOut", "this.value = '#etiquetas opcionales #memex fan'");
 
             txtEquipo.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            txtEquipo.Attributes.Add("OnFocusOut", "this.value = '#equipo1 #equipo2'");
+            //txtEquipo.Attributes.Add("OnFocusOut", "this.value = '#equipo1 #equipo2'");
 
             txtLiga.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            txtLiga.Attributes.Add("OnFocusOut", "this.value = '#liga'");
+            //txtLiga.Attributes.Add("OnFocusOut", "this.value = '#liga'");
 
         }
 
@@ -282,6 +284,32 @@ namespace AplicacionWeb.Miembros
         }
 
         #endregion 
+
+        protected void rblEscoger_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if ( rblEscoger.SelectedIndex == 0 )
+            {
+
+                ucSubirArchivo.Visible = true;
+
+                lblEnlaceExterno.Visible = false;
+
+                txtEnlaceExterno.Visible = false;
+
+            }
+            else if ( rblEscoger.SelectedIndex == 1 )
+            {
+
+                ucSubirArchivo.Visible = false;
+
+                lblEnlaceExterno.Visible = true;
+
+                txtEnlaceExterno.Visible = true;
+
+            }
+
+        }
 
     }
 }

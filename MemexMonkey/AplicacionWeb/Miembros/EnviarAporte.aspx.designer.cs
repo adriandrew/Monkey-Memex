@@ -13,6 +13,42 @@ namespace AplicacionWeb.Miembros {
     public partial class EnviarAporte {
         
         /// <summary>
+        /// Control rblEscoger.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblEscoger;
+        
+        /// <summary>
+        /// Control ucSubirArchivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AplicacionWeb.Controles.SubirArchivo ucSubirArchivo;
+        
+        /// <summary>
+        /// Control lblEnlaceExterno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEnlaceExterno;
+        
+        /// <summary>
+        /// Control txtEnlaceExterno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEnlaceExterno;
+        
+        /// <summary>
         /// Control lblTituloImagen.
         /// </summary>
         /// <remarks>
@@ -56,33 +92,6 @@ namespace AplicacionWeb.Miembros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
-        
-        /// <summary>
-        /// Control SubirArchivo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AplicacionWeb.Controles.SubirArchivo SubirArchivo;
-        
-        /// <summary>
-        /// Control lblEnlaceExterno.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEnlaceExterno;
-        
-        /// <summary>
-        /// Control txtEnlaceExterno.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnlaceExterno;
         
         /// <summary>
         /// Control lblEtiquetasBasicas.

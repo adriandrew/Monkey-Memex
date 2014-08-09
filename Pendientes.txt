@@ -1,3 +1,5 @@
+15. Falta validar lo del enlace externo en el panel de control.
+
 14. Falta verificar si va a tener doble filtro la moderacion.
 
 13. Falta probar el metodo de eliminar el archivo de imagen y falta probar e invocar el metodo de eliminar ese registro en base de datos.
@@ -10,14 +12,11 @@
 
 8. Faltan las hojas de estilos de la moderacion e individual.
 
-15. Falta validar lo del enlace externo.
-
-16. Falta checar lo del click inicial que no jala el fancybox. 
-
 6. Falta actualizar en el servidor esta version, con todo y base de datos.
 
+16. Falta validar etiquetas con los metodos de focus.
 
-*** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END.***
+*** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END. ***
 
 
 -------------------------------------------------Opcionales--------------------------------------------------

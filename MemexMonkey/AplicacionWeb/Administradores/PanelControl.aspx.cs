@@ -180,6 +180,8 @@ namespace AplicacionWeb.Administradores
 
             imagenes.EsAprobado = 1;
 
+            imagenes.FechaPublicacion = DateTime.Now;
+
             imagenes.Actualizar();
         
         }

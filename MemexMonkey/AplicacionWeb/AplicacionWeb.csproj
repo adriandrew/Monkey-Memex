@@ -108,7 +108,7 @@
     <Content Include="Individual.aspx" />
     <Content Include="Js\jquery-1.4.3.min.js" />
     <Content Include="Js\scripts.js" />
-    <Content Include="Js\scrollingFancybox.js" />
+    <Content Include="Js\scrolling.js" />
     <Content Include="Miembros\AporteEnviado.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
     <Content Include="PublicacionIndividual.aspx" />

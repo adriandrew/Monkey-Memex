@@ -1,8 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EnviarAporte.aspx.cs" Inherits="AplicacionWeb.Miembros.EnviarAporte" %>
-<%@ Register src="../Controles/SubirArchivo.ascx" tagname="SubirArchivo" tagprefix="uc1" %>
+<%@ Register src="../Controles/SubirArchivo.ascx" tagname="ucSubirArchivo" tagprefix="uc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <asp:RadioButtonList ID="rblEscoger" runat="server" Height="16px" OnSelectedIndexChanged="rblEscoger_SelectedIndexChanged" RepeatDirection="Horizontal" Width="502px" AutoPostBack="True">
+        <asp:ListItem Selected="True">Imagen</asp:ListItem>
+        <asp:ListItem>Enlace</asp:ListItem>
+    </asp:RadioButtonList>
+    <br />
+    <uc:ucSubirArchivo ID="ucSubirArchivo" runat="server" />
+    <br />
+    <asp:Label ID="lblEnlaceExterno" runat="server" Text="Enlace Externo" Visible="False"></asp:Label>
+    <asp:TextBox ID="txtEnlaceExterno" runat="server" Width="296px" Visible="False"></asp:TextBox>
+    <br />
+    <br />
     <asp:Label ID="lblTituloImagen" runat="server" Text="Título de Imagen"></asp:Label>
     <asp:TextBox ID="txtTituloImagen" runat="server" Width="296px"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rfvTituloImagen" runat="server" ControlToValidate="txtTituloImagen" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -12,20 +23,14 @@
     <asp:DropDownList ID="ddlCategoria" runat="server" Height="29px" Width="201px">
     </asp:DropDownList>
     <br />
-    <br />
-    <uc1:SubirArchivo ID="SubirArchivo" runat="server" />
-    <%--<asp:Button ID="btnSubirImagenes" runat="server" OnClick="btnSubirImagenes_Click" Text="Subir imágenes" />--%>
-  <%--  <div>
+    <%--<asp:Button ID="btnSubirImagenes" runat="server" OnClick="btnSubirImagenes_Click" Text="Subir imágenes" />--%>  <%--  <div>
         <asp:LinkButton ID="lnkMostrarImagenes" runat="server" onclick="lnkMostrarImagenes_Click">Mostrar las imágenes subidas</asp:LinkButton>
         <asp:Panel runat="server" ID="pnlImagenes" />
     </div>--%>
-
 <%--    <asp:Label ID="lblArchivo" runat="server" Text="Archivo"></asp:Label>
     <asp:FileUpload ID="FileUpload" runat="server" Width="349px" />--%>
-    <br />
-    <asp:Label ID="lblEnlaceExterno" runat="server" Text="Enlace Externo"></asp:Label>
-    <asp:TextBox ID="txtEnlaceExterno" runat="server" Width="296px"></asp:TextBox>
-    <br />
+    
+   
     <br />
     <asp:Label ID="lblEtiquetasBasicas" runat="server" Text="Etiquetas Basicas"></asp:Label>
     <asp:TextBox ID="txtPersonaje" runat="server" Width="237px" ForeColor="Gray">#personaje1 #personaje2</asp:TextBox>

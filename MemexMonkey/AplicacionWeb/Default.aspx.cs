@@ -175,7 +175,7 @@ namespace AplicacionWeb
 
                             string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagen" );
 
-                            string linkImagen = string.Format ( "<a class={0} href={1}{2}>{3}</a>", "iframe", "Individual/", idImagen, archivoImagen );
+                            string linkImagen = string.Format("<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen);
 
                             string etiquetas = string.Format ( "<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales );
 
