@@ -23,7 +23,7 @@
 	<script type="text/javascript" src="../Fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 
     <!-- Scripts -->
-    <script src="../Js/scrollingFancybox.js" type="text/javascript"></script>
+    <script src="../Js/scrolling.js" type="text/javascript"></script>
     <script src="../Js/scripts.js" type="text/javascript"></script>
     
     <asp:ContentPlaceHolder ID="head" runat="server">

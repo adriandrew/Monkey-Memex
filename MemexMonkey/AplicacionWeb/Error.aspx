@@ -11,4 +11,9 @@
         <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #memex fan </h6>
     </div> <!-- Termina uiImagen -->
 
+    <!-- Falta checar esto del flappy bird para que se haga automaticamente -->
+    <a class="iframe" href="http://flappybird.io/" onmouseover="InvocarFancybox()">         
+        <h2>Click aqui para jugar flappybird</h2>
+    </a>
+
 </asp:Content>

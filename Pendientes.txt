@@ -21,10 +21,6 @@
 
 -------------------------------------------------Opcionales--------------------------------------------------
 
-1. Falta poder guardar comentarios con el enter en la pagina individual.
-
-3. Falta definir el boton por default en el formulario para lo del enter en la pagina individual.
-
 2. Falta verificar archivos al iniciar la aplicacion.
 
 

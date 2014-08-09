@@ -50,7 +50,33 @@ namespace AplicacionWeb.Miembros
             AgregarOnFocus();
 
         }
-       
+
+        protected void rblEscoger_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if ( rblEscoger.SelectedIndex == 0 )
+            {
+
+                ucSubirArchivo.Visible = true;
+
+                lblEnlaceExterno.Visible = false;
+
+                txtEnlaceExterno.Visible = false;
+
+            }
+            else if ( rblEscoger.SelectedIndex == 1 )
+            {
+
+                ucSubirArchivo.Visible = false;
+
+                lblEnlaceExterno.Visible = true;
+
+                txtEnlaceExterno.Visible = true;
+
+            }
+
+        }
+
         protected void btnEnviarAporte_Click(object sender, EventArgs e)
         {
 
@@ -284,32 +310,6 @@ namespace AplicacionWeb.Miembros
         }
 
         #endregion 
-
-        protected void rblEscoger_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            if ( rblEscoger.SelectedIndex == 0 )
-            {
-
-                ucSubirArchivo.Visible = true;
-
-                lblEnlaceExterno.Visible = false;
-
-                txtEnlaceExterno.Visible = false;
-
-            }
-            else if ( rblEscoger.SelectedIndex == 1 )
-            {
-
-                ucSubirArchivo.Visible = false;
-
-                lblEnlaceExterno.Visible = true;
-
-                txtEnlaceExterno.Visible = true;
-
-            }
-
-        }
 
     }
 }
