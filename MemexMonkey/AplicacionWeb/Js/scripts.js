@@ -1,6 +1,18 @@
 function MuestraOculta ( id )
 {
 
+    if (typeof (variable) == 'undefined' || variable == null) {
+        // Do stuff
+    }
+
+    if (typeof variable === 'undefined' || variable == null) {
+        // Do stuff
+    }
+
+    if (typeof (variable) !== 'undefined' || variable !== null) {
+        // Do stuff
+    }
+
     if (document.getElementById) { // Se obtiene el id.
 
         var comentarioUsuario = document.getElementById(id); // Se define la variable "comentarioUsuarios" igual a nuestro div.

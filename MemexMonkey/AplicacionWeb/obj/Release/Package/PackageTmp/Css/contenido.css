@@ -1,0 +1,49 @@
+﻿a
+{
+    display: block;
+}
+
+#contenido, #contenedorImagenes, .divImagen, .divImagen a{
+    width: 600px;
+    max-width: 600px;
+}
+
+#contenido{
+    /* Es para limitar el tamano del contenido y que tenga su scroll pero tengo que programar su funcionamiento.
+    overflow-y: auto;
+    height: 1000px;
+    max-height: 1000px;
+    */
+
+    /* Es para efectos de pruebas en navegadores. */
+    height: 1000px;
+}
+
+#contenedorImagenes h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+    padding: 0;
+}
+
+#contenedorImagenes h3, h4, h5, h6 
+{
+    color: gray;
+    text-align: justify;
+}
+
+.divImagen
+{
+    margin-bottom: 50px;
+}
+
+.divImagen img{
+    border: solid 20px black;
+    width: 560px;
+}
+
+/* Facebook */
+.fb-comments 
+{
+    background-color: #333 !important;
+}
+/* Termina Facebook */

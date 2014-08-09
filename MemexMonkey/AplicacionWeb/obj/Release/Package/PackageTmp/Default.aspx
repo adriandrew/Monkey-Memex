@@ -7,6 +7,10 @@
 
     <asp:Panel runat="server" ID="pnlImagenes" />
 
+    <div id="contenedorImagenes"></div>
+
+    <%--<a class="iframe" data-fancybox-type="iframe" href="http://monkey.somee.com/">Prueba iframe</a>--%>
+
     <%--Plugin de Facebook--%>
     <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>
 
@@ -20,9 +24,5 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <%--Termina plugin de Facebook--%>
-
-    <div runat="server" id="idImagenes">
-        <%--<a href='PublicacionIndividual/1'>Ver publicacion individual -></a>--%>
-    </div>
 
 </asp:Content>

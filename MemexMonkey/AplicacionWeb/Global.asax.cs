@@ -61,6 +61,16 @@ namespace AplicacionWeb
         protected void Application_Error(object sender, EventArgs e)
         {
 
+            // Primera defensa para controlar errores generales en una sola pagina. Los errores personalizados están en el webconfig.
+
+            Exception ex = Server.GetLastError();
+
+            Server.ClearError();
+
+            Response.Redirect("Error");
+
+            // Se está redireccionando pero se borra la descripcion del error. PTM :(
+
         }
 
         protected void Session_End(object sender, EventArgs e)

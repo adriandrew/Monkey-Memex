@@ -7,7 +7,7 @@
         Quieres enviar otro aporte o volver a la pagina principal?
     "></asp:Label>
     
-    <asp:HyperLink ID="hlEnviarAporte" runat="server" NavigateUrl="~/Miembros/EnviarAporte.aspx">Volver a Enviar Aporte</asp:HyperLink>
-    <asp:HyperLink ID="hlPaginaPrincipal" runat="server" NavigateUrl="~/Default.aspx">Volver a Pagina Principal</asp:HyperLink>
+    <asp:HyperLink ID="hlEnviarAporte" runat="server" NavigateUrl="../EnviarAporte">Volver a Enviar Aporte</asp:HyperLink>
+    <asp:HyperLink ID="hlPaginaPrincipal" runat="server" NavigateUrl="../Inicio">Volver a Pagina Principal</asp:HyperLink>
     
 </asp:Content>

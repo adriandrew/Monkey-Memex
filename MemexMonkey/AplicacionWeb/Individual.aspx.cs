@@ -11,24 +11,12 @@ namespace AplicacionWeb
     public partial class Individual : System.Web.UI.Page
     {
 
-        // TODO. Pendiente, checar lo de heredar y desheredar la masterpage.
-
-        //protected override void OnPreInit(EventArgs e)
-        //{
-
-            //if (this.Page.Master == null)
-            //    this.Page.MasterPageFile = "~/Site.Master";
-
-            //base.OnPreInit(e);
-
-        //}
-
         #region Eventos
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            if ( ! IsPostBack )
             {
 
                 // Esto es para validar el id que se pasa por el enrutamiento.
@@ -46,13 +34,13 @@ namespace AplicacionWeb
                 MostrarComentarios();
 
             }
-
+          
         }
 
         protected void uiEnviarComentario_Click(object sender, EventArgs e)
         {
 
-            if (IsPostBack)
+            if ( IsPostBack )
             {
 
                 try
@@ -64,6 +52,8 @@ namespace AplicacionWeb
                         GuardarComentario();
 
                         LimpiarComentarios();
+
+                        MostrarComentarios();
 
                     }
 
@@ -254,7 +244,7 @@ namespace AplicacionWeb
         private void GuardarComentario()
         {
 
-            if ( !string.IsNullOrEmpty ( uiAreaComentario.Value ) )
+            if ( ! string.IsNullOrEmpty ( uiAreaComentario.Value ) )
             { 
   
                 Entidades.Comentarios comentarios = new Entidades.Comentarios();
@@ -270,22 +260,7 @@ namespace AplicacionWeb
                 comentarios.MeGusta = 0;
 
                 comentarios.Guardar();
-
-                // TODO. Cambiar a refresh o algun metodo mas nativo de Visual Studio estas lineas de codigo, NO FUNCIONA NADA DE ESTO, ESTA TRONANDO. 
-                // Se redirecciona a la misma ruta (refresh) si es exitoso el comentario del usuario para que lo pueda visualizar.
-
-                MaintainScrollPositionOnPostBack = true;
-
-                int idImagen = Convert.ToInt32(Session["idImagen"]);
-
-                //Response.Redirect("../Individual/" + idImagen);
-
-                Response.Redirect(Request.RawUrl);
-
-            }
-            else if ( string.IsNullOrEmpty ( uiAreaComentario.Value ) )
-            {
-
+                             
             }
 
         }

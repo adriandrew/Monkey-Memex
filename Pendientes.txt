@@ -1,26 +1,20 @@
-7. Falta enrutar la pagina de default por Inicio.
-
-1. Falta heredar y desheredar master en la pagina individual.
-
 14. Falta verificar si va a tener doble filtro la moderacion.
 
 13. Falta probar el metodo de eliminar el archivo de imagen y falta probar e invocar el metodo de eliminar ese registro en base de datos.
 
-3. Falta controlar errores y redireccionar a la pagina de errores.
-
-5. Falta probar los comentarios de facebook sin errores de rutas en el servidor.
+3. Falta crear varias paginas de errores si se requieren.
 
 10. Falta depurar y optimizar el codigo de la pagina default.
 
 4. Falta borrar la pagina de PublicacionIndividual debido a que la reemplazo la pagina individual.
-
-11. Mantener scroll en los comentarios de la pagina de individual y que no truene.
 
 8. Faltan las hojas de estilos de la moderacion e individual.
 
 6. Falta actualizar en el servidor esta version, con todo y base de datos.
 
 15. Falta validar lo del enlace externo.
+
+16. Falta checar lo del click inicial que no jala el fancybox. 
 
 
 *** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END.***
@@ -33,3 +27,6 @@
 3. Falta definir el boton por default en el formulario para lo del enter en la pagina individual.
 
 2. Falta verificar archivos al iniciar la aplicacion.
+
+
+@ndrew1991
