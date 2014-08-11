@@ -476,41 +476,6 @@ namespace Entidades
 
         }
 
-        // TODO: Terminar metodo PENDIENTE
-
-        public List < Imagenes > ObtenerListadoUsuarios() 
-        {
-
-            List<Imagenes> lista = new List<Imagenes>();
-
-            try
-            {
-
-
-                string sql = "SELECT * FROM ";
-
-                SqlCommand comando = new SqlCommand();
-
-                comando.Connection = BaseDatos.conexion;
-
-
-            }
-            catch ( Exception )
-            {
-
-                throw;
-            }
-            finally
-            {
-
-                BaseDatos.conexion.Close();
-
-            }
-
-            return lista;
-
-        }
-
         #endregion
 
     }

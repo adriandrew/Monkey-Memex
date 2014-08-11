@@ -13,9 +13,9 @@ namespace AplicacionWeb.Miembros
 
         #region Campos Estaticos
         
-        private static string directorioRelativo;
+        private static string directorioRelativo = string.Empty;
 
-        private static string rutaRelativa;
+        private static string rutaRelativa = string.Empty;
 
         #endregion
 
@@ -34,14 +34,17 @@ namespace AplicacionWeb.Miembros
         }
 
         #endregion
-        
+
+        #region Variables Globales
+
+        private static int opcionSeleccionada = 0;
+
+        #endregion
+
         #region Eventos
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //if (!IsPostBack)
-            //    Validate();
 
             CargarCategorias();
 
@@ -57,6 +60,8 @@ namespace AplicacionWeb.Miembros
             if ( rblEscoger.SelectedIndex == 0 )
             {
 
+                opcionSeleccionada = 0;
+
                 ucSubirArchivo.Visible = true;
 
                 lblEnlaceExterno.Visible = false;
@@ -66,6 +71,8 @@ namespace AplicacionWeb.Miembros
             }
             else if ( rblEscoger.SelectedIndex == 1 )
             {
+
+                opcionSeleccionada = 1;
 
                 ucSubirArchivo.Visible = false;
 
@@ -80,12 +87,21 @@ namespace AplicacionWeb.Miembros
         protected void btnEnviarAporte_Click(object sender, EventArgs e)
         {
 
-            AplicacionWeb.Controles.SubirArchivo.TituloImagen = txtTituloImagen.Text;
+            if ( opcionSeleccionada == 0 )
+            {
 
-            SubirImagenes();
+                SubirImagen();
 
-            SubirAporte();
-            
+                GuardarAporte();
+
+            }
+            else if ( opcionSeleccionada == 1)
+            {
+
+                GuardarAporte();
+
+            }
+
         }
 
         protected void btnReiniciar_Click(object sender, EventArgs e)
@@ -115,13 +131,15 @@ namespace AplicacionWeb.Miembros
 
         #region Metodos Privados
 
-        private void SubirAporte() 
+        private void GuardarAporte() 
         {
 
-            if ( ! string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
+            // La primera opcion verifica si es archivo de imagen y si se pudo subir exitosamente para guardar el registro, la segunda opcion guarda normal.
+
+            if ( ( opcionSeleccionada == 0 && ! string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )  || ( opcionSeleccionada == 1 ) )
             {
 
-                // Para guardar los datos que van en la tabla ImagenesAspnet_Users.
+                // Para guardar los datos que van en la tabla Imagenes.
 
                 Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
@@ -139,7 +157,7 @@ namespace AplicacionWeb.Miembros
 
                 imagenes.EnlaceExterno = txtEnlaceExterno.Text;
 
-                imagenes.EtiquetasBasicas = txtPersonaje.Text + " " + txtEquipo.Text + " " + txtLiga.Text;
+                imagenes.EtiquetasBasicas = txtPersonaje.Text + " " + txtEquipo.Text + " " + txtCompeticion.Text;
 
                 imagenes.EtiquetasOpcionales = txtEtiquetasOpcionales.Text;
 
@@ -156,10 +174,8 @@ namespace AplicacionWeb.Miembros
                 Redireccionar();
                 
             }
-            else if ( string.IsNullOrEmpty ( AplicacionWeb.Miembros.EnviarAporte.RutaRelativa ) )
+            else 
             {
-
-                // Valiendo madre, no se pueden guardar los datos de la imgAprobada.
 
                 lblError.Visible = true;
 
@@ -192,17 +208,19 @@ namespace AplicacionWeb.Miembros
 
         //}
 
-        private void SubirImagenes() 
+        private void SubirImagen() 
         {
+
+            AplicacionWeb.Controles.SubirArchivo.TituloImagen = txtTituloImagen.Text;
         
-             ucSubirArchivo.UploadFiles ( true );
+            ucSubirArchivo.UploadFiles ( true );
 
         }
 
         private void CargarCaracteristicasControlImagenes() 
         { 
         
-            if ( !this.Page.IsPostBack )
+            if ( ! this.Page.IsPostBack )
             {
 
                 // Propiedades del control.
@@ -237,8 +255,11 @@ namespace AplicacionWeb.Miembros
                 {
 
                     ddlCategoria.DataSource = Entidades.Categorias.ObtenerListado();
+
                     ddlCategoria.DataTextField = "Nombre";
+                    
                     ddlCategoria.DataValueField = "IdCategoria";
+                    
                     ddlCategoria.DataBind();
 
                 }
@@ -273,7 +294,7 @@ namespace AplicacionWeb.Miembros
 
             txtEquipo.Text = string.Empty;
 
-            txtLiga.Text = string.Empty;
+            txtCompeticion.Text = string.Empty;
 
             txtEtiquetasOpcionales.Text = string.Empty;
             
@@ -282,23 +303,13 @@ namespace AplicacionWeb.Miembros
         private void AgregarOnFocus()
         {
 
-            // TODO. Verificar bien este relajo al escribir las etiquetas.
-
             txtPersonaje.Attributes.Add ( "OnFocusIn", "this.value = '#'" );
 
-            //txtPersonaje.Attributes.Add("OnFocusOut", "this.value = '#personaje1 #personaje2'");
-
-            txtEtiquetasOpcionales.Attributes.Add("OnFocusIn", "this.value = '#'");
-
-            //txtEtiquetasOpcionales.Attributes.Add("OnFocusOut", "this.value = '#etiquetas opcionales #memex fan'");
+            txtEtiquetasOpcionales.Attributes.Add ( "OnFocusIn", "this.value = '#'" );
 
             txtEquipo.Attributes.Add("OnFocusIn", "this.value = '#'");
 
-            //txtEquipo.Attributes.Add("OnFocusOut", "this.value = '#equipo1 #equipo2'");
-
-            txtLiga.Attributes.Add("OnFocusIn", "this.value = '#'");
-
-            //txtLiga.Attributes.Add("OnFocusOut", "this.value = '#liga'");
+            txtCompeticion.Attributes.Add("OnFocusIn", "this.value = '#'");
 
         }
 

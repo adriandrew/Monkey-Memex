@@ -103,6 +103,8 @@ namespace AplicacionWeb
 
             //System.Threading.Thread.Sleep(5000);
 
+            Default defaultt = new Default();
+
             Entidades.ImagenesAspNet_Users imagenesUsuarios = new Entidades.ImagenesAspNet_Users();
 
             List<Entidades.ImagenesAspNet_Users> listaTotalImagenes = new List<Entidades.ImagenesAspNet_Users>();
@@ -111,8 +113,36 @@ namespace AplicacionWeb
 
             var listaParcialImagenes = ( from elemento in listaTotalImagenes select elemento ).Skip ( posicionImagenes ).Take ( cantidadImagenes );
 
-            foreach ( Entidades.ImagenesAspNet_Users elementoImagenes in listaParcialImagenes )
+            foreach (Entidades.ImagenesAspNet_Users elementoImagenes in listaParcialImagenes)
             {
+
+                // Verifica si es archivo o enlace, ya que cada uno tiene metodos diferentes.
+
+                if ( ! string.IsNullOrEmpty ( elementoImagenes.DirectorioRelativo.ToString() ) && ! string.IsNullOrEmpty ( elementoImagenes.RutaRelativa.ToString() ) )
+                {
+
+                    defaultt.VerificarArchivoImagen(htmlImagenes, elementoImagenes);
+
+                }
+                else if ( ! string.IsNullOrEmpty ( elementoImagenes.EnlaceExterno.ToString() ) )
+                {
+
+                    defaultt.VerificarEnlaceImagen(htmlImagenes, elementoImagenes);
+
+                }
+
+            }
+
+            return htmlImagenes.ToString();    
+
+        }
+
+        #endregion
+
+        #region Metodos Privados
+
+        private void VerificarArchivoImagen ( StringBuilder htmlImagenes, Entidades.ImagenesAspNet_Users elementoImagenes )
+        {
 
                 string idImagen = elementoImagenes.IdImagen.ToString();
 
@@ -150,19 +180,19 @@ namespace AplicacionWeb
 
                 string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
 
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+                System.IO.DirectoryInfo directorio = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
 
-                if ( directorioInfo.Exists )
+                if ( directorio.Exists )
                 {
 
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
+                    System.IO.FileInfo[] archivos = directorio.GetFiles();
 
                     bool esArchivoEncontrado = false;
 
-                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
+                    foreach ( System.IO.FileInfo archivo in archivos )
                     {
 
-                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, archivo );
 
                         if ( rutaRelativa.Equals ( urlImagen ) )
                         {
@@ -175,7 +205,7 @@ namespace AplicacionWeb
 
                             string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagen" );
 
-                            string linkImagen = string.Format("<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen);
+                            string linkImagen = string.Format ( "<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen );
 
                             string etiquetas = string.Format ( "<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales );
 
@@ -205,7 +235,7 @@ namespace AplicacionWeb
                     }
 
                 }
-                else if ( ! directorioInfo.Exists )
+                else if ( ! directorio.Exists )
                 {
 
                     htmlImagenes.Clear();
@@ -214,15 +244,66 @@ namespace AplicacionWeb
 
                 }
 
-            }
-
-            return htmlImagenes.ToString();
-
         }
 
-        #endregion
+        private void VerificarEnlaceImagen(StringBuilder htmlImagenes, Entidades.ImagenesAspNet_Users elementoImagenes)
+        {
 
-        #region Metodos Privados
+            string idImagen = elementoImagenes.IdImagen.ToString();
+
+            string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+            string userId = elementoImagenes.UserId.ToString();
+
+            string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+            string titulo = elementoImagenes.Titulo.ToString();
+
+            string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+            string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+            string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+            string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+            string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+            string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+            string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+            string applicationId = elementoImagenes.ApplicationId.ToString();
+
+            string userName = elementoImagenes.UserName;
+
+            string loweredUserName = elementoImagenes.LoweredUserName;
+
+            string mobileAlias = elementoImagenes.MobileAlias;
+
+            string isAnonymous = elementoImagenes.IsAnonymous.ToString();
+
+            string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
+
+            string tituloImagen = string.Format("<h2>{0}</h2>", titulo);
+
+            string nombreUsuario = string.Format("<h3>{0}{1}</h3>", "Aporte por: ", userName);
+
+            string fechaPublicacionImagen = string.Format("<h4>{0}</h4>", fechaPublicacion);
+
+            string archivoImagen = string.Format("<img src='{0}' alt='{1}' class='{2}'>", enlaceExterno, titulo, "imgImagen");
+
+            string linkImagen = string.Format("<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen);
+
+            string etiquetas = string.Format("<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales);
+
+            string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, etiquetas);
+
+            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+
+            htmlImagenes.AppendFormat(divImagen);
+
+        }
 
         private void MostrarNumeroUsuariosOnline()
         {
@@ -447,19 +528,19 @@ namespace AplicacionWeb
 
                 string lastActivityDate = elementoImagenes.LastActivityDate.ToString();
 
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+                System.IO.DirectoryInfo directorio = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
 
-                if (directorioInfo.Exists)
+                if (directorio.Exists)
                 {
 
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
+                    System.IO.FileInfo[] archivos = directorio.GetFiles();
 
                     bool esArchivoEncontrado = false;
 
-                    foreach (System.IO.FileInfo elementoInformacionArchivo in informacionArchivo)
+                    foreach (System.IO.FileInfo archivo in archivos)
                     {
 
-                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, elementoInformacionArchivo);
+                        string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
 
                         if (rutaRelativa.Equals(urlImagen))
                         {

@@ -1,6 +1,6 @@
 ﻿var posicionImagenes = 0;
 
-var cantidadImagenes = 1;
+var cantidadImagenes = 2;
 
 function CargarContenido ( posicionImagenes, cantidadImagenes ) {
 

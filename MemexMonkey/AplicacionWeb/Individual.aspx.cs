@@ -87,55 +87,20 @@ namespace AplicacionWeb
             if (listaImagen.Count == 1)
             {
 
-                string idCategoria = listaImagen[0].IdCategoria.ToString(); ;
+                // Verifica si es archivo o enlace, ya que cada uno tiene metodos diferentes.
 
-                string userId = listaImagen[0].UserId.ToString();
+                if (!string.IsNullOrEmpty(listaImagen[0].DirectorioRelativo.ToString()) && !string.IsNullOrEmpty(listaImagen[0].RutaRelativa.ToString()))
+                {
 
-                string esAprobado = listaImagen[0].EsAprobado.ToString();
+                    VerificarArchivoImagen(listaImagen);
 
-                string titulo = listaImagen[0].Titulo;
+                }
+                else if (!string.IsNullOrEmpty(listaImagen[0].EnlaceExterno.ToString()))
+                {
 
-                string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+                    VerificarEnlaceImagen(listaImagen);
 
-                string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
-
-                string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
-
-                string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
-
-                string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
-
-                string fechaSubida = listaImagen[0].FechaSubida.ToString();
-
-                string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
-
-                string applicationId = listaImagen[0].ApplicationId.ToString();
-
-                string userName = listaImagen[0].UserName;
-
-                string loweredUserName = listaImagen[0].LoweredUserName;
-
-                string mobileAlias = listaImagen[0].MobileAlias;
-
-                string isAnonymous = listaImagen[0].IsAnonymous.ToString();
-
-                string lastActivityDate = listaImagen[0].LastActivityDate.ToString();
-
-                string tituloImagen = string.Format("<h2>{0}</h2>", titulo);
-
-                string nombreUsuario = string.Format("<h3>{0}{1}</h3>", "Aporte por: ", userName);
-
-                string fechaPublicacionImagen = string.Format("<h4>{0}</h4>", fechaPublicacion);
-
-                string archivoImagen = string.Format("<img src='{0}{1}' alt='{2}'>", "..", rutaRelativa, titulo);
-
-                string etiquetas = string.Format("<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales);
-
-                string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
-
-                string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
-
-                contenedorImagenes.InnerHtml = divImagen;
+                }
                 
             }
             else if (listaImagen.Count != 1)
@@ -149,9 +114,119 @@ namespace AplicacionWeb
 
                 System.Threading.Thread.Sleep(5000);
 
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("Inicio");
 
             }
+
+        }
+
+        private void VerificarArchivoImagen(List<Entidades.ImagenesAspNet_Users> listaImagen)
+        {
+
+            string idCategoria = listaImagen[0].IdCategoria.ToString(); 
+
+            string userId = listaImagen[0].UserId.ToString();
+
+            string esAprobado = listaImagen[0].EsAprobado.ToString();
+
+            string titulo = listaImagen[0].Titulo;
+
+            string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+
+            string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
+
+            string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
+
+            string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
+
+            string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
+
+            string fechaSubida = listaImagen[0].FechaSubida.ToString();
+
+            string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
+
+            string applicationId = listaImagen[0].ApplicationId.ToString();
+
+            string userName = listaImagen[0].UserName;
+
+            string loweredUserName = listaImagen[0].LoweredUserName;
+
+            string mobileAlias = listaImagen[0].MobileAlias;
+
+            string isAnonymous = listaImagen[0].IsAnonymous.ToString();
+
+            string lastActivityDate = listaImagen[0].LastActivityDate.ToString();
+
+            string tituloImagen = string.Format("<h2>{0}</h2>", titulo);
+
+            string nombreUsuario = string.Format("<h3>{0}{1}</h3>", "Aporte por: ", userName);
+
+            string fechaPublicacionImagen = string.Format("<h4>{0}</h4>", fechaPublicacion);
+
+            string archivoImagen = string.Format("<img src='{0}{1}' alt='{2}'>", "..", rutaRelativa, titulo);
+
+            string etiquetas = string.Format("<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales);
+
+            string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
+
+            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+
+            contenedorImagenes.InnerHtml = divImagen;
+
+        }
+
+        private void VerificarEnlaceImagen(List<Entidades.ImagenesAspNet_Users> listaImagen)
+        {
+
+            string idCategoria = listaImagen[0].IdCategoria.ToString();
+
+            string userId = listaImagen[0].UserId.ToString();
+
+            string esAprobado = listaImagen[0].EsAprobado.ToString();
+
+            string titulo = listaImagen[0].Titulo;
+
+            string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+
+            string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
+
+            string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
+
+            string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
+
+            string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
+
+            string fechaSubida = listaImagen[0].FechaSubida.ToString();
+
+            string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
+
+            string applicationId = listaImagen[0].ApplicationId.ToString();
+
+            string userName = listaImagen[0].UserName;
+
+            string loweredUserName = listaImagen[0].LoweredUserName;
+
+            string mobileAlias = listaImagen[0].MobileAlias;
+
+            string isAnonymous = listaImagen[0].IsAnonymous.ToString();
+
+            string lastActivityDate = listaImagen[0].LastActivityDate.ToString();
+
+            string tituloImagen = string.Format("<h2>{0}</h2>", titulo);
+
+            string nombreUsuario = string.Format("<h3>{0}{1}</h3>", "Aporte por: ", userName);
+
+            string fechaPublicacionImagen = string.Format("<h4>{0}</h4>", fechaPublicacion);
+
+            string archivoImagen = string.Format("<img src='{0}' alt='{1}'>", enlaceExterno, titulo);
+
+            string etiquetas = string.Format("<h4>{0} | {1}</h4>", etiquetasBasicas, etiquetasOpcionales);
+
+            string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
+
+            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+
+            contenedorImagenes.InnerHtml = divImagen;
 
         }
 
@@ -203,16 +278,6 @@ namespace AplicacionWeb
                 
             }
 
-            // Se ocultan los comentarios de facebook.
-
-            uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
-
-            uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
-            
-            // Se ocultan los comentarios memex.
-
-            //uiComentariosMemex.Attributes.Add("style", "display: none;");
-
             // Se inyecta el html con los comentarios. 
 
             uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex;
@@ -223,8 +288,20 @@ namespace AplicacionWeb
 
         }
 
-        private void VerificarEstadoUsuario()
+        private void VerificarEstadoUsuario ( )
         {
+
+            int idImagen = Convert.ToInt32(Session["idImagen"]);
+
+            // Se ocultan los comentarios de facebook.
+
+            uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
+
+            uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
+
+            // Se ocultan los comentarios memex.
+
+            //uiComentariosMemex.Attributes.Add("style", "display: none;");
 
             if ( User.Identity.IsAuthenticated )
             {
@@ -232,7 +309,7 @@ namespace AplicacionWeb
                 uiComentar.Visible = true;
 
             }
-            else if ( !User.Identity.IsAuthenticated )
+            else if ( ! User.Identity.IsAuthenticated )
             {
 
                 uiComentar.Visible = false;

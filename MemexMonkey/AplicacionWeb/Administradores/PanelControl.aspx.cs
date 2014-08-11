@@ -61,106 +61,173 @@ namespace AplicacionWeb.Administradores
 
             List < Entidades.Imagenes > listaImagenes = new List < Entidades.Imagenes > ();  
 
-            // TODO. Falta limitar las publicaciones a 5 o 10 o hacerlo con el scroll como la pagina de Inicio.
-
             listaImagenes = imagenes.ObtenerListadoPendientes();
 
             foreach ( Entidades.Imagenes elementoImagenes in listaImagenes )
             {
 
-                string idImagen = elementoImagenes.IdImagen.ToString();
+                // Verifica si es archivo o enlace, ya que cada uno tiene metodos diferentes.
 
-                string idCategoria = elementoImagenes.IdCategoria.ToString();
-
-                string userId = elementoImagenes.UserId.ToString();
-
-                string esAprobado = elementoImagenes.EsAprobado.ToString();
-
-                string titulo = elementoImagenes.Titulo.ToString();
-
-                string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
-
-                string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
-
-                string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
-
-                string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
-
-                string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
-
-                string fechaSubida = elementoImagenes.FechaSubida.ToString();
-
-                string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
-
-                System.IO.DirectoryInfo directorioInfo = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
-
-                if ( directorioInfo.Exists )
+                if ( ! string.IsNullOrEmpty ( elementoImagenes.DirectorioRelativo ) && ! string.IsNullOrEmpty ( elementoImagenes.RutaRelativa ) )
                 {
 
-                    System.IO.FileInfo[] informacionArchivo = directorioInfo.GetFiles();
-
-                    bool esArchivoEncontrado = false;
-
-                    foreach ( System.IO.FileInfo elementoInformacionArchivo in informacionArchivo )
-                    {
-                        
-                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, elementoInformacionArchivo );
-
-                        if ( rutaRelativa.Equals ( urlImagen ) )
-                        {
-
-                            Panel pnlImagen = CrearPanelImagen ( idImagen );
-
-                            pnlImagenes.Controls.Add ( pnlImagen );
-
-                            Image imgPendiente = CrearImagePendiente ( urlImagen, titulo );
-
-                            pnlImagen.Controls.Add ( imgPendiente );
-
-                            Panel pnlCalificar = CrearPanelCalificar ( idImagen );
-
-                            pnlImagen.Controls.Add ( pnlCalificar );
-
-                            Button btnAprobar = CrearButtonAprobar ( idImagen );
-
-                            pnlCalificar.Controls.Add ( btnAprobar );
-
-                            Button btnRechazar = CrearButtonRechazar();
-
-                            pnlCalificar.Controls.Add ( btnRechazar );
-                            
-                            esArchivoEncontrado = true;
-
-                            break;
-
-                        }
-
-                    }
-
-                    if ( ! esArchivoEncontrado )
-                    {
-
-                        Panel pnlImagen = CrearPanelImagen ( idImagen );
-                        
-                        pnlImagenes.Controls.Add ( pnlImagen );
-
-                        Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada ( rutaRelativa );
-
-                        pnlImagen.Controls.Add ( litImagenNoEncontrada );
-
-                    }
+                    VerificarArchivoImagen ( elementoImagenes );
 
                 }
-                else if ( ! directorioInfo.Exists )
+                else if ( ! string.IsNullOrEmpty ( elementoImagenes.EnlaceExterno ) )
                 {
 
-                    Label lblSinArchivos = CrearLabelDirectorioNoExistente();
-
-                    pnlImagenes.Controls.Add ( lblSinArchivos );
+                    VerificarEnlaceImagen ( elementoImagenes );
 
                 }
 
             }
+
+        }
+
+        private void VerificarArchivoImagen( Entidades.Imagenes elementoImagenes )
+        {
+
+            string idImagen = elementoImagenes.IdImagen.ToString();
+
+            string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+            string userId = elementoImagenes.UserId.ToString();
+
+            string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+            string titulo = elementoImagenes.Titulo.ToString();
+
+            string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+            string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+            string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+            string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+            string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+            string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+            string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+            System.IO.DirectoryInfo directorio = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+            if (directorio.Exists)
+            {
+
+                System.IO.FileInfo[] archivos = directorio.GetFiles();
+
+                bool esArchivoEncontrado = false;
+
+                foreach (System.IO.FileInfo archivo in archivos)
+                {
+
+                    string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
+
+                    if (rutaRelativa.Equals(urlImagen))
+                    {
+
+                        Panel pnlImagen = CrearPanelImagen(idImagen);
+
+                        pnlImagenes.Controls.Add(pnlImagen);
+
+                        Image imgPendiente = CrearImagePendiente(urlImagen, titulo);
+
+                        pnlImagen.Controls.Add(imgPendiente);
+
+                        Panel pnlCalificar = CrearPanelCalificar(idImagen);
+
+                        pnlImagen.Controls.Add(pnlCalificar);
+
+                        Button btnAprobar = CrearButtonAprobar(idImagen);
+
+                        pnlCalificar.Controls.Add(btnAprobar);
+
+                        Button btnRechazar = CrearButtonRechazar();
+
+                        pnlCalificar.Controls.Add(btnRechazar);
+
+                        esArchivoEncontrado = true;
+
+                        break;
+
+                    }
+
+                }
+
+                if (!esArchivoEncontrado)
+                {
+
+                    Panel pnlImagen = CrearPanelImagen(idImagen);
+
+                    pnlImagenes.Controls.Add(pnlImagen);
+
+                    Literal litImagenNoEncontrada = CrearLiteralImagenNoEncontrada(rutaRelativa);
+
+                    pnlImagen.Controls.Add(litImagenNoEncontrada);
+
+                }
+
+            }
+            else if (!directorio.Exists)
+            {
+
+                Label lblSinArchivos = CrearLabelDirectorioNoExistente();
+
+                pnlImagenes.Controls.Add(lblSinArchivos);
+
+            }
+
+        }
+
+        private void VerificarEnlaceImagen ( Entidades.Imagenes elementoImagenes )
+        {
+
+            string idImagen = elementoImagenes.IdImagen.ToString();
+
+            string idCategoria = elementoImagenes.IdCategoria.ToString();
+
+            string userId = elementoImagenes.UserId.ToString();
+
+            string esAprobado = elementoImagenes.EsAprobado.ToString();
+
+            string titulo = elementoImagenes.Titulo.ToString();
+
+            string directorioRelativo = elementoImagenes.DirectorioRelativo.ToString();
+
+            string rutaRelativa = elementoImagenes.RutaRelativa.ToString();
+
+            string enlaceExterno = elementoImagenes.EnlaceExterno.ToString();
+
+            string etiquetasBasicas = elementoImagenes.EtiquetasBasicas.ToString();
+
+            string etiquetasOpcionales = elementoImagenes.EtiquetasOpcionales.ToString();
+
+            string fechaSubida = elementoImagenes.FechaSubida.ToString();
+
+            string fechaPublicacion = elementoImagenes.FechaPublicacion.ToString();
+
+            Panel pnlImagen = CrearPanelImagen(idImagen);
+
+            pnlImagenes.Controls.Add(pnlImagen);
+
+            Image imgPendiente = CrearImagePendiente(enlaceExterno, titulo);
+
+            pnlImagen.Controls.Add(imgPendiente);
+
+            Panel pnlCalificar = CrearPanelCalificar(idImagen);
+
+            pnlImagen.Controls.Add(pnlCalificar);
+
+            Button btnAprobar = CrearButtonAprobar(idImagen);
+
+            pnlCalificar.Controls.Add(btnAprobar);
+
+            Button btnRechazar = CrearButtonRechazar();
+
+            pnlCalificar.Controls.Add(btnRechazar);
 
         }
 
@@ -196,6 +263,36 @@ namespace AplicacionWeb.Administradores
             imagenes.EsAprobado = 0;
 
             imagenes.Actualizar();
+
+        }
+
+        private void EliminarImagen(string directorioRelativo, string rutaRelativa)
+        {
+
+            System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+
+            if (directorioInformacion.Exists)
+            {
+
+                System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
+                
+                foreach (System.IO.FileInfo archivo in archivos)
+                {
+
+                    string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
+
+                    if ( rutaRelativa.Equals(urlImagen) )
+                    {
+
+                        archivo.Delete();
+
+                        break;
+
+                    }
+
+                }
+
+            }
 
         }
 
@@ -297,36 +394,6 @@ namespace AplicacionWeb.Administradores
         {
 
             return new Label { Text = "El directorio no existe." };
-
-        }
-
-        private void EliminarImagen(string directorioRelativo, string rutaRelativa)
-        {
-
-            System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
-
-            if (directorioInformacion.Exists)
-            {
-
-                System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
-                
-                foreach (System.IO.FileInfo archivo in archivos)
-                {
-
-                    string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
-
-                    if ( rutaRelativa.Equals(urlImagen) )
-                    {
-
-                        archivo.Delete();
-
-                        break;
-
-                    }
-
-                }
-
-            }
 
         }
 
