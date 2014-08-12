@@ -29,11 +29,25 @@ namespace AplicacionWeb.Administradores
         protected void btnAprobar_Click(object sender, EventArgs e)
         {
 
-            Button btnAprobarCopia = (Button)sender;
+            Button btnAprobarCopia = ( Button ) sender;
 
-            string idImagen = btnAprobarCopia.ID;
+            string[] split = btnAprobarCopia.ID.Split ( '|' );
 
-            AprobarPublicacion ( idImagen );
+            foreach ( var item in split )
+            {
+
+                int idImagen = 0;
+
+                if ( int.TryParse ( item, out idImagen ) )
+                {
+
+                    AprobarPublicacion ( idImagen.ToString() );
+
+                    break;
+
+                }
+
+            }
 
             // CambiarColorFondo ( (Button) sender );
             
@@ -48,11 +62,43 @@ namespace AplicacionWeb.Administradores
 
         }
 
+        protected void btnRechazar_Click(object sender, EventArgs e)
+        {
+
+            Button btnRechazarCopia = ( Button ) sender;
+
+            string[] split = btnRechazarCopia.ID.Split ( '|' );
+
+            foreach ( var item in split )
+            {
+
+                int idImagen = 0;
+
+                if ( int.TryParse ( item, out idImagen ) )
+                {
+                    
+                    RechazarPublicacion ( idImagen.ToString() );
+
+                    break;
+
+                }
+
+            }
+
+        }
+
         #endregion
 
         #region Metodos Privados
 
         // TODO. Falta agregar hoja de estilo con estos estilos.
+
+        private void RecargarPagina()
+        {
+
+            Response.Redirect ( Request.RawUrl );
+
+        }
 
         private void AdministrarImagenes() 
         {
@@ -145,7 +191,7 @@ namespace AplicacionWeb.Administradores
 
                         pnlCalificar.Controls.Add(btnAprobar);
 
-                        Button btnRechazar = CrearButtonRechazar();
+                        Button btnRechazar = CrearButtonRechazar(idImagen);
 
                         pnlCalificar.Controls.Add(btnRechazar);
 
@@ -225,7 +271,7 @@ namespace AplicacionWeb.Administradores
 
             pnlCalificar.Controls.Add(btnAprobar);
 
-            Button btnRechazar = CrearButtonRechazar();
+            Button btnRechazar = CrearButtonRechazar ( idImagen );
 
             pnlCalificar.Controls.Add(btnRechazar);
 
@@ -250,48 +296,89 @@ namespace AplicacionWeb.Administradores
             imagenes.FechaPublicacion = DateTime.Now;
 
             imagenes.Actualizar();
-        
+
+            RecargarPagina();
+
         }
 
         private void RechazarPublicacion ( string idImagen )
         {
 
+            // TODO. Pendiente terminar esto de eliminar imagen y registro.
+
+            //EliminarImagen ( Convert.ToInt32 ( idImagen ) );
+
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
-            imagenes.IdImagen = Convert.ToInt32(idImagen);
+            imagenes.IdImagen = Convert.ToInt32 ( idImagen );
 
             imagenes.EsAprobado = 0;
 
             imagenes.Actualizar();
 
+            RecargarPagina();
+
         }
 
-        private void EliminarImagen(string directorioRelativo, string rutaRelativa)
+        private void EliminarImagen ( int idImagen )
         {
 
-            System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(directorioRelativo));
+            Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
-            if (directorioInformacion.Exists)
+            List < Entidades.Imagenes > listaImagen = imagenes.ObtenerPorIdImagen ( idImagen );
+
+            // TODO. Validar aqui lo del archivo o enlace de imagen como en otros ejemplos.
+
+            if ( listaImagen.Count == 1 )
             {
 
-                System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
-                
-                foreach (System.IO.FileInfo archivo in archivos)
+                string idCategoria = listaImagen[0].IdCategoria.ToString(); ;
+
+                string userId = listaImagen[0].UserId.ToString();
+
+                string esAprobado = listaImagen[0].EsAprobado.ToString();
+
+                string titulo = listaImagen[0].Titulo;
+
+                string directorioRelativo = listaImagen[0].DirectorioRelativo.ToString();
+
+                string rutaRelativa = listaImagen[0].RutaRelativa.ToString();
+
+                string enlaceExterno = listaImagen[0].EnlaceExterno.ToString();
+
+                string etiquetasBasicas = listaImagen[0].EtiquetasBasicas.ToString();
+
+                string etiquetasOpcionales = listaImagen[0].EtiquetasOpcionales.ToString();
+
+                string fechaSubida = listaImagen[0].FechaSubida.ToString();
+
+                string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
+
+                System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
+
+                if ( directorioInformacion.Exists )
                 {
 
-                    string urlImagen = string.Format("{0}\\{1}", directorioRelativo, archivo);
-
-                    if ( rutaRelativa.Equals(urlImagen) )
+                    System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
+                
+                    foreach ( System.IO.FileInfo archivo in archivos )
                     {
 
-                        archivo.Delete();
+                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, archivo );
 
-                        break;
+                        if ( rutaRelativa.Equals ( urlImagen ) )
+                        {
+
+                            archivo.Delete();
+
+                            break;
+
+                        }
 
                     }
 
                 }
-
+            
             }
 
         }
@@ -342,38 +429,34 @@ namespace AplicacionWeb.Administradores
 
             Button btnAprobar = new Button();
 
-            //btnAprobar.Attributes.Add ( "id", idImagen ) ;
-
-            btnAprobar.ID = idImagen;
-
-            // btnAprobar.OnClientClick = AprobarPublicacion ( idImagen );
+            btnAprobar.ID = string.Format("{0}{1}", "Aprobar | ", idImagen);
 
             btnAprobar.Click += new EventHandler ( this.btnAprobar_Click );
-
-            //btnAprobar.Click += delegate(object sender, EventArgs e) { this.btnAprobar_Click2( sender, e, idImagen); };
 
             btnAprobar.Width = 177;
 
             btnAprobar.Height = 132;
 
-            btnAprobar.Attributes.Add("style", "float: left; border: none; background: url('../images/like.png'); background-repeat: no-repeat;");
+            btnAprobar.Attributes.Add ( "style", "float: left; border: none; background: url('../images/like.png'); background-repeat: no-repeat;" );
 
             return btnAprobar;
 
         }
 
-        private Button CrearButtonRechazar()
+        private Button CrearButtonRechazar ( string idImagen )
         {
 
             Button btnRechazar = new Button();
 
-            btnRechazar.Attributes.Add("id", "0");
+            btnRechazar.ID = string.Format ( "{0}{1}", "Rechazar | ", idImagen );
+
+            btnRechazar.Click += new EventHandler ( this.btnRechazar_Click );
 
             btnRechazar.Width = 177;
 
             btnRechazar.Height = 132;
 
-            btnRechazar.Attributes.Add("style", "float: right; border: none; background: url('../images/dislike.png'); background-repeat: no-repeat;");
+            btnRechazar.Attributes.Add ( "style", "float: right; border: none; background: url('../images/dislike.png'); background-repeat: no-repeat;" );
 
             return btnRechazar;
 

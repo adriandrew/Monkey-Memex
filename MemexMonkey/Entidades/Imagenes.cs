@@ -179,7 +179,7 @@ namespace Entidades
             try
             {
 
-                string sql = "UPDATE Imagenes SET EsAprobado = @esAprobado WHERE IdImagen = @idImagen";
+                string sql = "UPDATE Imagenes SET EsAprobado = @esAprobado, FechaPublicacion = @fechaPublicacion WHERE IdImagen = @idImagen";
 
                 SqlCommand comando = new SqlCommand();
 
@@ -187,9 +187,11 @@ namespace Entidades
 
                 comando.CommandText = sql;
 
+                comando.Parameters.AddWithValue ( "@idImagen", this.IdImagen );
+
                 comando.Parameters.AddWithValue ( "@esAprobado", this.EsAprobado );
 
-                comando.Parameters.AddWithValue ( "@idImagen", this.IdImagen );
+                comando.Parameters.AddWithValue ( "@fechaPublicacion", this.FechaPublicacion );
 
                 BaseDatos.conexion.Open();
 
