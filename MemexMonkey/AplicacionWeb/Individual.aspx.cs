@@ -299,6 +299,10 @@ namespace AplicacionWeb
 
             uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
 
+            uiPluginComentariosFacebook.Attributes.Add("data-numposts", "5");
+
+            uiPluginComentariosFacebook.Attributes.Add("data-colorscheme", "dark");
+
             // Se ocultan los comentarios memex.
 
             //uiComentariosMemex.Attributes.Add("style", "display: none;");

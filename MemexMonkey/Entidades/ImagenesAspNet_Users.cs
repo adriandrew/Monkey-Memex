@@ -279,7 +279,7 @@ namespace Entidades
             try
             {
 
-                string sql = "SELECT AspNet_Users.*, Imagenes.* FROM Imagenes INNER JOIN AspNet_Users ON Imagenes.UserId = aspnet_Users.UserId WHERE EsAprobado = 1 ORDER BY FechaSubida DESC";
+                string sql = "SELECT AspNet_Users.*, Imagenes.* FROM Imagenes INNER JOIN AspNet_Users ON Imagenes.UserId = aspnet_Users.UserId WHERE EsAprobado = 1 ORDER BY FechaPublicacion DESC";
 
                 SqlCommand comando = new SqlCommand();
 

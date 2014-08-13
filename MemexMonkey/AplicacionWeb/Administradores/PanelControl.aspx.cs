@@ -304,17 +304,13 @@ namespace AplicacionWeb.Administradores
         private void RechazarPublicacion ( string idImagen )
         {
 
-            // TODO. Pendiente terminar esto de eliminar imagen y registro.
-
-            //EliminarImagen ( Convert.ToInt32 ( idImagen ) );
-
+            EliminarImagen ( Convert.ToInt32 ( idImagen ) );
+             
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
             imagenes.IdImagen = Convert.ToInt32 ( idImagen );
 
-            imagenes.EsAprobado = 0;
-
-            imagenes.Actualizar();
+            imagenes.Eliminar();
 
             RecargarPagina();
 
@@ -326,8 +322,6 @@ namespace AplicacionWeb.Administradores
             Entidades.Imagenes imagenes = new Entidades.Imagenes();
 
             List < Entidades.Imagenes > listaImagen = imagenes.ObtenerPorIdImagen ( idImagen );
-
-            // TODO. Validar aqui lo del archivo o enlace de imagen como en otros ejemplos.
 
             if ( listaImagen.Count == 1 )
             {
@@ -354,31 +348,45 @@ namespace AplicacionWeb.Administradores
 
                 string fechaPublicacion = listaImagen[0].FechaPublicacion.ToString();
 
-                System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
+                // Si es archivo hay que buscarlo para eliminarlo.
 
-                if ( directorioInformacion.Exists )
+                if ( ! string.IsNullOrEmpty ( directorioRelativo ) && ! string.IsNullOrEmpty ( rutaRelativa ) )
                 {
 
-                    System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
+                    EliminarArchivoImagen ( directorioRelativo, rutaRelativa );
+
+                }
+            
+            }
+
+        }
+
+        private void EliminarArchivoImagen ( string directorioRelativo, string rutaRelativa )
+        {
+
+            System.IO.DirectoryInfo directorioInformacion = new System.IO.DirectoryInfo ( HttpContext.Current.Server.MapPath ( directorioRelativo ) );
+
+            if ( directorioInformacion.Exists )
+            {
+
+                System.IO.FileInfo[] archivos = directorioInformacion.GetFiles();
                 
-                    foreach ( System.IO.FileInfo archivo in archivos )
+                foreach ( System.IO.FileInfo archivo in archivos )
+                {
+
+                    string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, archivo );
+
+                    if ( rutaRelativa.Equals ( urlImagen ) )
                     {
 
-                        string urlImagen = string.Format ( "{0}\\{1}", directorioRelativo, archivo );
+                        archivo.Delete();
 
-                        if ( rutaRelativa.Equals ( urlImagen ) )
-                        {
-
-                            archivo.Delete();
-
-                            break;
-
-                        }
+                        break;
 
                     }
 
                 }
-            
+
             }
 
         }
@@ -437,7 +445,7 @@ namespace AplicacionWeb.Administradores
 
             btnAprobar.Height = 132;
 
-            btnAprobar.Attributes.Add ( "style", "float: left; border: none; background: url('../images/like.png'); background-repeat: no-repeat;" );
+            btnAprobar.Attributes.Add("style", "float: left; border: none; background: url('../images/aprobado.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;");
 
             return btnAprobar;
 
@@ -456,7 +464,7 @@ namespace AplicacionWeb.Administradores
 
             btnRechazar.Height = 132;
 
-            btnRechazar.Attributes.Add ( "style", "float: right; border: none; background: url('../images/dislike.png'); background-repeat: no-repeat;" );
+            btnRechazar.Attributes.Add("style", "float: right; border: none; background: url('../images/rechazado.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat;");
 
             return btnRechazar;
 

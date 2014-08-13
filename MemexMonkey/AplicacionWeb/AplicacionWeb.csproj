@@ -111,7 +111,6 @@
     <Content Include="Js\scrolling.js" />
     <Content Include="Miembros\AporteEnviado.aspx" />
     <Content Include="Miembros\EnviarAporte.aspx" />
-    <Content Include="PublicacionIndividual.aspx" />
     <Content Include="RegistrarMiembro.aspx" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <Content Include="Web.config" />
@@ -174,13 +173,6 @@
     </Compile>
     <Compile Include="Miembros\EnviarAporte.aspx.designer.cs">
       <DependentUpon>EnviarAporte.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PublicacionIndividual.aspx.cs">
-      <DependentUpon>PublicacionIndividual.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PublicacionIndividual.aspx.designer.cs">
-      <DependentUpon>PublicacionIndividual.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarMiembro.aspx.cs">
       <DependentUpon>RegistrarMiembro.aspx</DependentUpon>

@@ -215,7 +215,7 @@ namespace Entidades
 
         }
 
-        public void Eliminar ( int idImagen )
+        public void Eliminar()
         {
 
             try
@@ -229,7 +229,7 @@ namespace Entidades
 
                 comando.CommandText = sql;
 
-                comando.Parameters.AddWithValue("@IdImagen", idImagen);
+                comando.Parameters.AddWithValue("@IdImagen", this.IdImagen);
 
                 BaseDatos.conexion.Open();
 

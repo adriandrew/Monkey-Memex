@@ -12,7 +12,7 @@ function CargarContenido ( posicionImagenes, cantidadImagenes ) {
 
         type: "POST",
 
-        url: "Default.aspx/MostrarImagenes3",
+        url: "Default.aspx/MostrarImagenes",
 
         data: "{ posicionImagenes:" + posicionImagenes + ", cantidadImagenes:" + cantidadImagenes + " }",
 

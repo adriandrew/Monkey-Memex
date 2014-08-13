@@ -3,12 +3,14 @@
     display: block;
 }
 
-#contenido, #contenedorImagenes, .divImagen, .divImagen a{
+#contenido, #contenedorImagenes, .divImagen, .divImagen a
+{
     width: 600px;
     max-width: 600px;
 }
 
-#contenido{
+#contenido
+{
     /* Es para limitar el tamano del contenido y que tenga su scroll pero tengo que programar su funcionamiento.
     overflow-y: auto;
     height: 1000px;
