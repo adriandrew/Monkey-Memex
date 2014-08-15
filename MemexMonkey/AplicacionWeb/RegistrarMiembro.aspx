@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="CreateUserWizard_CreatedUser">
+    <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="CreateUserWizard_CreatedUser" CreateUserButtonText="Registrarse" DuplicateEmailErrorMessage="La dirección de correo que ha especificado ya está en uso. Especifique una diferente por favor." DuplicateUserNameErrorMessage="Especifique un nombre de usuario diferente por favor." InvalidAnswerErrorMessage="Especifique una respuesta de seguridad diferente por favor." InvalidEmailErrorMessage="Especifique una dirección de correo electrónico válida por favor." InvalidPasswordErrorMessage="Longitud mínima de contraseña: {0}. Se requieren caracteres no alfanuméricos: {1}." InvalidQuestionErrorMessage="Especifique una pregunta de seguridad diferente por favor." UnknownErrorMessage="La cuenta no se ha creado. Inténtelo de nuevo por favor.">
     <WizardSteps>
         <asp:CreateUserWizardStep runat="server">
             <ContentTemplate>

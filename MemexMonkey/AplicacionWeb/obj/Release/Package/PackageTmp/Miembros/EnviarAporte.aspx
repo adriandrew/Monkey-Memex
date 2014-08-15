@@ -13,6 +13,7 @@
     <asp:Label ID="lblEnlaceExterno" runat="server" Text="Enlace Externo" Visible="False"></asp:Label>
     <asp:TextBox ID="txtEnlaceExterno" runat="server" Width="296px" Visible="False"></asp:TextBox>
     <asp:RegularExpressionValidator ID="revEnlaceExterno" runat="server" ControlToValidate="txtEnlaceExterno" ErrorMessage="Enlace no valido" ForeColor="Red" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="rfvEnlaceExterno" runat="server" ControlToValidate="txtEnlaceExterno" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblTituloImagen" runat="server" Text="Título de Imagen"></asp:Label>

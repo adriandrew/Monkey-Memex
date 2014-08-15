@@ -5,9 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-    <asp:Panel runat="server" ID="pnlImagenes" />
-
-    <div id="contenedorImagenes"></div>
+    <div id="imagenes"></div>
 
     <%--<a class="iframe" data-fancybox-type="iframe" href="http://monkey.somee.com/">Prueba iframe</a>--%>
 

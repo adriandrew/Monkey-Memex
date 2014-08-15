@@ -7,26 +7,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 
+    <link href="~/Css/contenido.css" rel="stylesheet" type="text/css" />    
+
     <script src="../Js/scripts.js" type="text/javascript"></script>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div runat="server" id="contenedorImagenes">
-        </div>
 
-        <div id="uiContenedorComentarios">
-            <a href="#uiComentariosMemex" name="uiComentariosMemex" onclick="MuestraOculta('uiComentariosMemex')">Comentarios Memex</a>
-            <div id="uiComentariosMemex" runat="server">
-            </div><!-- Termina uiContenidoComentariosMemex -->
-            <div id="uiComentar" runat="server" visible="False">
-                <input id="uiAreaComentario" runat="server" type="text" value="" />
-                <button id="uiEnviarComentario" runat="server" onserverclick="uiEnviarComentario_Click" type="submit">Comentar</button>
-            </div><!-- Termina uiComentar -->
-            <a href="#uiPluginComentariosFacebook" name="uiPluginComentariosFacebook" onclick="MuestraOculta('uiPluginComentariosFacebook')">Comentarios Facebook</a>
-            <div id="uiPluginComentariosFacebook" runat="server" class="fb-comments" data-colorscheme="dark" data-href="http://monkey.somee.com/Individual/0" data-numposts="5">
-            </div><!-- Termina uiPluginComentariosFacebook -->
-        </div><!-- Termina uiComentarios -->
+        <div runat="server" id="imagenes"></div>
+
+        <div id="comentarios">
+            <a href="#aComentariosMemex" id="aComentariosMemex" onclick="MuestraOculta('comentariosMemex')">Comentarios Memex</a>
+            <div id="comentariosMemex" runat="server"></div><!-- Termina comentariosMemex -->
+            <div id="comentar" runat="server" visible="False">
+                <input id="areaComentario" runat="server" type="text" value="" />
+                <button id="enviarComentario" runat="server" onserverclick="EnviarComentario_Click" type="submit">Comentar</button>
+            </div><!-- Termina comentar -->
+            <a href="#aComentariosFacebook" id="aComentariosFacebook" onclick="MuestraOculta('comentariosFacebook')">Comentarios Facebook</a>
+            <div id="comentariosFacebook" runat="server" class="fb-comments" data-colorscheme="dark" data-href="http://monkey.somee.com/Individual/0" data-numposts="5">
+            </div><!-- Termina pluginComentariosFacebook -->
+        </div><!-- Termina comentarios -->
 
         <%--Plugin de Facebook--%>
         <%--Ponerlo al final para optimizar la carga del website en el servidor.--%>

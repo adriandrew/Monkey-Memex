@@ -36,7 +36,7 @@
                 
             <asp:LoginView ID="LoginView" runat="server">
                              <AnonymousTemplate>
-                                 <asp:Login ID="Login" runat="server" DestinationPageUrl="~/Default.aspx" Orientation="Horizontal" UserNameLabelText="Usuario:">
+                                 <asp:Login ID="Login" runat="server" DestinationPageUrl="~/Default.aspx" Orientation="Horizontal" UserNameLabelText="Usuario:" FailureText="Error, intenta de nuevo por favor.">
                                      <LayoutTemplate>
                                          <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">
                                              <tr>

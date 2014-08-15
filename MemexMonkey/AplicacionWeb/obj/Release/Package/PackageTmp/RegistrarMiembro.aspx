@@ -88,7 +88,7 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            <asp:Button ID="ContinueButton" runat="server" BackColor="Black" CausesValidation="False" CommandName="Continue" ForeColor="White" Text="Continuar" ValidationGroup="CreateUserWizard" PostBackUrl="~/Default.aspx" />
+                            <asp:Button ID="ContinueButton" runat="server" BackColor="Black" CausesValidation="False" CommandName="Continue" ForeColor="White" Text="Continuar" ValidationGroup="CreateUserWizard" PostBackUrl="Inicio" />
                         </td>
                     </tr>
                 </table>
