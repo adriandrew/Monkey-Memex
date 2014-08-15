@@ -49,6 +49,24 @@ namespace AplicacionWeb.Miembros {
         protected global::System.Web.UI.WebControls.TextBox txtEnlaceExterno;
         
         /// <summary>
+        /// Control revEnlaceExterno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEnlaceExterno;
+        
+        /// <summary>
+        /// Control rfvEnlaceExterno.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEnlaceExterno;
+        
+        /// <summary>
         /// Control lblTituloImagen.
         /// </summary>
         /// <remarks>
@@ -128,6 +146,33 @@ namespace AplicacionWeb.Miembros {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCompeticion;
+        
+        /// <summary>
+        /// Control rfvPersonaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPersonaje;
+        
+        /// <summary>
+        /// Control rfvEquipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEquipo;
+        
+        /// <summary>
+        /// Control rfvCompeticion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompeticion;
         
         /// <summary>
         /// Control lblEtiquetasOpcionales.

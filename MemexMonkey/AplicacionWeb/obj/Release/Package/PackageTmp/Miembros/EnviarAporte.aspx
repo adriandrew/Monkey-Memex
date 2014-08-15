@@ -12,6 +12,7 @@
     <br />
     <asp:Label ID="lblEnlaceExterno" runat="server" Text="Enlace Externo" Visible="False"></asp:Label>
     <asp:TextBox ID="txtEnlaceExterno" runat="server" Width="296px" Visible="False"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="revEnlaceExterno" runat="server" ControlToValidate="txtEnlaceExterno" ErrorMessage="Enlace no valido" ForeColor="Red" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
     <br />
     <br />
     <asp:Label ID="lblTituloImagen" runat="server" Text="Título de Imagen"></asp:Label>
@@ -23,11 +24,10 @@
     <asp:DropDownList ID="ddlCategoria" runat="server" Height="29px" Width="201px">
     </asp:DropDownList>
     <br />
-    <%--<asp:Button ID="btnSubirImagenes" runat="server" OnClick="btnSubirImagenes_Click" Text="Subir imágenes" />--%>  <%--  <div>
+    <%--<asp:Button ID="btnSubirImagenes" runat="server" OnClick="btnSubirImagenes_Click" Text="Subir imágenes" />--%><%--  <div>
         <asp:LinkButton ID="lnkMostrarImagenes" runat="server" onclick="lnkMostrarImagenes_Click">Mostrar las imágenes subidas</asp:LinkButton>
         <asp:Panel runat="server" ID="pnlImagenes" />
-    </div>--%>
-<%--    <asp:Label ID="lblArchivo" runat="server" Text="Archivo"></asp:Label>
+    </div>--%><%--    <asp:Label ID="lblArchivo" runat="server" Text="Archivo"></asp:Label>
     <asp:FileUpload ID="FileUpload" runat="server" Width="349px" />--%>
     
    
@@ -35,7 +35,10 @@
     <asp:Label ID="lblEtiquetasBasicas" runat="server" Text="Etiquetas Basicas"></asp:Label>
     <asp:TextBox ID="txtPersonaje" runat="server" Width="237px" ForeColor="Gray">#personaje1 #personaje2</asp:TextBox>
     <asp:TextBox ID="txtEquipo" runat="server" Width="200px" ForeColor="Gray">#equipo1 #equipo2</asp:TextBox>
-    <asp:TextBox ID="txtLiga" runat="server" Width="145px" ForeColor="Gray">#liga</asp:TextBox>
+    <asp:TextBox ID="txtCompeticion" runat="server" Width="145px" ForeColor="Gray">#competicion</asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvPersonaje" runat="server" ControlToValidate="txtPersonaje" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvEquipo" runat="server" ControlToValidate="txtEquipo" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvCompeticion" runat="server" ControlToValidate="txtCompeticion" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblEtiquetasOpcionales" runat="server" Text="Etiquetas Opcionales"></asp:Label>

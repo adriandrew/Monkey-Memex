@@ -30,3 +30,15 @@ C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Logic
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.CodeAnalysisLog.xml
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.lastcodeanalysissucceeded
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\LogicaNegocio.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\Entidades.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\LogicaNegocio.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\obj\Debug\AplicacionWeb.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\AplicacionWeb\bin\AplicacionWeb.dll.config

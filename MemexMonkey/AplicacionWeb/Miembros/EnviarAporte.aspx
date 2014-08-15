@@ -12,6 +12,8 @@
     <br />
     <asp:Label ID="lblEnlaceExterno" runat="server" Text="Enlace Externo" Visible="False"></asp:Label>
     <asp:TextBox ID="txtEnlaceExterno" runat="server" Width="296px" Visible="False"></asp:TextBox>
+    <asp:RegularExpressionValidator ID="revEnlaceExterno" runat="server" ControlToValidate="txtEnlaceExterno" ErrorMessage="Enlace no valido" ForeColor="Red" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
+    <asp:RequiredFieldValidator ID="rfvEnlaceExterno" runat="server" ControlToValidate="txtEnlaceExterno" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblTituloImagen" runat="server" Text="Título de Imagen"></asp:Label>
@@ -35,6 +37,9 @@
     <asp:TextBox ID="txtPersonaje" runat="server" Width="237px" ForeColor="Gray">#personaje1 #personaje2</asp:TextBox>
     <asp:TextBox ID="txtEquipo" runat="server" Width="200px" ForeColor="Gray">#equipo1 #equipo2</asp:TextBox>
     <asp:TextBox ID="txtCompeticion" runat="server" Width="145px" ForeColor="Gray">#competicion</asp:TextBox>
+    <asp:RequiredFieldValidator ID="rfvPersonaje" runat="server" ControlToValidate="txtPersonaje" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvEquipo" runat="server" ControlToValidate="txtEquipo" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="rfvCompeticion" runat="server" ControlToValidate="txtCompeticion" ErrorMessage="Requerido" ForeColor="Red"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblEtiquetasOpcionales" runat="server" Text="Etiquetas Opcionales"></asp:Label>

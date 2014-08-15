@@ -62,3 +62,11 @@ window.onload = function ()
 
 }
 
+// TODO. Intento de flappy bird al iniciar la pagina de error.
+//$(document).ready(function () {
+
+//    $("a").fancybox();
+
+//    $("#iframe").click();
+
+//});

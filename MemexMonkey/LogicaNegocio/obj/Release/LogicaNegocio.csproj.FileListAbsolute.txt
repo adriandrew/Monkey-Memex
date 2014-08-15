@@ -8,3 +8,8 @@ C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Relea
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.dll
 C:\Users\Andrew\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Release\LogicaNegocio.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\bin\Release\LogicaNegocio.pdb
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.dll
+C:\Users\Administrator\Documents\GitHub\MonkeyMemex\MemexMonkey\LogicaNegocio\obj\Release\LogicaNegocio.pdb
