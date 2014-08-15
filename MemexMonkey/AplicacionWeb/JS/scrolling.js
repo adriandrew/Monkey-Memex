@@ -24,7 +24,7 @@ function CargarContenido ( posicionImagenes, cantidadImagenes ) {
 
             if ( data != "" ) {
 
-                $ ( '#contenedorImagenes' ) .append ( data.d );
+                $ ( '#imagenes' ) .append ( data.d );
 
             }
 

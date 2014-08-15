@@ -3,10 +3,14 @@
     display: block;
 }
 
-#contenido, #contenedorImagenes, .divImagen, .divImagen a
+#imagenes, #comentarios, #imagenError, .imagen, .imagen a
 {
     width: 600px;
     max-width: 600px;
+}
+
+#imagenes, #comentarios, #imagenError{
+    margin: 0 auto;
 }
 
 #contenido
@@ -19,28 +23,26 @@
 
     /* Es para efectos de pruebas en navegadores. */
     height: 1000px;
-
-    margin: 0 auto;
 }
 
-#contenedorImagenes h1, h2, h3, h4, h5, h6
+#imagenes h1, #imagenes h2, #imagenes h3, #imagenes h4, #imagenes h5, #imagenes h6, #imagenError h1, #imagenError h2, #imagenError h3, #imagenError h4, #imagenError h5, #imagenError h6
 {
     margin: 0;
     padding: 0;
 }
 
-#contenedorImagenes h3, h4, h5, h6 
+#imagenes h3, #imagenes h4, #imagenes h5, #imagenes h6, #imagenError h3, #imagenError h4, #imagenError h5, #imagenError h6 
 {
     color: gray;
     text-align: justify;
 }
 
-.divImagen
+.imagen
 {
     margin-bottom: 50px;
 }
 
-.divImagen img{
+.imagen img, #imagenError img{
     border: solid 20px black;
     width: 560px;
 }

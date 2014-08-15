@@ -112,8 +112,6 @@ namespace AplicacionWeb.Administradores
             foreach ( Entidades.Imagenes elementoImagenes in listaImagenes )
             {
 
-                // Verifica si es archivo o enlace, ya que cada uno tiene metodos diferentes.
-
                 if ( ! string.IsNullOrEmpty ( elementoImagenes.DirectorioRelativo ) && ! string.IsNullOrEmpty ( elementoImagenes.RutaRelativa ) )
                 {
 
@@ -475,7 +473,7 @@ namespace AplicacionWeb.Administradores
 
             Literal litImagenNoEncontrada = new Literal();
 
-            litImagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h3>";
+            litImagenNoEncontrada.Text = "<h2>Falta el archivo.. " + rutaRelativa + " </h2>";
 
             return litImagenNoEncontrada;
 

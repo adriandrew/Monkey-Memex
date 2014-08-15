@@ -37,7 +37,7 @@ namespace AplicacionWeb
           
         }
 
-        protected void uiEnviarComentario_Click(object sender, EventArgs e)
+        protected void EnviarComentario_Click(object sender, EventArgs e)
         {
 
             if ( IsPostBack )
@@ -169,9 +169,9 @@ namespace AplicacionWeb
 
             string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
 
-            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+            string imagen = string.Format("<div class={0}>{1}</div>", "imagen", contenidoDivImagen);
 
-            contenedorImagenes.InnerHtml = divImagen;
+            imagenes.InnerHtml = imagen;
 
         }
 
@@ -224,9 +224,9 @@ namespace AplicacionWeb
 
             string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
 
-            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+            string imagen = string.Format("<div class={0}>{1}</div>", "imagen", contenidoDivImagen);
 
-            contenedorImagenes.InnerHtml = divImagen;
+            imagenes.InnerHtml = imagen;
 
         }
 
@@ -274,13 +274,13 @@ namespace AplicacionWeb
 
                 string comentarioUsuario = string.Format("<p>{0}</p>", comentario);
 
-                divComentarioPorUsuarioMemex = divComentarioPorUsuarioMemex + string.Format("<div id={0}>{1}{2}</div>", "uiComentariosPorUsuario", linkUsuario, comentarioUsuario);
+                divComentarioPorUsuarioMemex = divComentarioPorUsuarioMemex + string.Format("<div id={0}>{1}{2}</div>", "comentariosPorUsuario", linkUsuario, comentarioUsuario);
                 
             }
 
             // Se inyecta el html con los comentarios. 
 
-            uiComentariosMemex.InnerHtml = divComentarioPorUsuarioMemex;
+            comentariosMemex.InnerHtml = divComentarioPorUsuarioMemex;
 
             // Se oculta el area para comentar si el usuario no está logueado en memex.            
 
@@ -295,13 +295,13 @@ namespace AplicacionWeb
 
             // Se ocultan los comentarios de facebook.
 
-            uiPluginComentariosFacebook.Attributes.Add("style", "display: none;");
+            comentariosFacebook.Attributes.Add("style", "display: none;");
 
-            uiPluginComentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
+            comentariosFacebook.Attributes.Add("data-href", string.Format("{0}{1}", "http://monkey.somee.com/Individual/", idImagen));
 
-            uiPluginComentariosFacebook.Attributes.Add("data-numposts", "5");
+            comentariosFacebook.Attributes.Add("data-numposts", "5");
 
-            uiPluginComentariosFacebook.Attributes.Add("data-colorscheme", "dark");
+            comentariosFacebook.Attributes.Add("data-colorscheme", "dark");
 
             // Se ocultan los comentarios memex.
 
@@ -310,13 +310,13 @@ namespace AplicacionWeb
             if ( User.Identity.IsAuthenticated )
             {
 
-                uiComentar.Visible = true;
+                comentar.Visible = true;
 
             }
             else if ( ! User.Identity.IsAuthenticated )
             {
 
-                uiComentar.Visible = false;
+                comentar.Visible = false;
 
             }
 
@@ -325,7 +325,7 @@ namespace AplicacionWeb
         private void GuardarComentario()
         {
 
-            if ( ! string.IsNullOrEmpty ( uiAreaComentario.Value ) )
+            if ( ! string.IsNullOrEmpty ( areaComentario.Value ) )
             { 
   
                 Entidades.Comentarios comentarios = new Entidades.Comentarios();
@@ -334,7 +334,7 @@ namespace AplicacionWeb
 
                 comentarios.IdImagen = Convert.ToInt32(Session["idImagen"]);
 
-                comentarios.Comentario = uiAreaComentario.Value;
+                comentarios.Comentario = areaComentario.Value;
 
                 comentarios.FechaPublicacion = DateTime.Now;
 
@@ -349,7 +349,7 @@ namespace AplicacionWeb
         private void LimpiarComentarios()
         {
 
-            uiAreaComentario.Value = string.Empty;
+            areaComentario.Value = string.Empty;
 
         }
 

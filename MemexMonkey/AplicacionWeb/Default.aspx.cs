@@ -49,13 +49,7 @@ namespace AplicacionWeb
                 Response.Redirect("Error");
 
             }
-            else if ( esConexionCorrecta )
-            {
-              
-                MostrarNumeroUsuariosOnline();
-
-            }
-
+          
         }
 
         public void VerificarArchivos()
@@ -186,7 +180,7 @@ namespace AplicacionWeb
 
                             string fechaPublicacionImagen = string.Format ( "<h4>{0}</h4>", fechaPublicacion );
 
-                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}' class='{2}'>", urlImagen, titulo, "imgImagen" );
+                            string archivoImagen = string.Format ( "<img src='{0}' alt='{1}'>", urlImagen, titulo );
 
                             string linkImagen = string.Format ( "<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen );
 
@@ -194,9 +188,9 @@ namespace AplicacionWeb
 
                             string contenidoDivImagen = string.Format ( "{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, etiquetas );
 
-                            string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagen", contenidoDivImagen );
+                            string imagen = string.Format ( "<div class={0}>{1}</div>", "imagen", contenidoDivImagen );
 
-                            htmlImagenes.AppendFormat ( divImagen );
+                            htmlImagenes.AppendFormat ( imagen );
 
                             esArchivoEncontrado = true;
 
@@ -211,9 +205,9 @@ namespace AplicacionWeb
 
                         string imagenNoEncontrada = string.Format ( "<h2>{0}</br>{1}</h2>", "No se encontro la imagen:", rutaRelativa ); 
 
-                        string divImagen = string.Format ( "<div class={0}>{1}</div>", "divImagen", imagenNoEncontrada );
+                        string imagen = string.Format ( "<div class={0}>{1}</div>", "imagen", imagenNoEncontrada );
 
-                        htmlImagenes.AppendFormat ( divImagen );
+                        htmlImagenes.AppendFormat ( imagen );
 
                     }
 
@@ -274,7 +268,7 @@ namespace AplicacionWeb
 
             string fechaPublicacionImagen = string.Format("<h4>{0}</h4>", fechaPublicacion);
 
-            string archivoImagen = string.Format("<img src='{0}' alt='{1}' class='{2}'>", enlaceExterno, titulo, "imgImagen");
+            string archivoImagen = string.Format("<img src='{0}' alt='{1}'>", enlaceExterno, titulo);
 
             string linkImagen = string.Format("<a class={0} href={1}{2} onmouseover={3}>{4}</a>", "iframe", "Individual/", idImagen, "InvocarFancybox()", archivoImagen);
 
@@ -282,20 +276,9 @@ namespace AplicacionWeb
 
             string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, linkImagen, etiquetas);
 
-            string divImagen = string.Format("<div class={0}>{1}</div>", "divImagen", contenidoDivImagen);
+            string imagen = string.Format("<div class={0}>{1}</div>", "imagen", contenidoDivImagen);
 
-            htmlImagenes.AppendFormat(divImagen);
-
-        }
-
-        private void MostrarNumeroUsuariosOnline()
-        {
-
-            Label lblNumeroUsuariosOnline = new Label();
-
-            lblNumeroUsuariosOnline.Text = string.Format ( "{0}{1}", "Numero de usuarios activos en este momento: ", Membership.GetNumberOfUsersOnline().ToString() );
-
-            pnlImagenes.Controls.Add ( lblNumeroUsuariosOnline );
+            htmlImagenes.AppendFormat(imagen);
 
         }
 

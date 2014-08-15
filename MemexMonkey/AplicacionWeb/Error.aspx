@@ -3,13 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-    <div id="uiContenedorImagen">
-        <h2 runat="server" id="uiTituloImagen"> Y la publicación, donde está la publicación? </h2>
-        <h4 runat="server" id="uiUsuarioAportador"> Aporte por: Memex </h4>
-        <h6 runat="server" id="uiFechaPublicacion"> Fecha publicacion: 07-08-2014 </h6>
-        <img runat="server" id="uiImagen" src="~/Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
-        <h6 runat="server" id="uiEtiquetas"> #xavi #monkey | #xavi reclama la publicacion #memex fan </h6>
-    </div> <!-- Termina uiImagen -->
+    <div id="imagenError">
+        <h2> Y la publicación, donde está la publicación? </h2>
+        <h4> Aporte por: Memex </h4>
+        <h6> Fecha publicacion: 07-08-2014 </h6>
+        <img src="Images/XaviReclama.jpg" alt="Xavi reclama la publicación."/>
+        <h6> #xavi #monkey | #xavi reclama la publicacion #memex fan </h6>
+    </div> <!-- Termina imagen -->
 
     <!-- Falta checar esto del flappy bird para que se haga automaticamente -->
     <a class="iframe" href="http://flappybird.io/" onmouseover="InvocarFancybox()">         

@@ -22,57 +22,57 @@ namespace AplicacionWeb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control contenedorImagenes.
+        /// Control imagenes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contenedorImagenes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagenes;
         
         /// <summary>
-        /// Control uiComentariosMemex.
+        /// Control comentariosMemex.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiComentariosMemex;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comentariosMemex;
         
         /// <summary>
-        /// Control uiComentar.
+        /// Control comentar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiComentar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comentar;
         
         /// <summary>
-        /// Control uiAreaComentario.
+        /// Control areaComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uiAreaComentario;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText areaComentario;
         
         /// <summary>
-        /// Control uiEnviarComentario.
+        /// Control enviarComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton uiEnviarComentario;
+        protected global::System.Web.UI.HtmlControls.HtmlButton enviarComentario;
         
         /// <summary>
-        /// Control uiPluginComentariosFacebook.
+        /// Control comentariosFacebook.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uiPluginComentariosFacebook;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comentariosFacebook;
     }
 }

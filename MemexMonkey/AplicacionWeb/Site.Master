@@ -59,13 +59,13 @@
                                                              </td>
                                                              <td>&nbsp;</td>
                                                              <td>
-                                                                 <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Inicio de sesión" ValidationGroup="ctl00$ctl02$Login" />
+                                                                 <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Iniciar sesión" ValidationGroup="ctl00$ctl02$Login" />
                                                              </td>
                                                          </tr>
                                                          <tr>
                                                              <td colspan="6" style="color:Red;">
-                                                                 <asp:CheckBox ID="RememberMe" runat="server" ForeColor="Black" Text="Recordármelo la próxima vez." />
-                                                                 <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                                                 <asp:CheckBox ID="RememberMe" runat="server" ForeColor="Black" Text="Recordar la próxima vez." />
+                                                                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                                                                  <asp:LinkButton ID="LinkButton" runat="server" Font-Overline="False" PostBackUrl="Registrarse">Registrarse</asp:LinkButton>
                                                              </td>
                                                          </tr>
