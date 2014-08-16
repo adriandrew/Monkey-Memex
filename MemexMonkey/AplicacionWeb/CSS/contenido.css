@@ -3,14 +3,9 @@
     display: block;
 }
 
-#imagenes, #comentarios, #imagenError, .imagen, .imagen a
+a img:hover
 {
-    width: 600px;
-    max-width: 600px;
-}
-
-#imagenes, #comentarios, #imagenError{
-    margin: 0 auto;
+    opacity: 0.9;
 }
 
 #contenido
@@ -25,13 +20,23 @@
     height: 1000px;
 }
 
-#imagenes h1, #imagenes h2, #imagenes h3, #imagenes h4, #imagenes h5, #imagenes h6, #imagenError h1, #imagenError h2, #imagenError h3, #imagenError h4, #imagenError h5, #imagenError h6
+.default, .error, .imagen, .imagen a
 {
+    width: 600px;
+    max-width: 600px;
+}
+
+.default, .individuales, .error{
+    margin: 0 auto;
+}
+
+/* TODO. Quitar esta declaracion cuando se una el backend y front end */
+h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
 }
 
-#imagenes h3, #imagenes h4, #imagenes h5, #imagenes h6, #imagenError h3, #imagenError h4, #imagenError h5, #imagenError h6 
+.default h3, .default h4, .default h5, .default h6, .individuales h3, .individuales h4, .individuales h5, .individuales h6, .error h3, .error h4, .error h5, .error h6
 {
     color: gray;
     text-align: justify;
@@ -42,10 +47,29 @@
     margin-bottom: 50px;
 }
 
-.imagen img, #imagenError img{
+.imagen img
+{
     border: solid 20px black;
     width: 560px;
 }
+
+/* Individuales */
+.individuales
+{
+    width: 90%;
+}
+
+.imagenIndividual, .imagenIndividual img
+{
+    width: 100%;
+}
+/* Termina individuales */
+
+/* Errores */
+.error img{
+    width: 100%;
+}
+/* Termina errores */
 
 /* Facebook */
 .fb-comments 

@@ -169,7 +169,7 @@ namespace AplicacionWeb
 
             string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
 
-            string imagen = string.Format("<div class={0}>{1}</div>", "imagen", contenidoDivImagen);
+            string imagen = string.Format("<div class='{0}'>{1}</div>", "imagenIndividual", contenidoDivImagen);
 
             imagenes.InnerHtml = imagen;
 
@@ -224,7 +224,7 @@ namespace AplicacionWeb
 
             string contenidoDivImagen = string.Format("{0}{1}{2}{3}{4}", tituloImagen, nombreUsuario, fechaPublicacionImagen, archivoImagen, etiquetas);
 
-            string imagen = string.Format("<div class={0}>{1}</div>", "imagen", contenidoDivImagen);
+            string imagen = string.Format("<div class='{0}'>{1}</div>", "imagenIndividual", contenidoDivImagen);
 
             imagenes.InnerHtml = imagen;
 

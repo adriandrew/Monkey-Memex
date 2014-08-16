@@ -31,15 +31,13 @@ function InvocarFancybox() {
 
         'width': '75%',
 
-        'height': '75%',
+        'height': '100%',
 
         'autoScale': false,
 
         'transitionIn': 'elastic',
 
         'transitionOut': 'elastic',
-
-        //'hideOnContentClick': 'false',        
 
         'overlayOpacity': '.8',
 

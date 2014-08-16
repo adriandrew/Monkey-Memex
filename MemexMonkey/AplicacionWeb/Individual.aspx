@@ -15,9 +15,9 @@
 <body>
     <form id="form1" runat="server">
 
-        <div runat="server" id="imagenes"></div>
+        <div runat="server" id="imagenes" class="individuales"></div>
 
-        <div id="comentarios">
+        <div id="comentarios" class="individuales">
             <a href="#aComentariosMemex" id="aComentariosMemex" onclick="MuestraOculta('comentariosMemex')">Comentarios Memex</a>
             <div id="comentariosMemex" runat="server"></div><!-- Termina comentariosMemex -->
             <div id="comentar" runat="server" visible="False">

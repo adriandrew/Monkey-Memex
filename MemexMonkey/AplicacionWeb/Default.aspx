@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
 
-    <div id="imagenes"></div>
+    <div id="imagenes" class="default"></div>
 
     <%--<a class="iframe" data-fancybox-type="iframe" href="http://monkey.somee.com/">Prueba iframe</a>--%>
 
