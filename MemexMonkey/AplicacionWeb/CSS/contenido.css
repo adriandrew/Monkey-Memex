@@ -71,6 +71,22 @@ h1, h2, h3, h4, h5, h6{
 }
 /* Termina errores */
 
+/* Control para subir archivos */
+.fileUploadControl
+{
+    width: 500px;
+}
+
+.mensajeError
+{
+    color: red;
+}
+
+.mensajeCorrecto{
+    color: green;
+}
+/* Termina control para subir archivos */
+
 /* Facebook */
 .fb-comments 
 {

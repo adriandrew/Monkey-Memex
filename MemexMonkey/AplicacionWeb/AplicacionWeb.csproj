@@ -65,9 +65,7 @@
   <ItemGroup>
     <Content Include="Administradores\PanelControl.aspx" />
     <Content Include="Controles\SubirArchivo.ascx" />
-    <Content Include="Css\individuales.css" />
     <Content Include="Css\contenido.css" />
-    <Content Include="Css\subirArchivos.css" />
     <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Fancybox\blank.gif" />

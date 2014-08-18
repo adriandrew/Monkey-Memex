@@ -8,9 +8,7 @@
     <title>Memex Monkey</title>
 
     <!-- Css -->
-    <link href="~/Css/subirArchivos.css" rel="stylesheet" type="text/css" />
     <link href="~/Css/contenido.css" rel="stylesheet" type="text/css" />
-    <link href="~/Css/individuales.css" rel="stylesheet" type="text/css" />    
     <!-- Css Fancybox -->
 	<link href="~/Fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" media="screen" />
         

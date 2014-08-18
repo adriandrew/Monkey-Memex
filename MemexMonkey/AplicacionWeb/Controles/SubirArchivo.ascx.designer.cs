@@ -3,7 +3,7 @@
 //     Este código fue generado por una herramienta.
 //
 //     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
-//     se vuelve linkImagen generar el código. 
+//     se vuelve a generar el código. 
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
@@ -13,13 +13,13 @@ namespace AplicacionWeb.Controles {
     public partial class SubirArchivo {
         
         /// <summary>
-        /// Control lblUploadFilesTitle.
+        /// Control lblTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUploadFilesTitle;
+        protected global::System.Web.UI.WebControls.Label lblTitulo;
         
         /// <summary>
         /// Control lblNota.
@@ -31,13 +31,13 @@ namespace AplicacionWeb.Controles {
         protected global::System.Web.UI.WebControls.Label lblNota;
         
         /// <summary>
-        /// Control pnlUpload.
+        /// Control pnlSubida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlUpload;
+        protected global::System.Web.UI.WebControls.Panel pnlSubida;
         
         /// <summary>
         /// Control fuExaminar.
@@ -47,15 +47,6 @@ namespace AplicacionWeb.Controles {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuExaminar;
-        
-        /// <summary>
-        /// Control btnSubirArchivos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubirArchivos;
         
         /// <summary>
         /// Control lblInformacion.

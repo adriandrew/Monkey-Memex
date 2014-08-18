@@ -68,6 +68,10 @@ namespace AplicacionWeb.Miembros
 
                 txtEnlaceExterno.Visible = false;
 
+                rfvEnlaceExterno.Visible = false;
+
+                revEnlaceExterno.Visible = false;
+
             }
             else if ( rblEscoger.SelectedIndex == 1 )
             {
@@ -79,6 +83,10 @@ namespace AplicacionWeb.Miembros
                 lblEnlaceExterno.Visible = true;
 
                 txtEnlaceExterno.Visible = true;
+
+                rfvEnlaceExterno.Visible = true;
+
+                revEnlaceExterno.Visible = true;
 
             }
 
@@ -110,22 +118,6 @@ namespace AplicacionWeb.Miembros
             ReiniciarFormulario();
 
         }
-
-        //protected void lnkMostrarImagenes_Click(object sender, EventArgs e)
-
-        //{
-
-        //    MostrarImagenes();
-
-        //}
-
-        //protected void btnSubirImagenes_Click(object sender, EventArgs e)
-
-        //{
-
-        //    SubirImagenes();
-
-        //}
 
         #endregion
 
@@ -185,35 +177,12 @@ namespace AplicacionWeb.Miembros
 
         }
 
-        //private void MostrarImagenes()
-        //{
-
-        //    System.IO.DirectoryInfo _dirInfo = new System.IO.DirectoryInfo(HttpContext.Current.Server.MapPath(SubirArchivo.DestinationFolder));
-
-        //    if ( _dirInfo.Exists )
-        //    {
-        //        System.IO.FileInfo[] _filesInfo = _dirInfo.GetFiles();
-        //        foreach (System.IO.FileInfo _f in _filesInfo)
-        //        {
-        //            Image _img = new Image();
-        //            _img.ImageUrl = string.Format( "{0}/{1}", SubirArchivo.DestinationFolder, _f );
-        //            _img.Height = new Unit ( 50 );
-        //            pnlImagenes.Controls.Add ( _img );
-        //        }
-        //    }
-        //    else
-        //    {
-        //        pnlImagenes.Controls.Add ( new Label { Text = "Aún no se han subido archivos." } );
-        //    }
-
-        //}
-
         private void SubirImagen() 
         {
 
             AplicacionWeb.Controles.SubirArchivo.TituloImagen = txtTituloImagen.Text;
         
-            ucSubirArchivo.UploadFiles ( true );
+            ucSubirArchivo.SubirArchivos ( true );
 
         }
 
@@ -227,19 +196,17 @@ namespace AplicacionWeb.Miembros
                 
                 ucSubirArchivo.Titulo = "Subir imágenes";
                 
-                ucSubirArchivo.Comment = "1 archivo .png, .jpg ó .gif  (máx. 10 MB).";
-                
-                ucSubirArchivo.MaxFilesLimit = 5;
+                ucSubirArchivo.Nota = "1 archivo .png, .jpg ó .gif  (máx. 10 MB).";
                 
                 string fechaHoy = DateTime.Today.ToShortDateString();     
                 
-                ucSubirArchivo.DestinationFolder = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
+                ucSubirArchivo.FolderDestino = "~/Aportes/" + fechaHoy.Replace ( '/', '-' ); // única propiedad obligatoria.
 
                 AplicacionWeb.Controles.SubirArchivo.DirectorioRelativo = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
 
                 AplicacionWeb.Controles.SubirArchivo.RutaRelativa = '\\' + "Aportes" + '\\' + fechaHoy.Replace('/', '-'); 
                 
-                ucSubirArchivo.FileExtensionsEnabled = ".png|.jpg|.jpeg|.jpe|.gif";
+                ucSubirArchivo.extensionesArchivosPermitidas = ".png|.jpg|.jpeg|.jpe|.gif";
                 
             }
 

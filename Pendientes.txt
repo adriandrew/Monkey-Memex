@@ -1,6 +1,6 @@
 3. Falta crear varias paginas de errores si se requieren.
 
-8. Faltan las hojas de estilos de la moderacion e individual.
+8. Faltan los estilos de la moderacion.
 
 *** TERMINADO TODO ESTO HAY QUE UNIFICAR EL BACK END Y FRONT END. ***
 
